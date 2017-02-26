@@ -1,0 +1,204 @@
+---
+layout: post
+title:  "FFmpeg VBR Settings"
+date:   2017-02-24 11:31:41 +0100
+categories: video
+---
+
+<p>There are various FFmpeg encoders that support variable bit rate / constant quality encoding. This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting <code>-q:v</code> (or <code>-q:a</code> for audio) instead of <code>-b:v</code> (or <code>-b:a</code>), which just sets a constant bit rate.</p>
+
+<p>The problem is that every encoder uses a different range of values to set the quality—and they're hard to memorize. This is an attempt to summarize the most important ones.</p>
+
+<p>Notes for reading this table:</p>
+<ul>
+  <li><em>Q<sub>min</sub></em> stands for the setting to be used for achieving lowest quality and <em>Q<sub>max</sub></em> for highest. These are <em>not</em> just lowest and highest values.</li>
+  <li><em>Q<sub>def</sub></em> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.</li>
+  <li>Some encoders use private options instead of the regular <code>-q</code>. Read the second column <em>Param</em> for the correct option to use.</li>
+  <li>Rows highlighted with green refer to encoders that allow you to use VBR. Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.</li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover">
+<caption>Video</caption>
+<thead>
+   <tr>
+      <th width="70px">Encoder</th>
+      <th width="20px">Param</th>
+      <th width="20px">Q<sub>min</sub></th>
+      <th width="20px">Q<sub>max</sub></th>
+      <th width="20px">Q<sub>def</sub></th>
+      <th width="70px">Recommended</th>
+      <th width="240px">Notes</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr class="success">
+      <td>libx264</td>
+      <td><code>-crf</code></td>
+      <td>51</td>
+      <td>0</td>
+      <td>23</td>
+      <td>18–28</td>
+      <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
+                              Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.264">H.264 Encoding Guide</a>.</small>
+      </td>
+   </tr>
+   <tr class="success">
+      <td>libx265</td>
+      <td><code>-crf</code></td>
+      <td>51</td>
+      <td>0</td>
+      <td>28</td>
+      <td>24–34</td>
+      <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
+                              Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.265">H.265 Encoding Guide</a> and <a href="http://x265.readthedocs.org/en/default/cli.html#quality-rate-control-and-rate-distortion-options">x265 docs</a>.</small>
+      </td>
+   </tr>
+    <tr class="success">
+      <td>libxvid</td>
+      <td><code>-q:v</code></td>
+      <td>31</td>
+      <td>1</td>
+      <td>n/a</td>
+      <td>3–5</td>
+      <td><small>2 is visually lossless. Doubling the value results in half the bitrate. Don't use 1, as it wastes space.<br>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
+   </tr>
+   <tr class="success">
+      <td>libtheora</td>
+      <td><code>-q:v</code></td>
+      <td>0</td>
+      <td>10</td>
+      <td>n/a</td>
+      <td>7</td>
+      <td><small>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
+   </tr>
+   <tr class="success">
+      <td>libvpx</td>
+      <td><code>-qmin</code><br><code>-qmax</code><br>
+        <code>-crf</code><br><code>-b:v</code>
+      </td>
+      <td>63</td>
+      <td>0</td>
+      <td>10</td>
+      <td><code>-qmin</code>: 0–4<br><code>-qmax</code>: 50–63<br><code>-crf</code>: 10</td>
+      <td>
+        <small><code>-b:v</code> sets target bitrate, or maximum bitrate when <code>-crf</code> is set (enables CQ mode). Default target is 1 MBit/s.<br>
+        See also <a href="http://www.webmproject.org/docs/encoder-parameters/#3-rate-control">VBR, CBR and CQ Mode</a> and <a href="https://ffmpeg.org/trac/ffmpeg/wiki/vpxEncodingGuide">FFmpeg Wiki</a>. Setting <code>-maxrate</code> and <code>-bufsize</code> is also possible.<br/>
+        </small>
+      </td>
+   </tr>
+   <tr class="warning">
+      <td>mpeg1, mpeg2, mpeg4, flv, h263, h263+, msmpeg+</td>
+      <td><code>-q:v</code></td>
+      <td>31</td>
+      <td>1</td>
+      <td>?</td>
+      <td>3–5</td>
+      <td><small>2 is visually lossless. Doubling the value results in half the bitrate.<br>
+      <code>-q:v</code> works for mpeg4, but haven't tested others.</small></td>
+   </tr>
+   <tr class="warning">
+      <td>prores</td>
+      <td><code>-profile:v</code></td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>Depends</td>
+      <td><small>Not VBR. Corresponds to the profiles Proxy, LT, Std, HQ.<br>
+                              ProRes might support <code>-q:v</code>?<br>
+                              Target bitrates are in the <a href="http://images.apple.com/support/finalcutpro/docs/Apple-ProRes-White-Paper-July-2009.pdf">ProRes Whitepaper</a>.</small>
+      </td>
+   </tr>
+</tbody>
+</table>
+<table class="table table-striped table-bordered table-hover">
+<caption>Audio</caption>
+<thead>
+   <tr>
+      <th width="70px">Encoder</th>
+      <th width="20px">Param</th>
+      <th width="20px">Q<sub>min</sub></th>
+      <th width="20px">Q<sub>max</sub></th>
+      <th width="20px">Q<sub>def</sub></th>
+      <th width="70px">Recommended</th>
+      <th width="240px">Notes</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr class="success">
+      <td>libfdk_aac</td>
+      <td><code>-vbr</code></td>
+      <td>1</td>
+      <td>5</td>
+      <td>?</td>
+      <td>4 (~128kbps)</td>
+      <td><small>Currently the highest quality encoder.</small></td>
+   </tr>
+   <tr class="success">
+      <td>libfaac</td>
+      <td><code>-q:a</code></td>
+      <td>10</td>
+      <td>500</td>
+      <td>100</td>
+      <td>100 (~120kbps)</td>
+      <td><small>A good quality encoder.</small></td>
+   </tr>
+   <tr class="success">
+      <td>libvorbis</td>
+      <td><code>-q:a</code></td>
+      <td>0</td>
+      <td>10</td>
+      <td>3</td>
+      <td>4 (~128kbps)</td>
+      <td><small>Make sure not to use <code>vorbis</code>, which is the (bad) internal encoder.</small></td>
+   </tr>
+   <tr class="success">
+      <td>libmp3lame</td>
+      <td><code>-q:a</code></td>
+      <td>9</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2 (~190kbps)</td>
+      <td><small>Corresponds to <code>lame -V</code>. See <a href="http://ffmpeg.org/trac/ffmpeg/wiki/Encoding%20VBR%20(Variable%20Bit%20Rate)%20mp3%20audio">FFmpeg Wiki</a>.</small></td>
+   </tr>
+   <tr class="warning">
+      <td>aac</td>
+      <td><code>-q:a</code></td>
+      <td>0.1</td>
+      <td>?</td>
+      <td>?</td>
+      <td>1 (~128kbps)</td>
+      <td><small>Can only be used with <code>-strict experimental</code> flag<br>
+        The setting is still broken, so do some listening tests after encoding.</small></td>
+   </tr>
+   <tr class="warning">
+      <td>libopus</td>
+      <td><code>-vbr</code></td>
+      <td>?</td>
+      <td>?</td>
+      <td>?</td>
+      <td>?</td>
+      <td><small>You need to set <code>-vbr on</code> or <code>-vbr constrained</code>, otherwise
+          Opus defaults to 96 kBit/s. Currently VBR <a href="http://ffmpeg-users.933282.n4.nabble.com/VBR-Encoding-with-libopus-td4657230.html">is not working</a>.</small></td>
+   </tr>
+   <tr class="warning">
+      <td>libaacplus</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><small>VBR not available?</small></td>
+   </tr>
+   <tr class="error">
+      <td>libvo_aacenc</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><small>VBR not available.</small></td>
+   </tr>
+ </tbody>
+</table>
+
+<p><small>Please let me know through <code>slhck</code> at <code>me.com</code> if there's anything wrong or if you're missing some values.<br> Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.</small></p>
