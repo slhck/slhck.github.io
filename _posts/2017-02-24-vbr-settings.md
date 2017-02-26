@@ -3,6 +3,7 @@ layout: post
 title:  "FFmpeg VBR Settings"
 date:   2017-02-24 11:31:41 +0100
 categories: video
+redirect_from: "/video-encoding"
 ---
 
 <p>There are various FFmpeg encoders that support variable bit rate / constant quality encoding. This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting <code>-q:v</code> (or <code>-q:a</code> for audio) instead of <code>-b:v</code> (or <code>-b:a</code>), which just sets a constant bit rate.</p>

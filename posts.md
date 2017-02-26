@@ -2,6 +2,7 @@
 layout: page
 title: Posts
 permalink: /posts/
+redirect_from: "/articles-overview"
 ---
 
 Here are a few posts I wrote over the years:
