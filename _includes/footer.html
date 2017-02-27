@@ -15,6 +15,10 @@
       </div>
 
       <div class="footer-col footer-col-2">
+        <p><strong>Recent Posts</strong></p>
+        {% for post in site.posts %}
+          <a href="{{ post.url }}">{{ post.title }}</a><br>
+        {% endfor %}
       </div>
 
       <div class="footer-col footer-col-3">
