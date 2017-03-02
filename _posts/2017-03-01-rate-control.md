@@ -11,7 +11,7 @@ Rate control comes in many forms—you'll recognize the terms "1-pass" and "2-pa
 
 Why should you care? Often enough, you see examples of video encoding commands that apply the wrong kind of rate control mode or wrong bitrates. This post is a brief guide on the different modes; it explains when you'd use which, as an end user. Note that this is not about the nitty-gritty details of Rate-Distortion Optimization.
 
-## Preamble: VBR vs. CBR
+## Preamble: Variable vs. Constant Bitrate
 
 Many people are more familiar with rate control in audio encoders, especially those who—like me—grew up with MP3s. To rip our CDs, we had been using Constant Bitrate (CBR) encoding for a while, when later, Variable Bitrate (VBR) encoding came along. Variable bitrate ensured that you'd achieve the lowest possible file size at the highest possible quality under the given constraints (as set by the VBR quality level).
 
@@ -34,7 +34,7 @@ Knowing the scenario helps you choose a rate control mode.
 
 Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as linked in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb).
 
-A word of caution: Encoders like x264 do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful.
+A word of caution: Encoders like x264 by default do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful. There is a way to force a certain bitrate by setting the [`nal-hrd` option](http://www.chaneru.com/Roku/HLS/X264_Settings.htm#nal-hrd) of x264 to `cbr`.
 
 ## Constant QP (CQP)
 
@@ -57,12 +57,23 @@ Here, we give the encoder a target bitrate and expect it to figure out how to re
 
 <span class="error">Do not use this mode!</span> The x264 developer himself [says you should never use it](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006934.html). Why? As the encoder doesn't know exactly what's ahead in time, it will have to guess how to reach that bitrate. This means that the rate itself will vary, especially at the beginning of the clip, and at some point reach the target.
 
-While this is technically a VBR mode, it's not much better than specifying a constant bitrate, in that it doesn't reliably deliver good quality.
+This is *not* a constant bitrate mode! While ABR is technically a VBR mode, it's not much better than specifying a constant bitrate, in that it doesn't reliably deliver good quality.
 
 **Good for:** I can't think of anything  
 **Bad for:** Almost anything
 
-## 2-Pass Variable Bitrate (2-Pass VBR)
+## Constant Bitrate (CBR)
+
+You can force the encoder to always use a certain bitrate by enabling the `nal-hrd` option:
+
+    ffmpeg -i <input> -c:v libx264 -x264opts "nal-hrd=cbr:force-cfr=1" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M <output>
+
+This mode will "waste" bits if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/).
+
+**Good for:** Keeping a constant bitrate (duh); video streaming
+**Bad for:** Archival; efficient use of bandwith
+
+## 2-Pass Average Bitrate (2-Pass ABR)
 
 Allowing the encoder to do two passes (or more) makes it possible for it to estimate what's ahead in time. It can calculate the cost of encoding a frame in the first pass and then, in the second pass, more efficiently use the bits available. This ensures that the output quality is the best under a certain bitrate constraint.
 
@@ -89,16 +100,17 @@ CRF ranges from 0 to 51 (like the QP), and 23 is a good default. 18 should be vi
 
 The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it's not an extra rate control mode, to be precise.
 
-Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate:
+Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup:
 
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
 
-If you do this for a live streaming application and you want to speed up the encoding process, choose the `-preset ultrafast` option, which reduces the quality you get for a certain bitrate, but significantly speeds up the process.
+If you do this for a live streaming application and you want to speed up the encoding process, choose the `-preset ultrafast` and the `-tune zerolatency` options, which reduce the quality you get for a certain bitrate, but significantly speed up the process.
 
-Or, with two-pass encoding (for VoD applications):
+Or, with constrained ABR-VBV encoding:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f mp4 /dev/null
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M <output>
+
+Here, a two-pass approach can also be used, but it is [not always better than one pass](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html).
 
 When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 MBit/s. But your want your VBV setting to cap the clip at 1.5 MBit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
@@ -114,9 +126,9 @@ Confused yet? I feel you. Making sense of the different rate control modes isn't
 To summarize, here's what you should do, depending on your use case:
 
 1. **Archival** — CRF that gives you the quality you want.
-2. **Streaming** — Two-pass encode with VBV-constained bitrate.
-3. **Live Streaming** — One-pass encode with VBV-constained bitrate.
-4. **Encoding for Devices** — Two-pass encode.
+2. **Streaming** — Two-pass CRF or ABR with VBV-constained bitrate.
+3. **Live Streaming** — One-pass CRF or ABR with VBV-constained bitrate, or CBR if you can waste bits.
+4. **Encoding for Devices** — Two-pass ABR, typically.
 
 ------
 
