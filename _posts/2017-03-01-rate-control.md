@@ -34,7 +34,7 @@ Knowing the scenario helps you choose a rate control mode.
 
 Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as linked in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb).
 
-A word of caution: Encoders like x264 by default do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful. There is a way to force a certain bitrate by setting the [`nal-hrd` option](http://www.chaneru.com/Roku/HLS/X264_Settings.htm#nal-hrd) of x264 to `cbr`.
+A word of caution: Encoders like x264 by default do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful.
 
 ## Constant QP (CQP)
 
@@ -64,13 +64,13 @@ This is *not* a constant bitrate mode! While ABR is technically a VBR mode, it's
 
 ## Constant Bitrate (CBR)
 
-You can force the encoder to always use a certain bitrate by enabling the `nal-hrd` option:
+If it is a requirement for your use case, you can force the encoder to always use a certain bitrate by enabling the `nal-hrd` option:
 
     ffmpeg -i <input> -c:v libx264 -x264opts "nal-hrd=cbr:force-cfr=1" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M <output>
 
-This mode will "waste" bits if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/).
+<span class="warning">Note that this mode will waste bandwidth</span> if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/). Use of this mode may make sense in some applications, but you generally want to allow streams to use a lower bitrate when possible.
 
-**Good for:** Keeping a constant bitrate (duh); video streaming
+**Good for:** Keeping a constant bitrate (duh); video streaming  
 **Bad for:** Archival; efficient use of bandwith
 
 ## 2-Pass Average Bitrate (2-Pass ABR)
@@ -80,7 +80,7 @@ Allowing the encoder to do two passes (or more) makes it possible for it to esti
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 2 <output>
 
-This is the easiest way to encode a file for streaming, with two caveats: You don't know what the resulting quality will be, so you will have to do some tests to make sure that your bitrate is actually high enough for some complex contents. Also, there may be local spikes in bitrate, meaning you may send more than your client can receive.
+This is the easiest way to encode a file for streaming. With two caveats: You don't know what the resulting quality will be, so you will have to do some tests to make sure that your bitrate is actually high enough for some complex contents. Another downside of this mode is that there may be local spikes in bitrate, meaning you may send more than your client can receive. As for choosing bitrates, [YouTube gives you recommendations](https://support.google.com/youtube/answer/1722171?hl=en) on settings for uploads, but keep in mind that those are optimized for having you upload *good* quality, so in practice you can choose lower bitrates, too.
 
 **Good for:** Reaching a certain target bitrate; encoding for devices  
 **Bad for:** If you need quick encoding (e.g., live streaming)
