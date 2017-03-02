@@ -44,7 +44,7 @@ The _Quantization Parameter_ controls the amount of compression for every Macrob
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
-Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span>. Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space, you have no control of the actual bitrate, and in the worst case, the quality will be bad.
+Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space, you have no control of the actual bitrate, and in the worst case, the quality will be bad.
 
 **Good for:** Video encoding research  
 **Bad for:** Almost anything else
@@ -55,7 +55,7 @@ Here, we give the encoder a target bitrate and expect it to figure out how to re
 
     ffmpeg -i <input> -c:v libx264 -b:v 1M <output>
 
-<span class="error">Do not use this mode!</span> The x264 developer himself [says you should never use it](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006934.html). Why? As the encoder doesn't know exactly what's ahead in time, it will have to guess how to reach that bitrate. This means that the rate itself will vary, especially at the beginning of the clip, and at some point reach the target.
+<span class="error">Avoid using this mode!</span> One of the main x264 developers himself [says you should never use it](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006934.html). Why? As the encoder doesn't know exactly what's ahead in time, it will have to guess how to reach that bitrate. This means that the rate itself will vary, especially at the beginning of the clip, and at some point reach the target. Especially for HAS-type streaming, this leads to huge quality variations within short segments.
 
 This is *not* a constant bitrate mode! While ABR is technically a VBR mode, it's not much better than specifying a constant bitrate, in that it doesn't reliably deliver good quality.
 
@@ -68,7 +68,7 @@ If it is a requirement for your use case, you can force the encoder to always us
 
     ffmpeg -i <input> -c:v libx264 -x264opts "nal-hrd=cbr:force-cfr=1" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M <output>
 
-<span class="warning">Note that this mode will waste bandwidth</span> if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/). Use of this mode may make sense in some applications, but you generally want to allow streams to use a lower bitrate when possible.
+The output file needs to be `.ts` (MPEG-2 TS), since MP4 does not support NAL stuffing. <span class="warning">Note that this mode will waste bandwidth</span> if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/). Use of this mode may make sense in some applications, but you generally want to allow streams to use a lower bitrate when possible.
 
 **Good for:** Keeping a constant bitrate (duh); video streaming  
 **Bad for:** Archival; efficient use of bandwith
@@ -138,3 +138,4 @@ Some more reading material:
 * [FFmpeg H.264 Encoding Guide](http://trac.ffmpeg.org/wiki/Encode/H.264)
 * [x264-devel Mailing List: Making sense out of x264 rate control modes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006933.html)
 * [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/)
+* [A qualitative overview of x264's ratecontrol methods](http://akuvian.org/src/x264/ratecontrol.txt)
