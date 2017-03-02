@@ -44,7 +44,7 @@ The _Quantization Parameter_ controls the amount of compression for every Macrob
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
-Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span>. Setting a fixed QP means that the resulting bitrate will be somewhat constant (unless a scene is very easy to encode), but it will not be efficient for your input video. You may waste space, you have no control of the actual bitrate, and in the worst case, the quality will be bad.
+Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span>. Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space, you have no control of the actual bitrate, and in the worst case, the quality will be bad.
 
 **Good for:** Video encoding research  
 **Bad for:** Almost anything else
@@ -125,3 +125,4 @@ Some more reading material:
 * [Handbrake Wiki: Constant Quality vs Average Bit Rate](https://handbrake.fr/docs/en/latest/technical/video-cq-vs-abr.html)
 * [FFmpeg H.264 Encoding Guide](http://trac.ffmpeg.org/wiki/Encode/H.264)
 * [x264-devel Mailing List: Making sense out of x264 rate control modes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006933.html)
+* [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/)
