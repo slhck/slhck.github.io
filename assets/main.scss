@@ -4,9 +4,9 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
+$base-font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   15px !default;
+$base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
@@ -25,6 +25,10 @@ $content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
+
+$success-color:    #dff0d8 !default;
+$warning-color:    #fcf8e3 !default;
+$error-color:     #f2dede !default;
 
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:

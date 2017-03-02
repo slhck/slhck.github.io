@@ -28,20 +28,23 @@ body {
 
 p {
   font-size: $base-font-size;
+  text-align: justify;
 }
-
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
-ul, ol, dl, figure,
+ul, ol, dl, figure, hr,
 %vertical-rhythm {
-  margin-top: $spacing-unit / 3;
+  margin-top: $spacing-unit / 2;
   margin-bottom: $spacing-unit / 2;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $spacing-unit * 1;
+  margin-bottom: $spacing-unit / 1.5;
+}
 
 
 /**
@@ -87,7 +90,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  font-weight: $base-font-weight * 1.5;
 }
 
 
