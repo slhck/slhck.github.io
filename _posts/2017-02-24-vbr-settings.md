@@ -6,19 +6,18 @@ categories: video
 redirect_from: "/video-encoding"
 ---
 
-<p>There are various FFmpeg encoders that support variable bit rate / constant quality encoding. This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting <code>-q:v</code> (or <code>-q:a</code> for audio) instead of <code>-b:v</code> (or <code>-b:a</code>), which just sets a constant bit rate.</p>
+There are various FFmpeg encoders that support variable bit rate / constant quality encoding. This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting `-q:v` (or `-q:a` for audio) instead of `-b:v` (or `-b:a`), which just sets a constant bit rate.
 
-<p>The problem is that every encoder uses a different range of values to set the quality—and they're hard to memorize. This is an attempt to summarize the most important ones.</p>
+The problem is that every encoder uses a different range of values to set the quality—and they're hard to memorize. This is an attempt to summarize the most important ones.
 
-<p>Notes for reading this table:</p>
-<ul>
-  <li><em>Q<sub>min</sub></em> stands for the setting to be used for achieving lowest quality and <em>Q<sub>max</sub></em> for highest. These are <em>not</em> just lowest and highest values.</li>
-  <li><em>Q<sub>def</sub></em> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.</li>
-  <li>Some encoders use private options instead of the regular <code>-q</code>. Read the second column <em>Param</em> for the correct option to use.</li>
-  <li>Rows highlighted with green refer to encoders that allow you to use VBR. Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.</li>
-</ul>
+Notes for reading this table:
 
-<table class="table table-striped table-bordered table-hover">
+- Q<sub>min</sub> stands for the setting to be used for achieving lowest quality and Q<sub>max</sub> for highest. These are not just lowest and highest values.
+- Q<sub>def</sub> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.
+- Some encoders use private options instead of the regular <code>-q</code>. Read the second column Param for the correct option to use.
+- Rows highlighted with green refer to encoders that allow you to use VBR. Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.
+
+<table class="table table-bordered">
 <caption>Video</caption>
 <thead>
    <tr>

@@ -14,7 +14,7 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$brand-color:      #226DCF;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -26,9 +26,13 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-$success-color:    #dff0d8 !default;
-$warning-color:    #fcf8e3 !default;
-$error-color:     #f2dede !default;
+$success-color-bg: #dff0d8;
+$warning-color-bg: #fcf8e3;
+$error-color-bg:   #f2dede;
+
+$success-color-fg:  darken($success-color-bg, 75%);
+$warning-color-fg:  darken($warning-color-bg, 75%);
+$error-color-fg:    darken($error-color-bg, 75%);
 
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:

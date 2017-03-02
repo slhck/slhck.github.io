@@ -100,10 +100,11 @@ h1, h2, h3, h4, h5, h6 {
  */
 a {
   color: $brand-color;
+  font-weight: $base-font-weight * 1.3;
   text-decoration: none;
 
   &:visited {
-    color: darken($brand-color, 15%);
+    color: darken($brand-color, 10%);
   }
 
   &:hover {
@@ -137,20 +138,21 @@ blockquote {
  */
 pre,
 code {
-  color: $brand-color;
+  color: darken($brand-color, 10%);
   font-size: $base-font-size * 7/8;
   border: 1px solid $grey-color-light;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #f7f7f9;
 }
 
 code {
-  padding: 1px 5px;
+  padding: 1px 2px;
 }
 
 pre {
-  padding: 8px 12px;
+  padding: 10px 10px;
   overflow-x: auto;
+  line-height: 1.5 * $base-font-size;
 
   > code {
     border: 0;
@@ -206,30 +208,79 @@ pre {
   }
 }
 
-td, th {
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
+/**
+ * Tables
+ */
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid $grey-color-light;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid $grey-color-light;
+  }
+
+  tbody + tbody {
+    border-top: 1px solid $grey-color-light;
+  }
 }
 
-.table-bordered td,
-.table-bordered th {
-  border: 1px solid #dedede;
+
+
+// td, th {
+//   padding: 8px;
+//   text-align: left;
+//   vertical-align: top;
+// }
+
+.table-bordered {
+  border: 1px solid $grey-color-light;
 }
 
-table.table-bordered {
-  border-collapse: separate;
-  border-spacing: 0px;
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid $grey-color-light;
 }
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+/**
+ * Colors
+ */
 
 .success {
-  background-color: $success-color;
+  background-color: $success-color-bg;
+  color: $success-color-fg;
+  p > & {
+    padding: 2px;
+  }
 }
 
 .warning {
-  background-color: $warning-color;
+  background-color: $warning-color-bg;
+  color: $warning-color-fg;
+  p > & {
+    padding: 2px;
+  }
 }
 
 .error {
-  background-color: $error-color;
+  background-color: $error-color-bg;
+  color: $error-color-fg;
+  p > & {
+    padding: 2px;
+  }
 }
