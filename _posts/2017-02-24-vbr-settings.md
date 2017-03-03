@@ -6,7 +6,7 @@ categories: video
 redirect_from: "/video-encoding"
 ---
 
-There are various FFmpeg encoders that support variable bit rate / constant quality encoding. This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting `-q:v` (or `-q:a` for audio) instead of `-b:v` (or `-b:a`), which just sets a constant bit rate.
+There are various FFmpeg encoders that support variable bit rate / constant quality encoding (learn more [about rate control modes]({% link _posts/2017-03-01-rate-control.md %}) here). This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting `-q:v` (or `-q:a` for audio) instead of `-b:v` (or `-b:a`), which just sets a constant bit rate.
 
 The problem is that every encoder uses a different range of values to set the quality—and they're hard to memorize. This is an attempt to summarize the most important ones.
 
@@ -14,7 +14,7 @@ Notes for reading this table:
 
 - Q<sub>min</sub> stands for the setting to be used for achieving lowest quality and Q<sub>max</sub> for highest. These are not just lowest and highest values.
 - Q<sub>def</sub> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.
-- Some encoders use private options instead of the regular <code>-q</code>. Read the second column Param for the correct option to use.
+- Some encoders use private options instead of the regular <code>-q</code>. Read the second column *Param* for the correct option to use.
 - Rows highlighted with green refer to encoders that allow you to use VBR. Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.
 
 <table class="table table-bordered">
@@ -201,4 +201,4 @@ Notes for reading this table:
  </tbody>
 </table>
 
-<p><small>Please let me know through <code>slhck</code> at <code>me.com</code> if there's anything wrong or if you're missing some values.<br> Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.</small></p>
+<small>Please let me know if there's anything wrong or if you're missing some values.<br> Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.</small>
