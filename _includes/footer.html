@@ -11,20 +11,18 @@
         <a href="https://www.researchgate.net/profile/Werner_Robitza">ResearchGate</a><br>
         <a href="https://www.mendeley.com/profiles/werner-robitza/">Mendeley</a><br>
         <a href="http://superuser.com/users/48078/slhck">Super User</a><br>
+        <a href="https://twitter.com/slhck">Twitter</a><br>
         <a href="http://overtheseaofrains.tumblr.com/">Tumblr</a>
       </div>
 
       <div class="footer-col footer-col-2">
         <p><strong>Recent Posts</strong></p>
-        {% for post in site.posts limit:5 %}
-          <a href="{{ post.url }}">{{ post.title }}</a><br>
-        {% endfor %}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p><strong>Contact</strong></p>
-        <em>first name . last name</em> on Gmail<br>
-        <em>@slhck</em> on Twitter
+        <ul>
+          {% for post in site.posts limit:5 %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <p><a href="/posts">See more…</a></p>
       </div>
     </div>
 

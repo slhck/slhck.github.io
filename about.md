@@ -4,6 +4,14 @@ title: About
 permalink: /about/
 ---
 
+### Expertise
+
+* Video encoding and streaming
+* User-focused experimental research
+* Programming (Python, Ruby, R, Java, PHP, Bash)
+* Statistics and Modeling (R, ggplot, lmfit)
+* Audio and video production (Cubase, Creative Cloud, …)
+
 ### Education
 
 * Since 2016: PhD student, Technische Universität Ilmenau, Germany
