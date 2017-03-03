@@ -70,7 +70,7 @@ If it is a requirement for your use case, you can force the encoder to always us
 
 The output file needs to be `.ts` (MPEG-2 TS), since MP4 does not support NAL stuffing. <span class="warning">Note that this mode will waste bandwidth</span> if your source is easy to encode, but it ensures that the bitrate stays constant over your entire stream. You will find some more notes [here](https://brokenpipe.wordpress.com/2016/10/07/ffmpeg-h-264-constant-bitrate-cbr-encoding-for-iptv/). Use of this mode may make sense in some applications, but you generally want to allow streams to use a lower bitrate when possible.
 
-**Good for:** Keeping a constant bitrate (duh); video streaming  
+**Good for:** Keeping a constant bitrate (duh); video streaming (e.g. [Twitch](https://help.twitch.tv/customer/portal/articles/1262922-open-broadcaster-software))  
 **Bad for:** Archival; efficient use of bandwith
 
 ## 2-Pass Average Bitrate (2-Pass ABR)
