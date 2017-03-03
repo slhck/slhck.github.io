@@ -108,9 +108,10 @@ If you do this for a live streaming application and you want to speed up the enc
 
 Or, with constrained ABR-VBV encoding:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M <output>
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
 
-Here, a two-pass approach can also be used, but it is [not always better than one pass](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html).
+Here, a one-pass approach can also be used, which is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't efficiently compress the clip.
 
 When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 MBit/s. But your want your VBV setting to cap the clip at 1.5 MBit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
@@ -119,7 +120,29 @@ When you apply VBV to CRF encoding, the trick is to find a CRF value that, on av
 
 ------
 
-## Wrap-Up
+# Comparison Example
+
+Here's a quick comparison between the different rate control algorithmns. I took an existing H.264-encoded video file of the popular [Big Buck Bunny](https://peach.blender.org/) clip and encoded parts of it using `libx264` and the `fast` preset. Both parts are 30 seconds long. I chose different rate control modes and set different target bitrates (300, 750, 1500, 3000 kBit/s) and maximum rates (for VBV) and QP/CRF values (17, 23, 29, 35).
+
+Note that this comparison is by no means exhaustive or fully representative. I didn't always choose proper bitrates for exemplifying the problems associated with some rate control modes, but it should nonetheless give you an idea on what the different modes do.
+
+Let's start with the different bitrate control modes:
+
+![](/assets/images/rate_modes.png)
+
+As you can observe, there are no big differences for low bitrates, which is also expected, since we're already compressing the video so much that the quality is significantly degraded. For the 1500 kBit/s and 3000 kBit/s case however you can see that—especially for the first content—ABR and ABR+VBV wrongly estimate the clip's complexity. In fact, it starts with a fade-in, smooth gradients and low motion, which means that not many bits are needed to compress it. The 2-pass approach correctly starts with a lower bitrate. The last third of the first video contains lots of spatial details, which makes the 2-pass mode use up more of the bits that it saved in the beginning.
+
+For the quality-based modes (CQP and CRF), the relationship between the curves is inversed—lower means better quality:
+
+![](/assets/images/quality_modes.png)
+
+Here, the same trends as for 2-pass can be seen: the bitrate follows the content complexity. However, with CRF, it is more constrained, saving bits where they are not needed. We can see how a CRF approach would nicely match the content, if only we could know beforehand what the resulting average bitrate would be… This is where CRF+VBV comes into play:
+
+![](/assets/images/crf_vbv_modes.png)
+
+Choosing the correct target / maximum bitrate for a given CRF is often guesswork and depends entirely on the source video. However, when correctly done, you will not constrain the quality too much, pushing it to the limit (as in the case with 3000 kBit/s and CRF 17). You also don't want to let the bitrate vary too much (as with 3000 kBit/s and CRF 29). Here, CRF23 makes the bitrate vary enough to account for differences in content complexity, still retaining compliance to the VBV model.
+
+# Wrap-Up
 
 Confused yet? I feel you. Making sense of the different rate control modes isn't easy. Unfortunately, the most simple solution (just specifying bitrate) is one that isn't recommended at all, but the Web keeps propagating code examples using this method.
 
