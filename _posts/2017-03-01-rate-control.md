@@ -32,7 +32,7 @@ Knowing the scenario helps you choose a rate control mode.
 
 # Rate Control Modes
 
-Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as available in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb). For x265, you may have to compile ffmpeg with `--enable-libx264`. Here, not all parameters can be passed directly, so you have to use the `-x265-params` option.
+Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as available in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb). For x265, you may have to compile ffmpeg with `--enable-libx265`. With x265, not all parameters can be passed directly, so you have to use the `-x265-params` option.
 
 A word of caution: Encoders like x264 by default do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful.
 
