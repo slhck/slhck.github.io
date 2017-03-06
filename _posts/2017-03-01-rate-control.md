@@ -130,9 +130,11 @@ Let's start with the different bitrate control modes:
 
 ![](/assets/images/rate_modes.png)
 
-As you can observe, there are no big differences for low bitrates, which is also expected, since we're already compressing the video so much that the quality is significantly degraded. For the 1500 kBit/s and 3000 kBit/s case however you can see that—especially for the first content—ABR and ABR+VBV wrongly estimate the clip's complexity. In fact, it starts with a fade-in, smooth gradients and low motion, which means that not many bits are needed to compress it. The 2-pass approach correctly starts with a lower bitrate. The last third of the first video contains lots of spatial details, which makes the 2-pass mode use up more of the bits that it saved in the beginning.
+As you can observe, there are no big differences for low bitrates, which is also expected, since we're already heavily compressing the video. The encoder does not have any freedom to choose the rate; the quality is significantly degraded. For the 1500 kBit/s and 3000 kBit/s case however you can see that—especially for the first content—ABR and ABR+VBV wrongly estimate the clip's complexity. In fact, the Big Buck Bunny sequence starts with a fade-in, smooth gradients and low motion, which means that not many bits are needed to compress it with good enough quality. The 2-pass approach correctly starts with a lower bitrate and saves bandwith. The last third of the video clip contains lots of spatial details, which makes the 2-pass mode use up more of the bits that it saved in the beginning.
 
-For the quality-based modes (CQP and CRF), the relationship between the curves is inversed—lower means better quality:
+For the second clip, the different encoding modes actually align better than expected, although again it is visible how 2-pass causes a more extreme variation in bitrate than with the other modes.
+
+For the quality-based modes (CQP and CRF), the order of the curves is inversed—lower means better quality:
 
 ![](/assets/images/quality_modes.png)
 
