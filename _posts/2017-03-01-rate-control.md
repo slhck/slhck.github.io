@@ -32,7 +32,7 @@ Knowing the scenario helps you choose a rate control mode.
 
 # Rate Control Modes
 
-Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as linked in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb).
+Now, let's dive into the different modes. I will be basing my post on the modes supported by the popular H.264 and H.265 encoders [x264](http://www.videolan.org/developers/x264.html) and [x265](http://x265.org/), as available in [`ffmpeg`](http://ffmpeg.org/). You can find more information on the options supported by the encoders in [the documentation](http://ffmpeg.org/ffmpeg-all.html#libx264_002c-libx264rgb). For x265, you may have to compile ffmpeg with `--enable-libx264`. Here, not all parameters can be passed directly, so you have to use the `-x265-params` option.
 
 A word of caution: Encoders like x264 by default do not unnecessarily "stuff" frames with bits. This means that if you have a scene that is very easy to encode, your bitrate may always end up lower than the one you specified. Don't worry about this—just keep in mind that there's no point in achieving an *exact* target bitrate if it's wasteful.
 
@@ -41,6 +41,7 @@ A word of caution: Encoders like x264 by default do not unnecessarily "stuff" fr
 The _Quantization Parameter_ controls the amount of compression for every Macroblock in a frame. Large values mean that there will be higher quantization, more compression, and lower quality. Lower values mean the opposite. QP ranges from 0 to 51 in H.264, and you can easily set a fixed QP for your entire encoding process:
 
     ffmpeg -i <input> -c:v libx264 -qp 23 <output>
+    ffmpeg -i <input> -c:v libx265 -x265-params qp=23 <output>
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
@@ -54,6 +55,7 @@ Unless you know what you're doing and you explicitly want this, <span class="err
 Here, we give the encoder a target bitrate and expect it to figure out how to reach that bitrate:
 
     ffmpeg -i <input> -c:v libx264 -b:v 1M <output>
+    ffmpeg -i <input> -c:v libx265 -b:v 1M <output>
 
 <span class="error">Avoid using this mode!</span> One of the main x264 developers himself [says you should never use it](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006934.html). Why? As the encoder doesn't know exactly what's ahead in time, it will have to guess how to reach that bitrate. This means that the rate itself will vary, especially at the beginning of the clip, and at some point reach the target. Especially for HAS-type streaming, this leads to huge quality variations within short segments.
 
@@ -80,6 +82,8 @@ Allowing the encoder to do two passes (or more) makes it possible for it to esti
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 2 <output>
 
+For x265, simply replace `libx264` with `libx265`.
+
 This is the easiest way to encode a file for streaming. With two caveats: You don't know what the resulting quality will be, so you will have to do some tests to make sure that your bitrate is actually high enough for some complex contents. Another downside of this mode is that there may be local spikes in bitrate, meaning you may send more than your client can receive. As for choosing bitrates, [YouTube gives you recommendations](https://support.google.com/youtube/answer/1722171?hl=en) on settings for uploads, but keep in mind that those are optimized for having you upload *good* quality, so in practice you can choose lower bitrates, too.
 
 **Good for:** Reaching a certain target bitrate; encoding for devices  
@@ -90,6 +94,7 @@ This is the easiest way to encode a file for streaming. With two caveats: You do
 I've talked about the [Constant Rate Factor](/articles/crf) in another article in more detail. It basically gives you constant quality throughout your encoding process. It's a "set and forget" thing—just specify the CRF and let the encoder do the rest.
 
     ffmpeg -i <input> -c:v libx264 -crf 23 <output>
+    ffmpeg -i <input> -c:v libx265 -crf 23 <output>
 
 CRF ranges from 0 to 51 (like the QP), and 23 is a good default. 18 should be visually transparent; anything lower will probably just waste file size. Values of ±6 will result in about half or twice the original bitrate. The only downside with this mode is that you don't know what the resulting file size will be.
 
@@ -103,6 +108,7 @@ The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_v
 Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup:
 
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
+    ffmpeg -i <input> -c:v libx265 -crf 23 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
 If you do this for a live streaming application and you want to speed up the encoding process, choose the `-preset ultrafast` and the `-tune zerolatency` options, which reduce the quality you get for a certain bitrate, but significantly speed up the process.
 
@@ -110,6 +116,11 @@ Or, with constrained ABR-VBV encoding:
 
     ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
+
+For x265:
+
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 2 <output>
 
 Here, a one-pass approach can also be used, which is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't efficiently compress the clip.
 
