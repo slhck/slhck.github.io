@@ -110,7 +110,7 @@ Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrat
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
     ffmpeg -i <input> -c:v libx265 -crf 23 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
-If you do this for a live streaming application and you want to speed up the encoding process, choose the `-preset ultrafast` and the `-tune zerolatency` options, which reduce the quality you get for a certain bitrate, but significantly speed up the process.
+If you do this for a live streaming application and you want to speed up the encoding process, you can add the `-tune zerolatency` and `-preset ultrafast` options. They reduce the quality you get for a certain bitrate (i.e., compression efficiency), but significantly speed up the process.
 
 Or, with constrained ABR-VBV encoding:
 
