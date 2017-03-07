@@ -45,7 +45,7 @@ The _Quantization Parameter_ controls the amount of compression for every Macrob
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
-Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space, you have no control of the actual bitrate, and in the worst case, the quality will be bad.
+Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space and you have no control of the actual bitrate.
 
 **Good for:** Video encoding research  
 **Bad for:** Almost anything else
@@ -98,21 +98,23 @@ I've talked about the [Constant Rate Factor](/articles/crf) in another article i
 
 CRF ranges from 0 to 51 (like the QP), and 23 is a good default. 18 should be visually transparent; anything lower will probably just waste file size. Values of ±6 will result in about half or twice the original bitrate. The only downside with this mode is that you don't know what the resulting file size will be.
 
+Note that a two-pass and CRF encode with the same resulting bitrates should be identical in quality. The main difference is that with two-pass, you can control the file size (if that is a requirement), whereas with CRF you just specify the quality you want.
+
 **Good for:** Archival; achieving the best possible quality  
 **Bad for:** Streaming; obtaining a certain bitrate / file size
 
 ## Constrained Encoding (VBV)
 
-The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it's not an extra rate control mode, to be precise.
+The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised within a certain time frame. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it can be "added" to the already presented rate control modes.
 
 Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup:
 
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
     ffmpeg -i <input> -c:v libx265 -crf 23 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
-If you do this for a live streaming application and you want to speed up the encoding process, you can add the `-tune zerolatency` and `-preset ultrafast` options. They reduce the quality you get for a certain bitrate (i.e., compression efficiency), but significantly speed up the process.
+Note: If you do this for a live streaming application and you want to speed up the encoding process, you can add the `-tune zerolatency` and `-preset ultrafast` options. They reduce the quality you get for a certain bitrate (i.e., compression efficiency), but significantly speed up the process.
 
-Or, with constrained ABR-VBV encoding:
+To use this approach with constrained ABR-VBV encoding:
 
     ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
@@ -122,7 +124,7 @@ For x265:
     ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 2 <output>
 
-Here, a one-pass approach can also be used, which is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't efficiently compress the clip.
+Here, a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
 
 When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 MBit/s. But your want your VBV setting to cap the clip at 1.5 MBit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
@@ -157,7 +159,7 @@ Choosing the correct target / maximum bitrate for a given CRF is often guesswork
 
 # Wrap-Up
 
-Confused yet? I feel you. Making sense of the different rate control modes isn't easy. Unfortunately, the most simple solution (just specifying bitrate) is one that isn't recommended at all, but the Web keeps propagating code examples using this method.
+Making sense of the different rate control modes isn't easy. Unfortunately, the most simple solution (just specifying bitrate) is one that isn't recommended at all, but the Web keeps propagating code examples using this method.
 
 To summarize, here's what you should do, depending on your use case:
 
