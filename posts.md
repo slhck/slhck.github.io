@@ -5,8 +5,6 @@ permalink: /posts/
 redirect_from: "/articles-overview"
 ---
 
-Here are a few posts I wrote over the years:
-
 <ul>
   {% for post in site.posts %}
     <li>
@@ -15,7 +13,7 @@ Here are a few posts I wrote over the years:
   {% endfor %}
 </ul>
 
-Some blog posts from the Super User blog:
+Blog posts from the Super User blog:
 
 * [Video Conversion done right: Codecs and Software](http://blog.superuser.com/2011/11/07/video-conversion-done-right-codecs-and-software/)
 * [FFmpeg: The ultimate Video and Audio Manipulation Tool](http://blog.superuser.com/2012/02/24/ffmpeg-the-ultimate-video-and-audio-manipulation-tool/)

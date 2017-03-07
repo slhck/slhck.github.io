@@ -4,7 +4,6 @@ title: Software
 permalink: /software/
 ---
 
-
 Audio and video software:
 
 *   [ffmpeg-normalize](https://github.com/slhck/ffmpeg-normalize)  
@@ -18,7 +17,7 @@ Audio and video software:
 
 Web tools:
 
-*   [Online Markdown Editor](markdown)  
+*   [Online Markdown Editor](/markdown)  
     A pure JS/HTML Markdown editor with live preview and syntax highlighting.
 
 Multimedia quality evaluation:
@@ -32,12 +31,10 @@ Various projects from courses:
 
 *   [retreval](http://github.com/slhck/retreval)  
     A Ruby API for Evaluating Retrieval Results
-*   [gameClient](http://github.com/slhck/gameClient)  
-    An Android-based game client for a cloud gaming server _(never finished though)_
 *   [mappr](http://code.google.com/p/mappr)  
     A Flickr visualization for Google Maps on Android. Written for "Praktikum Anwendungsentwicklung" together with Patrik Hummelbrunner.
 
-### Scripts
+### Random Scripts
 
 *   [shuffle-playlist.py](https://gist.github.com/slhck/a88d3ff46d782bb77db21618fc438fdf)  
     A script for creating pseudorandom playlists for video quality evaluation.
