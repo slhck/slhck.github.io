@@ -31,21 +31,28 @@ p {
   text-align: justify;
 }
 
+
+hr {
+    border: 0;
+    border-top: 1px solid $grey-color;
+    margin-top: $spacing-unit * 1.2;
+    margin-bottom: $spacing-unit * 1.2;
+}
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
 p, blockquote, pre,
-ul, ol, dl, figure, hr,
+ul, ol, dl, figure,
 %vertical-rhythm {
   margin-top: $spacing-unit / 2;
   margin-bottom: $spacing-unit / 2;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: $spacing-unit * 1;
-  margin-bottom: $spacing-unit / 1.5;
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit / 2;
 }
-
 
 /**
  * Images
