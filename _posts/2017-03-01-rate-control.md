@@ -121,8 +121,8 @@ To use this approach with constrained ABR-VBV encoding:
 
 For x265:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 1 -f mp4 /dev/null
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 2 <output>
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 2 <output>
 
 Here, a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
 
