@@ -121,8 +121,8 @@ To use this approach with constrained ABR-VBV encoding:
 
 For x265:
 
-    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 1 -f mp4 /dev/null
-    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params vbv-maxrate=1000:vbv-bufsize=2000 -pass 2 <output>
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=1:vbv-maxrate=1000:vbv-bufsize=2000 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=2:vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
 Here, a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
 
@@ -181,3 +181,5 @@ Some more reading material:
 * [x264-devel Mailing List: Making sense out of x264 rate control modes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006933.html)
 * [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/)
 * [A qualitative overview of x264's ratecontrol methods](http://akuvian.org/src/x264/ratecontrol.txt)
+
+<small>_Updates, April 2017:_ The two-pass option for libx265 was wrongly documented in previous versions of this post.</small>
