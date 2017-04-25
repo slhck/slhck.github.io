@@ -3,6 +3,8 @@ layout: post
 title:  "Understanding Rate Control Modes (x264, x265)"
 date:   2017-03-01 12:00:00 +0100
 categories: video
+updates:
+    - April 2017 – The two-pass option for libx265 was wrongly documented in previous versions of this post.
 ---
 
 What is "rate control"? It's what a video encoder does when it decides how many bits to spend for a given frame. The goal of (lossy) video encoding is to save as many bits as possible, reducing the file size over the original input file, while retaining as much quality as possible. Rate control is a crucial step in determining that tradeoff between size and quality.
@@ -172,8 +174,6 @@ To summarize, here's what you should do, depending on your use case:
 3. **Live Streaming** — One-pass CRF or ABR with VBV-constained bitrate, or CBR if you can waste bits.
 4. **Encoding for Devices** — Two-pass ABR, typically.
 
-------
-
 Some more reading material:
 
 * [Handbrake Wiki: Constant Quality vs Average Bit Rate](https://handbrake.fr/docs/en/latest/technical/video-cq-vs-abr.html)
@@ -181,5 +181,3 @@ Some more reading material:
 * [x264-devel Mailing List: Making sense out of x264 rate control modes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006933.html)
 * [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/)
 * [A qualitative overview of x264's ratecontrol methods](http://akuvian.org/src/x264/ratecontrol.txt)
-
-<small>_Updates, April 2017:_ The two-pass option for libx265 was wrongly documented in previous versions of this post.</small>

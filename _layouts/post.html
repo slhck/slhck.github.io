@@ -12,6 +12,24 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
+
+    {% if page.updates or page.notes %}
+    <hr>
+    <div class="post-footer">
+      {% if page.notes %}
+        <p>{{ page.notes }}</p>
+      {% endif %}
+
+      {% if page.updates %}
+        Updates:
+        <ul>
+        {% for update in page.updates %}
+          <li>{{ update }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
 
   {% if site.disqus_shortname %}
