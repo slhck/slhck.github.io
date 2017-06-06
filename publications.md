@@ -15,16 +15,17 @@ permalink: /publications/
 
 ### Journal Papers
 
+* **Robitza, W.**, Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
 * Buchinger, S., **Robitza, W.**, Nezveda, M., Hotop, E., Hummelbrunner, P., Sack, M. C., and Hlavacs, H. (2014). [Evaluating feedback devices for time-continuous mobile multimedia quality assessment](http://www.sciencedirect.com/science/article/pii/S0923596514001076). Signal Processing: Image Communication, Volume 29, Issue 9.
 
 ### Conference and Workshop Contributions
 
 * Asan, A., **Robitza, W.**, Mkwawa, I., Sun, L., Ifeachor, E., & Raake, A. (2017). Impact of Video Resolution Changes on QoE for Adaptive Video Streaming. In IEEE International Conference on Multimedia and Expo. Hong Kong. *(to be published)*
 * **Robitza, W.**, & Raake, A. (2017). Towards Behavior-oriented Quality of Experience Assessment for Online Video Services. In ACM International Conference on Interactive Experiences for TV and Online Video (TVX 2017), Doctoral Consortium. Hilversum. *(to be published)*
-* Raake, A., Garcia, M.-N., **Robitza, W.**, List, P., Göring, S., & Feiten, B. (2017). A Bitstream-based, Scalable Video-Quality Model for HTTP Adaptive Streaming: ITU-T P.1203.1. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt. *(to be published)*
-* **Robitza, W.**, Garcia, M.-N., & Raake, A. (2017). A Modular HTTP Adaptive Streaming QoE Model – Candidate for ITU-T P.1203 (“P.NATS”). In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt. *(to be published)*
-* Singla, A., Fremerey, S., **Robitza, W.**, & Raake, A. (2017). Measuring and Comparing QoE and Simulator Sickness of Omnidirectional Videos in Different Head Mounted Displays. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt. *(to be published)*
-* Kara, P. A., **Robitza, W.**, Raake, A., & Martini, M. G. (2017). The Label Knows Better: The Impact of Labeling Effects on Perceived Quality of HD and UHD Video Streaming. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt. *(to be published)*
+* Raake, A., Garcia, M.-N., **Robitza, W.**, List, P., Göring, S., & Feiten, B. (2017). A Bitstream-based, Scalable Video-Quality Model for HTTP Adaptive Streaming: ITU-T P.1203.1. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
+* **Robitza, W.**, Garcia, M.-N., & Raake, A. (2017). A Modular HTTP Adaptive Streaming QoE Model – Candidate for ITU-T P.1203 (“P.NATS”). In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
+* Singla, A., Fremerey, S., **Robitza, W.**, & Raake, A. (2017). Measuring and Comparing QoE and Simulator Sickness of Omnidirectional Videos in Different Head Mounted Displays. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
+* Kara, P. A., **Robitza, W.**, Raake, A., & Martini, M. G. (2017). The Label Knows Better: The Impact of Labeling Effects on Perceived Quality of HD and UHD Video Streaming. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
 * **Robitza, W.**, Kara, P. A., Martini, M. G., and Raake, A. (2016). On the Experimental Biases in User Behavior and QoE Assessment in the Lab. In Fifth IEEE International Workshop on Quality of Experience for Multimedia Communications (QoEMC). Washington.
 * Kara, P. A., **Robitza, W.**, Martini, M. G., Hewage, C. T., and Felisberti, F. M. (2016). Getting Used to or Growing Annoyed: How Perception Thresholds and Acceptance of Frame Freezing Vary Over Time in 3D Video Streaming. In IEEE International Conference on Multimedia and Expo (ICME). Seattle.
 * Dethof, A. M., **Robitza, W.**, and Garcia, M.-N. (2016). StreamSim: A Video Streaming Simulation Toolchain for Unreliable Transport Mechanisms. In Eighth International Workshop on Quality of Multimedia Experience (QoMEX). Lisbon.
