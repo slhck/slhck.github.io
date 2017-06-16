@@ -2,6 +2,7 @@
 layout: post
 title:  "Understanding Rate Control Modes (x264, x265)"
 date:   2017-03-01 12:00:00 +0100
+redirect_from: "/articles/rate-control"
 categories: video
 updates:
     - April 2017 – The two-pass option for libx265 was wrongly documented in previous versions of this post.
