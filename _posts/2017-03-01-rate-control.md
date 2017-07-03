@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - June 2017 – Explain default CRF for x265
     - April 2017 – The two-pass option for libx265 was wrongly documented in previous versions of this post.
 ---
 
@@ -64,7 +65,7 @@ Here, we give the encoder a target bitrate and expect it to figure out how to re
 
 This is *not* a constant bitrate mode! While ABR is technically a VBR mode, it's not much better than specifying a constant bitrate, in that it doesn't reliably deliver good quality.
 
-**Good for:** I can't think of anything  
+**Good for:** Quick and dirty encodes  
 **Bad for:** Almost anything
 
 ## Constant Bitrate (CBR)
@@ -97,9 +98,9 @@ This is the easiest way to encode a file for streaming. With two caveats: You do
 I've talked about the [Constant Rate Factor](/articles/crf) in another article in more detail. It basically gives you constant quality throughout your encoding process. It's a "set and forget" thing—just specify the CRF and let the encoder do the rest.
 
     ffmpeg -i <input> -c:v libx264 -crf 23 <output>
-    ffmpeg -i <input> -c:v libx265 -crf 23 <output>
+    ffmpeg -i <input> -c:v libx265 -crf 28 <output>
 
-CRF ranges from 0 to 51 (like the QP), and 23 is a good default. 18 should be visually transparent; anything lower will probably just waste file size. Values of ±6 will result in about half or twice the original bitrate. The only downside with this mode is that you don't know what the resulting file size will be.
+CRF ranges from 0 to 51 (like the QP). 23 is a good default for x264, and 28 is the default for x265. 18 (or 24 for x265) should be visually transparent; anything lower will probably just waste file size. Values of ±6 will result in about half or twice the original bitrate. The only downside with this mode is that you don't know what the resulting file size will be.
 
 Note that a two-pass and CRF encode with the same resulting bitrates should be identical in quality. The main difference is that with two-pass, you can control the file size (if that is a requirement), whereas with CRF you just specify the quality you want.
 
@@ -113,7 +114,7 @@ The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_v
 Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup:
 
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
-    ffmpeg -i <input> -c:v libx265 -crf 23 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
+    ffmpeg -i <input> -c:v libx265 -crf 28 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
 Note: If you do this for a live streaming application and you want to speed up the encoding process, you can add the `-tune zerolatency` and `-preset ultrafast` options. They reduce the quality you get for a certain bitrate (i.e., compression efficiency), but significantly speed up the process.
 
