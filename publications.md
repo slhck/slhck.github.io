@@ -20,8 +20,9 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
-* Asan, A., **Robitza, W.**, Mkwawa, I., Sun, L., Ifeachor, E., & Raake, A. (2017). Impact of Video Resolution Changes on QoE for Adaptive Video Streaming. In IEEE International Conference on Multimedia and Expo. Hong Kong. *(to be published)*
-* **Robitza, W.** (2017). Towards Behavior-oriented Quality of Experience Assessment for Online Video Services. In ACM International Conference on Interactive Experiences for TV and Online Video (TVX 2017), Doctoral Consortium. Hilversum. *(to be published)*
+* Singla, A., Fremerey, S., **Robitza, W.**, Lebreton, P., & Raake, A. (2017). Comparison of Subjective Quality Evaluation for HEVC Encoded Omnidirectional Videos at Different Bit-rates for UHD and FHD Resolution. In ACM Multimedia (ACMMM 2017), Thematic Workshops. Mountain View.
+* Asan, A., **Robitza, W.**, Mkwawa, I., Sun, L., Ifeachor, E., & Raake, A. (2017). Impact of Video Resolution Changes on QoE for Adaptive Video Streaming. In IEEE International Conference on Multimedia and Expo. Hong Kong.
+* **Robitza, W.** (2017). Towards Behavior-oriented Quality of Experience Assessment for Online Video Services. In ACM International Conference on Interactive Experiences for TV and Online Video (TVX 2017), Doctoral Consortium. Hilversum.
 * Raake, A., Garcia, M.-N., **Robitza, W.**, List, P., Göring, S., & Feiten, B. (2017). A Bitstream-based, Scalable Video-Quality Model for HTTP Adaptive Streaming: ITU-T P.1203.1. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
 * **Robitza, W.**, Garcia, M.-N., & Raake, A. (2017). A Modular HTTP Adaptive Streaming QoE Model – Candidate for ITU-T P.1203 (“P.NATS”). In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
 * Singla, A., Fremerey, S., **Robitza, W.**, & Raake, A. (2017). Measuring and Comparing QoE and Simulator Sickness of Omnidirectional Videos in Different Head Mounted Displays. In 9th International Conference on Quality of Multimedia Experience (QoMEX 2017). Erfurt.
