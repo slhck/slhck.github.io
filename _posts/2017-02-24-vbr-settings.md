@@ -5,6 +5,8 @@ date:   2017-02-24 11:31:41 +0100
 categories: video
 redirect_from: "/video-encoding"
 notes: Please let me know if there's anything wrong or if you're missing some values. Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.
+updates:
+    - August 2017 – Clarification on aac encoder, reorder encoders.
 ---
 
 There are various FFmpeg encoders that support variable bit rate / constant quality encoding (learn more [about rate control modes]({% link _posts/2017-03-01-rate-control.md %}) here). This gives you a much better overall quality when file size or average bit rate are not constrained (e.g. in a streaming scenario). Variable bit rate is usually achieved by setting `-q:v` (or `-q:a` for audio) instead of `-b:v` (or `-b:a`), which just sets a constant bit rate.
@@ -54,6 +56,20 @@ Notes for reading this table:
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.265">H.265 Encoding Guide</a> and <a href="http://x265.readthedocs.org/en/default/cli.html#quality-rate-control-and-rate-distortion-options">x265 docs</a>.</small>
       </td>
    </tr>
+   <tr class="success">
+      <td>libvpx</td>
+      <td><code>-qmin</code><br><code>-qmax</code><br>
+        <code>-crf</code><br><code>-b:v</code>
+      </td>
+      <td>63</td>
+      <td>0</td>
+      <td>10</td>
+      <td><code>-qmin</code>: 0–4<br><code>-qmax</code>: 50–63<br><code>-crf</code>: 30</td>
+      <td>
+        <small><code>-b:v</code> sets target bitrate, or maximum bitrate when <code>-crf</code> is set (enables CQ mode). See also <a href="http://trac.ffmpeg.org/wiki/Encode/VP9">VP9 Encoding Guide</a>. Setting <code>-maxrate</code> and <code>-bufsize</code> is also possible.<br/>
+        </small>
+      </td>
+   </tr>
     <tr class="success">
       <td>libxvid</td>
       <td><code>-q:v</code></td>
@@ -71,21 +87,6 @@ Notes for reading this table:
       <td>n/a</td>
       <td>7</td>
       <td><small>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
-   </tr>
-   <tr class="success">
-      <td>libvpx</td>
-      <td><code>-qmin</code><br><code>-qmax</code><br>
-        <code>-crf</code><br><code>-b:v</code>
-      </td>
-      <td>63</td>
-      <td>0</td>
-      <td>10</td>
-      <td><code>-qmin</code>: 0–4<br><code>-qmax</code>: 50–63<br><code>-crf</code>: 10</td>
-      <td>
-        <small><code>-b:v</code> sets target bitrate, or maximum bitrate when <code>-crf</code> is set (enables CQ mode). Default target is 1 MBit/s.<br>
-        See also <a href="http://www.webmproject.org/docs/encoder-parameters/#3-rate-control">VBR, CBR and CQ Mode</a> and <a href="https://ffmpeg.org/trac/ffmpeg/wiki/vpxEncodingGuide">FFmpeg Wiki</a>. Setting <code>-maxrate</code> and <code>-bufsize</code> is also possible.<br/>
-        </small>
-      </td>
    </tr>
    <tr class="warning">
       <td>mpeg1, mpeg2, mpeg4, flv, h263, h263+, msmpeg+</td>
@@ -167,9 +168,8 @@ Notes for reading this table:
       <td>0.1</td>
       <td>?</td>
       <td>?</td>
-      <td>1 (~128kbps)</td>
-      <td><small>Can only be used with <code>-strict experimental</code> flag<br>
-        The setting is still broken, so do some listening tests after encoding.</small></td>
+      <td>0.12 (~128kbps)</td>
+      <td><small>Undocumented setting, use with caution.</small></td>
    </tr>
    <tr class="warning">
       <td>libopus</td>
@@ -197,7 +197,7 @@ Notes for reading this table:
       <td></td>
       <td></td>
       <td></td>
-      <td><small>VBR not available.</small></td>
+      <td><small>VBR not available.<br/>Not supported in ffmpeg anymore.</small></td>
    </tr>
  </tbody>
 </table>
