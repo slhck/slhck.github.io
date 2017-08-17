@@ -136,15 +136,6 @@ Notes for reading this table:
       <td><small>Currently the highest quality encoder.</small></td>
    </tr>
    <tr class="success">
-      <td>libfaac</td>
-      <td><code>-q:a</code></td>
-      <td>10</td>
-      <td>500</td>
-      <td>100</td>
-      <td>100 (~120kbps)</td>
-      <td><small>A good quality encoder.</small></td>
-   </tr>
-   <tr class="success">
       <td>libvorbis</td>
       <td><code>-q:a</code></td>
       <td>0</td>
@@ -198,6 +189,15 @@ Notes for reading this table:
       <td></td>
       <td></td>
       <td><small>VBR not available.<br/>Not supported in ffmpeg anymore.</small></td>
+   </tr>
+   <tr class="error">
+      <td>libfaac</td>
+      <td><code>-q:a</code></td>
+      <td>10</td>
+      <td>500</td>
+      <td>100</td>
+      <td>100 (~120kbps)</td>
+      <td><small>A good quality encoder, but not supported in ffmpeg anymore.</small></td>
    </tr>
  </tbody>
 </table>
