@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - November 2017 – Fix wrong 2-pass example for x265, add explanation about bufsize
     - June 2017 – Explain default CRF for x265
     - April 2017 – The two-pass option for libx265 was wrongly documented in previous versions of this post.
 ---
@@ -86,7 +87,10 @@ Allowing the encoder to do two passes (or more) makes it possible for it to esti
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 2 <output>
 
-For x265, simply replace `libx264` with `libx265`.
+For x265, replace `libx264` with `libx265` and set the pass option in the private options field:
+
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=2 <output>
 
 This is the easiest way to encode a file for streaming. With two caveats: You don't know what the resulting quality will be, so you will have to do some tests to make sure that your bitrate is actually high enough for some complex contents. Another downside of this mode is that there may be local spikes in bitrate, meaning you may send more than your client can receive. As for choosing bitrates, [YouTube gives you recommendations](https://support.google.com/youtube/answer/1722171?hl=en) on settings for uploads, but keep in mind that those are optimized for having you upload *good* quality, so in practice you can choose lower bitrates, too.
 
@@ -111,7 +115,7 @@ Note that a two-pass and CRF encode with the same resulting bitrates should be i
 
 The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised within a certain time frame. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it can be "added" to the already presented rate control modes.
 
-Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup:
+Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size:
 
     ffmpeg -i <input> -c:v libx264 -crf 23 -maxrate 1M -bufsize 2M <output>
     ffmpeg -i <input> -c:v libx265 -crf 28 -x265-params vbv-maxrate=1000:vbv-bufsize=2000 <output>
@@ -128,7 +132,9 @@ For x265:
     ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=1:vbv-maxrate=1000:vbv-bufsize=2000 -f mp4 /dev/null
     ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=2:vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
-Here, a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
+Note: Here, a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
+
+How should you set the bufsize? This depends on how much variability you want in the bitrate. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup. If you want to constrain your stream's bitrate, try setting bufsize to half of the maximum rate or less.
 
 When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 MBit/s. But your want your VBV setting to cap the clip at 1.5 MBit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
