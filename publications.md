@@ -20,6 +20,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Singla, A., **Robitza, W.**, & Raake, A. (2018). Comparison of Subjective Quality Evaluation Methods for Omnidirectional Videos with DSIS and Modified ACR. In Human Vision and Electronic Imaging (HVEI). Burlingame.
 * Singla, A., Fremerey, S., **Robitza, W.**, Lebreton, P., & Raake, A. (2017). Comparison of Subjective Quality Evaluation for HEVC Encoded Omnidirectional Videos at Different Bit-rates for UHD and FHD Resolution. In ACM Multimedia (ACMMM 2017), Thematic Workshops. Mountain View.
 * Asan, A., **Robitza, W.**, Mkwawa, I., Sun, L., Ifeachor, E., & Raake, A. (2017). Impact of Video Resolution Changes on QoE for Adaptive Video Streaming. In IEEE International Conference on Multimedia and Expo. Hong Kong.
 * **Robitza, W.** (2017). Towards Behavior-oriented Quality of Experience Assessment for Online Video Services. In ACM International Conference on Interactive Experiences for TV and Online Video (TVX 2017), Doctoral Consortium. Hilversum.

@@ -8,6 +8,8 @@ Audio and video software:
 
 *   [ffmpeg-normalize](https://github.com/slhck/ffmpeg-normalize)  
     An audio normalization script for Python/ffmpeg.
+*   [itu-p1203](https://github.com/itu-p1203/itu-p1203)  
+    Reference software for the ITU-T Rec. P.1203 audiovisual quality estimation model for HTTP Adaptive Streaming services.
 *   [bufferer](https://github.com/slhck/bufferer)  
     A tool to insert fake buffering events into video streams.
 *   [active-video-probe](https://github.com/slhck/active-video-probe)  
