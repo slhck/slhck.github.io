@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - March 2017 – Add related links to per-scene / per-shot encoding
     - November 2017 - Add libvpx/VP9 explanation
     - November 2017 – Fix wrong 2-pass example for x265, add explanation about bufsize
     - June 2017 – Explain default CRF for x265
@@ -28,8 +29,8 @@ Simply put, VBR lets the encoder use more bits for "stuff that is hard to encode
 Choosing a rate control mode strongly depends on your use case. In general, there are a number of different scenarios that all impact the way you should design your encoding pipeline:
 
 1. **Archival** — You want to compress a file for storing it in your archive, for example on an external hard drive or on your network storage. The file should have the best possible quality at the lowest possible file size, but you don't care about the exact size.
-2. **Streaming** — You want to send a file over the Internet, using typical Video-on-Demand (VoD) streaming solutions such as HTTP progressive download or HTTP Adaptive Streaming. You need to make sure that the file doesn't exceed a certain bitrate.
-3. **Live Streaming** — Like 2., but you want the encoding to be done as fast as possible.
+2. **Streaming** — You want to send a file over the Internet, using typical Video-on-Demand (VoD) streaming solutions such as HTTP progressive download or HTTP Adaptive Streaming. You need to make sure that the file doesn't exceed a certain bitrate, or you need to provide different representations of the same file at different nominal bitrates (for [Adaptive Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming))
+3. **Live Streaming** — Like 2., but you want the encoding to be done as fast as possible, and you don't have any knowledge of the content beforehand.
 4. **Encoding for Devices** — You want to put your file on a DVD, a Blu-ray, et cetera. You want to ensure that the file ends up having a certain size.
 
 Knowing the scenario helps you choose a rate control mode.
@@ -53,10 +54,12 @@ The _Quantization Parameter_ controls the amount of compression for every Macrob
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
-Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying depending on scene complexity, and it will not be efficient for your input video. You may waste space and you have no control of the actual bitrate.
+Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying strongly depending on each scene's complexity, and it will result in rather inefficient encodes for your input video. You may waste space and you have no control of the actual bitrate.
 
 **Good for:** Video encoding research  
 **Bad for:** Almost anything else
+
+Note that [Netflix proposes using fixed-QP encoding](https://medium.com/netflix-techblog/dynamic-optimizer-a-perceptual-video-encoding-optimization-framework-e19f1e3a277f) for its per-shot encoding optimization to achieve optimal encodes for each scene. This however requires a lot of processing and careful assembly of the individual encoded shots, so it's not a "one size fits all" method you should use unless you have the whole framework implemented.
 
 ## Average Bitrate (ABR)
 
@@ -120,7 +123,7 @@ I've talked about the [Constant Rate Factor](/articles/crf) in another article i
 
 In H.264 and H.265, CRF ranges from 0 to 51 (like the QP). 23 is a good default for x264, and 28 is the default for x265. 18 (or 24 for x265) should be visually transparent; anything lower will probably just waste file size. Values of ±6 will result in about half or twice the original bitrate. For VP9, the CRF can be from 0 to 63. Recommended values are from 15–35.
 
-The only downside with this mode is that you don't know what the resulting file size will be.
+The only downside with this mode is that you don't know what the resulting file size or the fluctuation of the bitrate will be.
 
 Note that a two-pass and CRF encode with the same resulting bitrates should be identical in quality. The main difference is that with two-pass, you can control the file size (if that is a requirement), whereas with CRF you just specify the quality you want.
 
