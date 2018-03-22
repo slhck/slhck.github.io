@@ -20,7 +20,8 @@ permalink: /about/
 
 ### Work Experience
 
-* Since 2015: Researcher at Telekom Innovation Laboratories, Deutsche Telekom AG, Germany
+* Since 2018: Researcher at TU Ilmenau, Germany
+* 2015–2018: Researcher at Telekom Innovation Laboratories, Deutsche Telekom AG, Germany
 * 2014–2015: Researcher at Assessment of IP-based Applications, TU Berlin, Germany
 * 2013–2014: Software engineer and project manager, salesXp GmbH, Vienna, Austria
 * 2009–2012: Researcher, Entertainment Computing Research Group, University of Vienna, Austria
