@@ -8,7 +8,6 @@ url: "http://slhck.info" # the base hostname & protocol for your site, e.g. http
 twitter_username: slhck
 github_username:  slhck
 disqus_shortname: slhck
-google_analytics: UA-18266695-3
 
 # Build settings
 markdown: kramdown
