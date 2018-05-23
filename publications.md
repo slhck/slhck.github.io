@@ -20,6 +20,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Asan, A., **Robitza, W.**, Mkwawa, I.-H., Sun, L., Begen, A. C. (2018). Optimum Encoding Approaches on Video Resolution Changes: A Comparative Study. In IEEE International Conference on Image Processing (ICIP 2018). Athens.
 * **Robitza, W.**, Göring, S., Raake, A., Lindegren, D., Heikkilä, G., Gustafsson, J., List, P., Feiten, B., Wüstenhagen, U., Garcia, M.-N., Yamagishi, K., Broom, S. (2018). HTTP Adaptive Streaming QoE Estimation with ITU-T Rec. P.1203 – Open Databases and Software. In 9th ACM Multimedia Systems Conference. Amsterdam.
 * **Robitza, W.**, Kittur, D. G., Dethof, A. M., Göring, S., Feiten, B., & Raake, A. (2018). Measuring YouTube QoE with ITU-T P.1203 under Constrained Bandwidth Conditions. In 10th International Conference on Quality of Multimedia Experience (QoMEX 2018). Santa Margherita di Pula.
 * Singla, A., **Robitza, W.**, & Raake, A. (2018). Comparison of Subjective Quality Evaluation Methods for Omnidirectional Videos with DSIS and Modified ACR. In Human Vision and Electronic Imaging (HVEI). Burlingame.
