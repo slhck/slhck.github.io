@@ -33,6 +33,10 @@ This website uses external fonts from Google Fonts. Google Fonts is a service fr
 
 More information can be found in the <a href="https://www.google.com/policies/privacy">Google privacy policy</a>.
 
+### Disqus
+
+This site uses a commenting system from [Disqus, Inc.](https://disqus.com/). When you use Disqus to comment, your data will be processed and stored by Disqus. For more information, please refer to the respective [terms and policies](https://help.disqus.com/terms-and-policies/terms-of-service) as well as the [privacy policy](https://help.disqus.com/terms-and-policies/disqus-privacy-policy) of Disqus.
+
 ------------
 
 ### Verantwortlich für den Inhalt
@@ -62,3 +66,7 @@ Diese Seiten enthalten Links zu externen Webseiten Dritter, auf deren Inhalte wi
 Auf dieser Internetseite werden externe Schriften von Google Fonts verwendet. Google Fonts ist ein Dienst der Google Inc. ("Google"). Die Web Fonts werden durch einen Serveraufruf eingebunden, welches durch einem Server von Google in den USA erfolgen kann. Damit werden an den Google-Server Daten über Ihren Browser und Ihre IP-Adresse übermittelt, sowie welche Seite Sie auf diesem Server besucht haben.
 
 Mehr Informationen finden Sie hier in den <a href="https://www.google.com/policies/privacy">Google Datenschutzerklärungen</a>.
+
+### Disqus
+
+Diese Seite verwendet eine Kommentarfunktion von [Disqus, Inc.](https://disqus.com/). Wenn Sie Disqus für Kommentare verwenden, werden Daten von Ihnen von Disqus verarbeitet und auf deren System gespeichert. Für die Erhebung, Verarbeitung und Nutzung der betreffenden Daten gelten die [Nutzungsbedingungen](https://help.disqus.com/terms-and-policies/terms-of-service) und [Datenschutzhinweise](https://help.disqus.com/terms-and-policies/disqus-privacy-policy) von Disqus.
