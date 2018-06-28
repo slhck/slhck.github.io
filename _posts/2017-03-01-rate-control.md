@@ -5,7 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
-    - March 2017 – Add related links to per-scene / per-shot encoding
+    - March 2018 – Add related links to per-scene / per-shot encoding
     - November 2017 - Add libvpx/VP9 explanation
     - November 2017 – Fix wrong 2-pass example for x265, add explanation about bufsize
     - June 2017 – Explain default CRF for x265
@@ -165,7 +165,7 @@ Note: Here a one-pass approach can also be used, which—according to the x264 d
 
 How should you set the bufsize? This depends on how much variability you want in the bitrate. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup. If you want to constrain your stream's bitrate, try setting bufsize to half of the maximum rate or less.
 
-When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 MBit/s. But your want your VBV setting to cap the clip at 1.5 MBit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
+When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 Mbit/s. But your want your VBV setting to cap the clip at 1.5 Mbit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
 **Good for:** Streaming under bandwith constraints; live streaming (with CRF, 1-pass); VoD streaming (with target bitrate, 2-pass)  
 **Bad for:** People who want to play around; archival
@@ -174,11 +174,11 @@ When you apply VBV to CRF encoding, the trick is to find a CRF value that, on av
 
 # Comparison Example
 
-Here's a quick comparison between the different rate control algorithmns. I took the free [Big Buck Bunny](https://peach.blender.org/) and [Tears of Steel](https://mango.blender.org/) video sequences and selected three different parts (of 30 seconds length) each. Note that these sequences are uncompressed, raw footage. The videos were then encoded with `libx264` and its default settings. The only thing that was varied was the different rate control modes. I set different target bitrates (750, 1500, 3000, 7500 kBit/s) and maximum rates (for VBV) and QP/CRF values (17, 23, 29, 35). You can find the [scripts used for the comparison](https://github.com/slhck/rate-control-tests) on GitHub.
+Here's a quick comparison between the different rate control algorithmns. I took the free [Big Buck Bunny](https://peach.blender.org/) and [Tears of Steel](https://mango.blender.org/) video sequences and selected three different parts (of 30 seconds length) each. Note that these sequences are uncompressed, raw footage. The videos were then encoded with `libx264` and its default settings. The only thing that was varied was the different rate control modes. I set different target bitrates (750, 1500, 3000, 7500 kbit/s) and maximum rates (for VBV) and QP/CRF values (17, 23, 29, 35). You can find the [scripts used for the comparison](https://github.com/slhck/rate-control-tests) on GitHub.
 
-Note that this comparison is by no means exhaustive or fully representative. Typically you want to try many different sequences of various genres as well as different encoders. Still, these tests should give you an idea on what the different modes do.
+Note that this comparison is by no means exhaustive or fully representative. Typically you want to try many different sequences of various genres as well as different encoders. I am planning to update these tests in the near future. Still, these tests should give you an idea on what the different modes do.
 
-Let's start with the different bitrate control modes. The left column is for 3000 kBit/s, the right for 7500 kBit/s. I excluded the other target bitrates since they did not show strong differences in the graphs, since the bitrate is already at such a low point that the encoder does not have a lot of choices on how to assign it. The rows are the different clips from Big Buck Bunny (BBB) and Tears of Steel (ToS). The line represents a LOESS smoothing over the individual frame sizes—it's an indication of how the bitrate changes over the clip's duration.
+Let's start with the different bitrate control modes. The left column is for 3000 kbit/s, the right for 7500 kbit/s. I excluded the other target bitrates since they did not show strong differences in the graphs, since the bitrate is already at such a low point that the encoder does not have a lot of choices on how to assign it. The rows are the different clips from Big Buck Bunny (BBB) and Tears of Steel (ToS). The line represents a LOESS smoothing over the individual frame sizes—it's an indication of how the bitrate changes over the clip's duration.
 
 ![](/assets/images/rate_modes.png)
 
@@ -188,7 +188,7 @@ For the second Big Buck Bunny clip, the different encoding modes actually align 
 
 Of course, there are also clips that are so easy to encode (or that have little variation in complexity). Here, the rate control modes do not differ that much.
 
-For the quality-based modes (CQP and CRF), I only show the results from CRF/QP 17 and 23, which are at the "good" end of the quality range (just like 3000 and 7500 kBit/s are "good" values for full HD video). The order of the curves is inversed—lower means better quality:
+For the quality-based modes (CQP and CRF), I only show the results from CRF/QP 17 and 23, which are at the "good" end of the quality range (just like 3000 and 7500 kbit/s are "good" values for full HD video). The order of the curves is inversed—lower means better quality:
 
 ![](/assets/images/quality_modes.png)
 
@@ -198,7 +198,7 @@ Generally we can see how a CRF approach would nicely match the content, if only 
 
 ![](/assets/images/crf_vbv_modes.png)
 
-Choosing the correct target / maximum bitrate for a given CRF is often guesswork and depends entirely on the source video. However, when correctly done, you will not constrain the quality too much, pushing it to the limit (as in the case with 3000 kBit/s and CRF 17). You also don't want to let the bitrate vary too much. CRF 23 is the default setting for `libx264`, and you can see that given a proper target bitrate setting (like 7500 kBit/s), this encoding mode would let the bitrate vary enough to account for differences in content complexity, still retaining compliance to the VBV model.
+Choosing the correct target / maximum bitrate for a given CRF is often guesswork and depends entirely on the source video. However, when correctly done, you will not constrain the quality too much, pushing it to the limit (as in the case with 3000 kbit/s and CRF 17). You also don't want to let the bitrate vary too much. CRF 23 is the default setting for `libx264`, and you can see that given a proper target bitrate setting (like 7500 kbit/s), this encoding mode would let the bitrate vary enough to account for differences in content complexity, still retaining compliance to the VBV model.
 
 # Wrap-Up
 
