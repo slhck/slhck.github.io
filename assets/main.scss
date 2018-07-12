@@ -5,16 +5,19 @@
 
 // Our variables
 $base-font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   15px !default;
-$base-font-weight: 400 !default;
+$base-font-size:   16px !default;
+$base-font-weight: 380 !default;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     40px;
 
 $text-color:       #111;
 $background-color: #fff;
-$brand-color:      #226DCF;
+// $brand-color:      #226DCF;
+
+$shade-color:      #022B3A;
+$brand-color:      lighten($shade-color, 30%);
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -45,3 +48,32 @@ $error-color-fg:    darken($error-color-bg, 75%);
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+.page-content {
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    padding: 0;
+}
+
+.site-header {
+    margin-top: 0px;
+    padding-top: $spacing-unit;
+    border: none;
+    background-color: $shade-color;
+    a.page-link, a.site-title {
+        color: #fff;
+    }
+}
+
+.site-footer {
+    padding-top: $spacing-unit / 2;
+    border: none;
+    background-color: $grey-color-light;
+}
+
+a {
+    color: lighten($shade-color, 25%);
+    &:visited {
+        color: lighten($shade-color, 25%);
+    }
+}

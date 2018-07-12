@@ -5,6 +5,8 @@ permalink: /posts/
 redirect_from: "/articles-overview"
 ---
 
+I occasionally write about video encoding:
+
 <ul>
   {% for post in site.posts %}
     <li>

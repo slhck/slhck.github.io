@@ -6,18 +6,6 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <p><strong>Contact</strong></p>
-
-        <p>Email: werner.robitza at gmail</p>
-
-        <p><strong>Profiles</strong></p>
-        <a href="http://github.com/slhck">GitHub</a><br>
-        <a href="https://www.researchgate.net/profile/Werner_Robitza">ResearchGate</a><br>
-        <a href="http://superuser.com/users/48078/slhck">Super User</a><br>
-        <a href="https://twitter.com/slhck">Twitter</a><br>
-      </div>
-
-      <div class="footer-col footer-col-2">
         <p><strong>Recent Posts</strong></p>
         <ul>
           {% for post in site.posts limit:5 %}
@@ -25,10 +13,13 @@
           {% endfor %}
         </ul>
         <p><a href="/posts">See more…</a></p>
+      </div>
+
+      <div class="footer-col footer-col-2">
 
         <p><strong>Other</strong></p>
 
-        <a href="/legal-notice">Legal Notice / Impressum</a>
+        <a href="/legal-notice">Legal Notice</a> | <a href="/impressum">Impressum</a>
       </div>
     </div>
 
