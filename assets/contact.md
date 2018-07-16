@@ -10,6 +10,8 @@ You can contact me via email:
 werner dot robitza at gmail dot com
 ```
 
+GPG fingerprint: `8C78 34AE C5AB 47F3 86FE 66D5 D82D 81FB 29F8 A593`
+
 My various profiles:
 
 - [GitHub](http://github.com/slhck")
