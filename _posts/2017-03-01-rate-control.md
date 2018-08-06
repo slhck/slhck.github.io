@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - August 2018 – Small details updated, add more links
     - March 2018 – Add related links to per-scene / per-shot encoding
     - November 2017 - Add libvpx/VP9 explanation
     - November 2017 – Fix wrong 2-pass example for x265, add explanation about bufsize
@@ -132,7 +133,7 @@ Note that a two-pass and CRF encode with the same resulting bitrates should be i
 
 ## Constrained Encoding (VBV)
 
-The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised within a certain time frame. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it can be "added" to the already presented rate control modes.
+The [_Video Buffering Verifier_](https://en.wikipedia.org/wiki/Video_buffering_verifier) provides a way to ensure that the bitrate is constrained to a certain maximum. This is useful for streaming, as you can now be certain that you won't send more bits than you promised within a certain time frame. VBV can be used both with 2-pass VBR (use it in both passes), or with CRF encoding—it can be "added" to the already presented rate control modes. The latter mode is also called “capped CRF”.
 
 Turn on VBV with the `-maxrate` and `-bufsize` options to set the maximum bitrate and the expected client buffer size:
 
@@ -163,7 +164,7 @@ For VP9:
 
 Note: Here a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
 
-How should you set the bufsize? This depends on how much variability you want in the bitrate. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup. If you want to constrain your stream's bitrate, try setting bufsize to half of the maximum rate or less.
+How should you set the bufsize? This depends on how much variability you want in the bitrate. A good default is to have the buffer size be twice as large as the maximum rate, but suggestions may vary depending on the streaming setup. If your client buffer is smaller (in the order of just a few seconds), your bufsize should be around the same size as the maxrate. If you want to constrain your stream's bitrate, try setting bufsize to half of the maximum rate or less.
 
 When you apply VBV to CRF encoding, the trick is to find a CRF value that, on average, results in your desired maximum bitrate, but not more. If your encode always "maxes out" your maximum bitrate, your CRF was probably set too low. In such a case the encoder tries to spend bits it doesn't have. On the other hand, if you have a high CRF that makes the bitrate not always hit the maximum, you could still lower it to gain some quality. For example, you encode at CRF 18 *without* VBV. Your clip ends up with an average bitrate of 3.0 Mbit/s. But your want your VBV setting to cap the clip at 1.5 Mbit/s, so you need to lower your CRF to about 24 to only get half the bitrate.
 
@@ -219,3 +220,4 @@ Some more reading material:
 * [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/)
 * [A qualitative overview of x264's ratecontrol methods](http://akuvian.org/src/x264/ratecontrol.txt)
 * [Google: VP9 Bitrate Modes in Detail](https://developers.google.com/media/vp9/bitrate-modes/)
+* [Streaming Learning Center: Saving on Encoding and Streaming: Deploy Capped CRF](https://streaminglearningcenter.com/blogs/saving-encoding-streaming-deploy-capped-crf.html)
