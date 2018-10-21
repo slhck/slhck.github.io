@@ -20,7 +20,8 @@ permalink: /about/
 
 ### Work Experience
 
-* Since 2018: Researcher at TU Ilmenau, Germany
+* Since 2018: Founder, CEO at AVEQ GmbH, Austria
+* 2018: Researcher at Technische Universität Ilmenau, Germany
 * 2015–2018: Researcher at Telekom Innovation Laboratories, Deutsche Telekom AG, Germany
 * 2014–2015: Researcher at Assessment of IP-based Applications, TU Berlin, Germany
 * 2013–2014: Software engineer and project manager, salesXp GmbH, Vienna, Austria
