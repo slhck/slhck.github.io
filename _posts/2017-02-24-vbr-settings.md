@@ -6,6 +6,7 @@ categories: video
 redirect_from: "/video-encoding"
 notes: Please let me know if there's anything wrong or if you're missing some values. Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.
 updates:
+    - March 2019 – Clarify range of AAC; add Opus defaults
     - November 2018 – Remove unsupported encoders
     - August 2017 – Clarification on aac encoder, reorder encoders.
 ---
@@ -137,6 +138,15 @@ Notes for reading this table:
       <td><small>Currently the highest quality encoder.</small></td>
    </tr>
    <tr class="success">
+      <td>libopus</td>
+      <td><code>-compression_level</code></td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>?</td>
+      <td><small><code>-vbr on</code> is default, see <a href="https://ffmpeg.org/ffmpeg-codecs.html#toc-libopus-1">FFmpeg documentation</a>.</small></td>
+   </tr>
+   <tr class="success">
       <td>libvorbis</td>
       <td><code>-q:a</code></td>
       <td>0</td>
@@ -158,20 +168,10 @@ Notes for reading this table:
       <td>aac</td>
       <td><code>-q:a</code></td>
       <td>0.1</td>
-      <td>?</td>
+      <td>2</td>
       <td>?</td>
       <td>0.12 (~128kbps)</td>
-      <td><small>Undocumented setting, use with caution.</small></td>
-   </tr>
-   <tr class="warning">
-      <td>libopus</td>
-      <td><code>-vbr</code></td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td><small>You need to set <code>-vbr on</code> or <code>-vbr constrained</code>, otherwise
-          Opus defaults to 96 kBit/s. Currently VBR <a href="http://ffmpeg-users.933282.n4.nabble.com/VBR-Encoding-with-libopus-td4657230.html">is not working</a>.</small></td>
+      <td><small>Is "experimental and [likely gives] worse results than CBR" according to FFmpeg Wiki.</small></td>
    </tr>
  </tbody>
 </table>
