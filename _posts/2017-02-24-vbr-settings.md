@@ -170,8 +170,8 @@ Notes for reading this table:
       <td>0.1</td>
       <td>2</td>
       <td>?</td>
-      <td>0.12 (~128kbps)</td>
-      <td><small>Is "experimental and [likely gives] worse results than CBR" according to FFmpeg Wiki.</small></td>
+      <td>1.3 (~128kbps)</td>
+      <td><small>Is "experimental and [likely gives] worse results than CBR" according to FFmpeg Wiki. Ranges from 18 to 190kbps.</small></td>
    </tr>
  </tbody>
 </table>
