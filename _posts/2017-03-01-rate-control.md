@@ -96,17 +96,17 @@ For VP9, you need this:
 
 Allowing the encoder to do two passes (or more) makes it possible for it to estimate what's ahead in time. It can calculate the cost of encoding a frame in the first pass and then, in the second pass, more efficiently use the bits available. This ensures that the output quality is the best under a certain bitrate constraint.
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f null /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 2 <output>.mp4
 
 For x265, replace `libx264` with `libx265` and set the pass option in the private options field:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=1 -f null /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=2 <output>.mp4
 
 For VP9, it's like for x264:
 
-    ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -pass 1 -f webm /dev/null
+    ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -pass 1 -f null /dev/null
     ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -pass 2 <output>.webm
 
 This is the easiest way to encode a file for streaming. With two caveats: You don't know what the resulting quality will be, so you will have to do some tests to make sure that your bitrate is actually high enough for some complex contents. Another downside of this mode is that there may be local spikes in bitrate, meaning you may send more than your client can receive. As for choosing bitrates, [YouTube gives you recommendations](https://support.google.com/youtube/answer/1722171?hl=en) on settings for uploads, but keep in mind that those are optimized for having you upload *good* quality, so in practice you can choose lower bitrates, too.
@@ -149,17 +149,17 @@ Note: If you do this for a live streaming application and you want to speed up t
 
 To use this approach with constrained ABR-VBV encoding:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f null /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
 
 For x265:
 
-    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=1:vbv-maxrate=1000:vbv-bufsize=2000 -f mp4 /dev/null
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=1:vbv-maxrate=1000:vbv-bufsize=2000 -f null /dev/null
     ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=2:vbv-maxrate=1000:vbv-bufsize=2000 <output>
 
 For VP9:
 
-    ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f webm /dev/null
+    ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -maxrate 1M -bufsize 2M -pass 1 -f null /dev/null
     ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <output>
 
 Note: Here a one-pass approach can also be used, which—according to the x264 developer—is [often as good as two passes](https://mailman.videolan.org/pipermail/x264-devel/2010-February/006944.html), but it won't compress the clip as efficiently.
