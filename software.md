@@ -16,6 +16,8 @@ Audio and video software:
     An Active Video Probe demo for Google Chrome running HTML5 and YouTube video.
 *   [ffmpeg-debug-qp](https://github.com/slhck/ffmpeg-debug-qp)  
     A script debugging QP values from video streams.
+*   [scenecut-extractor](https://github.com/slhck/scenecut-extractor)  
+    Extract scenecuts from video files using ffmpeg
 
 Web tools:
 
