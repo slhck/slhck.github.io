@@ -6,6 +6,7 @@ categories: video
 redirect_from: "/video-encoding"
 notes: Please let me know if there's anything wrong or if you're missing some values. Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.
 updates:
+    - April 2019 – Clarify Opus options
     - March 2019 – Clarify range of AAC; add Opus defaults
     - November 2018 – Remove unsupported encoders
     - August 2017 – Clarification on aac encoder, reorder encoders.
@@ -139,12 +140,12 @@ Notes for reading this table:
    </tr>
    <tr class="success">
       <td>libopus</td>
-      <td><code>-compression_level</code></td>
-      <td>0</td>
-      <td>10</td>
-      <td>10</td>
-      <td>?</td>
-      <td><small><code>-vbr on</code> is default, see <a href="https://ffmpeg.org/ffmpeg-codecs.html#toc-libopus-1">FFmpeg documentation</a>.</small></td>
+      <td><code>-b:a</code></td>
+      <td>6–8K (mono)</td>
+      <td>–</td>
+      <td>96K (for stereo)</td>
+      <td>–</td>
+      <td><small><code>-vbr on</code> is default, <code>-b:a</code> just sets the target, see <a href="https://ffmpeg.org/ffmpeg-codecs.html#toc-libopus-1">FFmpeg documentation</a>.</small></td>
    </tr>
    <tr class="success">
       <td>libvorbis</td>
