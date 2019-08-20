@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - August 2019 – Minor typo fixed in x265 example
     - August 2018 – Small details updated, add more links
     - March 2018 – Add related links to per-scene / per-shot encoding
     - November 2017 - Add libvpx/VP9 explanation
@@ -101,8 +102,8 @@ Allowing the encoder to do two passes (or more) makes it possible for it to esti
 
 For x265, replace `libx264` with `libx265` and set the pass option in the private options field:
 
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=1 -f null /dev/null
-    ffmpeg -i <input> -c:v libx264 -b:v 1M -x265-params pass=2 <output>.mp4
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=1 -f null /dev/null
+    ffmpeg -i <input> -c:v libx265 -b:v 1M -x265-params pass=2 <output>.mp4
 
 For VP9, it's like for x264:
 
