@@ -15,12 +15,12 @@ permalink: /publications/
 
 ### Journal Papers
 
+* Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). Comparison of HD and UHD video quality with and without the influence of the labeling effect. Quality and User Experience, 4(1), 4.
 * Robitza, W., Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
 * Buchinger, S., Robitza, W., Nezveda, M., Hotop, E., Hummelbrunner, P., Sack, M. C., and Hlavacs, H. (2014). [Evaluating feedback devices for time-continuous mobile multimedia quality assessment](http://www.sciencedirect.com/science/article/pii/S0923596514001076). Signal Processing: Image Communication, Volume 29, Issue 9.
 
 ### Conference and Workshop Contributions
 
-* Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). Comparison of HD and UHD video quality with and without the influence of the labeling effect. Quality and User Experience, 4(1), 4.
 * Rao, R. R. R., Göring, S., Vogel, P., Pachatz, N., Juan, J. V. V., Robitza, W., List, P., Feiten, B., Raake, A. (2019). Adaptive video streaming with current codecs and formats: Extensions to parametric video quality model ITU-T P.1203. In Human Vision and Electronic Imaging (HVEI). Burlingame, CA.
 * Asan, A., Robitza, W., Mkwawa, I.-H., Sun, L., Begen, A. C. (2018). Optimum Encoding Approaches on Video Resolution Changes: A Comparative Study. In IEEE International Conference on Image Processing (ICIP 2018). Athens.
 * Robitza, W., Göring, S., Raake, A., Lindegren, D., Heikkilä, G., Gustafsson, J., List, P., Feiten, B., Wüstenhagen, U., Garcia, M.-N., Yamagishi, K., Broom, S. (2018). HTTP Adaptive Streaming QoE Estimation with ITU-T Rec. P.1203 – Open Databases and Software. In 9th ACM Multimedia Systems Conference. Amsterdam.
