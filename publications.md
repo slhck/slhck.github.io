@@ -21,6 +21,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Rao, R. R. R., Göring, S., Robitza, W., Feiten, B., & Raake, A. (2019). AVT-VQDB-UHD-1: A Large Scale Video Quality Database for UHD-1. 21st IEEE International Symposium on Multimedia (IEEE ISM). San Diego, CA.
 * Rao, R. R. R., Göring, S., Vogel, P., Pachatz, N., Juan, J. V. V., Robitza, W., List, P., Feiten, B., Raake, A. (2019). Adaptive video streaming with current codecs and formats: Extensions to parametric video quality model ITU-T P.1203. In Human Vision and Electronic Imaging (HVEI). Burlingame, CA.
 * Asan, A., Robitza, W., Mkwawa, I.-H., Sun, L., Begen, A. C. (2018). Optimum Encoding Approaches on Video Resolution Changes: A Comparative Study. In IEEE International Conference on Image Processing (ICIP 2018). Athens.
 * Robitza, W., Göring, S., Raake, A., Lindegren, D., Heikkilä, G., Gustafsson, J., List, P., Feiten, B., Wüstenhagen, U., Garcia, M.-N., Yamagishi, K., Broom, S. (2018). HTTP Adaptive Streaming QoE Estimation with ITU-T Rec. P.1203 – Open Databases and Software. In 9th ACM Multimedia Systems Conference. Amsterdam.
