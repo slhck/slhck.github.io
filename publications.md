@@ -19,8 +19,14 @@ permalink: /publications/
 * Robitza, W., Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
 * Buchinger, S., Robitza, W., Nezveda, M., Hotop, E., Hummelbrunner, P., Sack, M. C., and Hlavacs, H. (2014). [Evaluating feedback devices for time-continuous mobile multimedia quality assessment](http://www.sciencedirect.com/science/article/pii/S0923596514001076). Signal Processing: Image Communication, Volume 29, Issue 9.
 
+### White Papers
+
+* Hoßfeld, T., Wunderer, S. (eds.) et al. (2020). [White Paper “Crowdsourced Network and QoE Measurements – Definitions, Use Cases and Challenges”](https://doi.org/10.25972/OPUS-20232).
+
 ### Conference and Workshop Contributions
 
+* Robitza, W., Dethof, A. M., Göring, S., Raake, A., Polzehl, T., & Beyer, A. (2020). Are You Still Watching? Streaming Video Quality and Engagement Assessment in the Crowd. 12th International Conference on Quality of Multimedia Experience (QoMEX 2020). Athlone, Ireland.
+* Rao, R. R. R., Göring, S., Robitza, W., Raake, A., Feiten, B., List, P., & Wüstenhagen, U. (2020). Bitstream-based Model Standard for 4K/UHD: ITU-T P.1204.3 – Model Details, Evaluation, Analysis and Open Source Implementation. 12th International Conference on Quality of Multimedia Experience (QoMEX 2020). Athlone, Ireland.
 * Rao, R. R. R., Göring, S., Robitza, W., Feiten, B., & Raake, A. (2019). AVT-VQDB-UHD-1: A Large Scale Video Quality Database for UHD-1. 21st IEEE International Symposium on Multimedia (IEEE ISM). San Diego, CA.
 * Rao, R. R. R., Göring, S., Vogel, P., Pachatz, N., Juan, J. V. V., Robitza, W., List, P., Feiten, B., Raake, A. (2019). Adaptive video streaming with current codecs and formats: Extensions to parametric video quality model ITU-T P.1203. In Human Vision and Electronic Imaging (HVEI). Burlingame, CA.
 * Asan, A., Robitza, W., Mkwawa, I.-H., Sun, L., Begen, A. C. (2018). Optimum Encoding Approaches on Video Resolution Changes: A Comparative Study. In IEEE International Conference on Image Processing (ICIP 2018). Athens.
