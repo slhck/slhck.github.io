@@ -5,6 +5,7 @@ date:   2017-03-01 12:00:00 +0100
 redirect_from: "/articles/rate-control"
 categories: video
 updates:
+    - June 2020 – Explain more about CQP
     - August 2019 – Minor typo fixed in x265 example
     - August 2018 – Small details updated, add more links
     - March 2018 – Add related links to per-scene / per-shot encoding
@@ -49,21 +50,21 @@ A word of caution: Encoders like x264 by default do not unnecessarily "stuff" fr
 
 ## Constant QP (CQP)
 
-The _Quantization Parameter_ controls the amount of compression for every Macroblock in a frame. Large values mean that there will be higher quantization, more compression, and lower quality. Lower values mean the opposite. QP ranges from 0 to 51 in H.264, and you can easily set a fixed QP for your entire encoding process with x264 and x265. Note: libvpx does not have a fixed QP mode.
+The _Quantization Parameter_ controls the amount of compression for every macroblock in a frame. Large values mean that there will be higher quantization, more compression, and lower quality. Lower values mean the opposite. QP ranges from 0 to 51 in H.264, and you can easily set a fixed QP for your entire encoding process with x264 and x265. Note: libvpx does not have a fixed QP mode.
 
     ffmpeg -i <input> -c:v libx264 -qp 23 <output>
     ffmpeg -i <input> -c:v libx265 -x265-params qp=23 <output>
 
 To know more about the idea behind QP, you can read [this tutorial](https://www.vcodex.com/h264avc-4x4-transform-and-quantization/) (if you're not afraid of some maths).
 
-Unless you know what you're doing and you explicitly want this, <span class="error">do not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying strongly depending on each scene's complexity, and it will result in rather inefficient encodes for your input video. You may waste space and you have no control of the actual bitrate.
+Unless you know what you're doing and you explicitly want this, <span class="error">it is suggested not use this mode!</span> Setting a fixed QP means that the resulting bitrate will be varying strongly depending on each scene's complexity, and it will result in rather inefficient encodes for your input video. The quality will be good if you set a low enough QP, but in contrast to CRF (see below), you may waste space, or you have no control of the actual bitrate.
 
-**Good for:** Video encoding research  
+**Good for:** Video encoding research, or if you have no CRF mode    
 **Bad for:** Almost anything else
 
 Note that [Netflix proposes using fixed-QP encoding](https://medium.com/netflix-techblog/dynamic-optimizer-a-perceptual-video-encoding-optimization-framework-e19f1e3a277f) for its per-shot encoding optimization to achieve optimal encodes for each scene. This however requires a lot of processing and careful assembly of the individual encoded shots, so it's not a "one size fits all" method you should use unless you have the whole framework implemented.
 
-## Average Bitrate (ABR)
+## Average Bitrate (ABR, also "target bitrate")
 
 Here, we give the encoder a target bitrate and expect it to figure out how to reach that bitrate:
 
@@ -75,12 +76,12 @@ Here, we give the encoder a target bitrate and expect it to figure out how to re
 
 This is *not* a constant bitrate mode! While ABR is technically a VBR mode, it's not much better than specifying a constant bitrate, in that it doesn't reliably deliver good quality.
 
-**Good for:** Quick and dirty encodes  
+**Good for:** Quick (and dirty) encodes  
 **Bad for:** Almost anything
 
 ## Constant Bitrate (CBR)
 
-If it is a requirement for your use case, you can force the encoder to always use a certain bitrate by enabling the `nal-hrd` option:
+If it is a requirement for your use case, you can force the encoder to always use a certain bitrate. The bitrate will always be (roughly) the same, even if it is not needed. You can enable it for x264 by setting the `nal-hrd` option:
 
     ffmpeg -i <input> -c:v libx264 -x264-params "nal-hrd=cbr:force-cfr=1" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M <output>
 
@@ -95,7 +96,9 @@ For VP9, you need this:
 
 ## 2-Pass Average Bitrate (2-Pass ABR)
 
-Allowing the encoder to do two passes (or more) makes it possible for it to estimate what's ahead in time. It can calculate the cost of encoding a frame in the first pass and then, in the second pass, more efficiently use the bits available. This ensures that the output quality is the best under a certain bitrate constraint.
+Allowing the encoder to do two passes (or more) makes it possible for it to estimate what's ahead in time. It can calculate the cost of encoding a frame in the first pass and then, in the second pass, more efficiently use the bits available. This ensures that the output quality is the best under a certain bitrate constraint. It will also mean that the bitrate will vary a bit over time, which is why this mode can also be called Variable Bitrate (VBR), although this is a bit of an ambiguous term.
+
+Enable it for x264 with:
 
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 1 -f null /dev/null
     ffmpeg -i <input> -c:v libx264 -b:v 1M -pass 2 <output>.mp4
