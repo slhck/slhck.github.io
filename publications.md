@@ -25,6 +25,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Schwarzmann, S., Hainke, N., Zinner, T., Sieber, C., Robitza, W., & Raake, A. (2020). [Comparing fixed and variable segment durations for adaptive video streaming.](https://doi.org/10.1145/3339825.3391858) Proceedings of the 11th ACM Multimedia Systems Conference, 38–53.
 * Robitza, W., Dethof, A. M., Göring, S., Raake, A., Polzehl, T., & Beyer, A. (2020). Are You Still Watching? Streaming Video Quality and Engagement Assessment in the Crowd. 12th International Conference on Quality of Multimedia Experience (QoMEX 2020). Athlone, Ireland.
 * Rao, R. R. R., Göring, S., Robitza, W., Raake, A., Feiten, B., List, P., & Wüstenhagen, U. (2020). Bitstream-based Model Standard for 4K/UHD: ITU-T P.1204.3 – Model Details, Evaluation, Analysis and Open Source Implementation. 12th International Conference on Quality of Multimedia Experience (QoMEX 2020). Athlone, Ireland.
 * Raake, A., Singla, A., Rao, R. R. R., Robitza, W., & Hofmeyer, F. (2020). SiSiMo: Towards Simulator Sickness Modeling for 360 ° Videos Viewed with an HMD. 27th IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR).
