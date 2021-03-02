@@ -15,6 +15,7 @@ permalink: /publications/
 
 ### Journal Papers
 
+* Raake, A., Borer, S., Satti, S. M., Gustafsson, J., Rao, R. R. R., Medagli, S., … Bitto, R. (2020). [Multi-Model Standard for Bitstream-, Pixel-Based and Hybrid Video Quality Assessment of UHD/4K: ITU-T P.1204.](https://doi.org/10.1109/ACCESS.2020.3032080) IEEE Access, 8, 193020–193049.
 * Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). Comparison of HD and UHD video quality with and without the influence of the labeling effect. Quality and User Experience, 4(1), 4.
 * Robitza, W., Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
 * Buchinger, S., Robitza, W., Nezveda, M., Hotop, E., Hummelbrunner, P., Sack, M. C., and Hlavacs, H. (2014). [Evaluating feedback devices for time-continuous mobile multimedia quality assessment](http://www.sciencedirect.com/science/article/pii/S0923596514001076). Signal Processing: Image Communication, Volume 29, Issue 9.
