@@ -4,12 +4,17 @@ title: About Me
 permalink: /about/
 ---
 
+<div class="about-image-container">
+<img src="../assets/images/Werner.jpg" id="about-image"/>
+<small>Photo: Sabine Schönfellner</small>
+</div>
+
 ### Expertise
 
 * Video encoding and streaming
 * User-focused experimental research
-* Programming (Python, Ruby, R, Java, PHP, Bash)
-* Statistics and Modeling (R, ggplot, lmfit, …)
+* Programming (Python, Ruby, TypeScript/JavaScript, R, Java, PHP, Bash)
+* Statistics and Modeling (R, tidyverse, ggplot, lmfit, …)
 * Audio and video production (Cubase, Photoshop, Premiere Pro, …)
 
 ### Education

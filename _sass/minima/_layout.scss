@@ -11,13 +11,18 @@
   position: relative;
 }
 
+h1, h2, h3, h4 {
+  font-family: "Andada Pro", Garamond, "Times New Roman", sans-serif;
+}
+
 .site-title {
+  font-family: "Andada Pro", Garamond, "Times New Roman", sans-serif;
   font-size: 26px;
-  font-weight: 300;
   line-height: 36px;
   letter-spacing: -1px;
   margin-bottom: 0;
   margin-top: 20px;
+  margin-left: 5px;
   float: left;
   width: 200px;
 
@@ -208,7 +213,13 @@
   font-size: 24px;
 }
 
-
+.about-image-container {
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-size: $small-font-size;
+}
 
 /**
  * Posts

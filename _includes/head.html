@@ -6,11 +6,17 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
+  <link href="/assets/fontawesome/fontawesome.min.css" rel="stylesheet">
+  <link href="/assets/fontawesome/brands.min.css" rel="stylesheet">
+  <link href="/assets/fontawesome/solid.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Andada+Pro&family=Lato&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
   <meta name="google-site-verification" content="6RCdswhEnnc89B9cMrcwEUkV-B_VhyJvIdLkD1q1ovc" />
-
-  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 </head>
