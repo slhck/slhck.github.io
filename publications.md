@@ -15,14 +15,14 @@ permalink: /publications/
 
 ### Journal Papers
 
-* Raake, A., Borer, S., Satti, S. M., Gustafsson, J., Rao, R. R. R., Medagli, S., … Bitto, R. (2020). [Multi-Model Standard for Bitstream-, Pixel-Based and Hybrid Video Quality Assessment of UHD/4K: ITU-T P.1204.](https://doi.org/10.1109/ACCESS.2020.3032080) IEEE Access, 8, 193020–193049.
+* Raake, A., Borer, S., Satti, S. M., Gustafsson, J., Rao, R. R. R., Medagli, S., List, P., Göring, S., Lindero, D., Robitza, W., Heikkilä, G., Broom, S., Schmidmer, C., Feiten, B., Wüstenhagen, U., Wittmann, T., Obermann, M., & Bitto, R. (2020) [Multi-Model Standard for Bitstream-, Pixel-Based and Hybrid Video Quality Assessment of UHD/4K: ITU-T P.1204.](https://doi.org/10.1109/ACCESS.2020.3032080) IEEE Access, 8, 193020–193049.
 * Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). Comparison of HD and UHD video quality with and without the influence of the labeling effect. Quality and User Experience, 4(1), 4.
 * Robitza, W., Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
 * Buchinger, S., Robitza, W., Nezveda, M., Hotop, E., Hummelbrunner, P., Sack, M. C., and Hlavacs, H. (2014). [Evaluating feedback devices for time-continuous mobile multimedia quality assessment](http://www.sciencedirect.com/science/article/pii/S0923596514001076). Signal Processing: Image Communication, Volume 29, Issue 9.
 
 ### White Papers
 
-* Hoßfeld, T., Wunderer, S. (eds.) et al. (2020). [White Paper “Crowdsourced Network and QoE Measurements – Definitions, Use Cases and Challenges”](https://doi.org/10.25972/OPUS-20232).
+* Hossfeld, T., Wunderer, S., Ben Houidi, Z., Beyer, A., Casas, P., Gassner, C., Guillemin, F., Hall, A., Hirth, M., Robitza, W., Schwind, A., Seufert, M., Tran-Gia, P., Wamser, F., Wascinski, K., & Wascinski, W. (2020).  [White Paper “Crowdsourced Network and QoE Measurements – Definitions, Use Cases and Challenges”](https://doi.org/10.25972/OPUS-20232).
 
 ### Conference and Workshop Contributions
 
