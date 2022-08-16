@@ -26,6 +26,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Robitza, W., Ramachandra-Rao, R. R., Göring, S., Dethof, A., & Raake, A. (2022). Deploying the ITU-T P.1203 QoE model in the wild and retraining for new codecs. Proceedings of the 1st Conference on Mile-High Video, 121–122.
 * Robitza, W., Rao Ramachandra Rao, R., Göring, S., & Raake, A. (2021). Impact of spatial and temporal information on video quality and compressibility. 2021 13th International Conference on Quality of Multimedia Experience, QoMEX 2021, 65–68.
 * Schwarzmann, S., Hainke, N., Zinner, T., Sieber, C., Robitza, W., & Raake, A. (2020). [Comparing fixed and variable segment durations for adaptive video streaming.](https://doi.org/10.1145/3339825.3391858) Proceedings of the 11th ACM Multimedia Systems Conference, 38–53.
 * Robitza, W., Dethof, A. M., Göring, S., Raake, A., Polzehl, T., & Beyer, A. (2020). Are You Still Watching? Streaming Video Quality and Engagement Assessment in the Crowd. 12th International Conference on Quality of Multimedia Experience (QoMEX 2020). Athlone, Ireland.
