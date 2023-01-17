@@ -6,7 +6,6 @@ permalink: /about/
 
 <div class="about-image-container">
 <img src="../assets/images/Werner.jpg" id="about-image"/>
-<small>Photo: Sabine Schönfellner</small>
 </div>
 
 ### Expertise
