@@ -7,7 +7,7 @@ permalink: /software/
 Audio and video software, mostly using Python:
 
 *   [ffmpeg-normalize](https://github.com/slhck/ffmpeg-normalize)  
-    An audio normalization program for Python/ffmpeg
+    A utility for batch-normalizing audio using ffmpeg.
 *   [ffmpeg-quality-metrics](https://github.com/slhck/ffmpeg-quality-metrics)  
     Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF)
 *   [bufferer](https://github.com/slhck/bufferer)  
@@ -31,7 +31,7 @@ Audio and video software, mostly using Python:
 
 Various other software:
 
-*   [compress-pptx](https://github.com/slhck/compress-pptx)
+*   [compress-pptx](https://github.com/slhck/compress-pptx)  
     Compress a PPTX file, converting all PNG/TIFF images to lossy JPEGs
 
 
@@ -42,7 +42,7 @@ Video:
 
 *   [active-video-probe](https://github.com/slhck/active-video-probe)  
     An Active Video Probe demo for Google Chrome running HTML5 and YouTube video.
-*   [h26x-extractor](https://github.com/slhck/h26x-extractor)
+*   [h26x-extractor](https://github.com/slhck/h26x-extractor)  
     Extracts NAL units from H.264 bitstreams and decodes their type and content
 *   [ffmpeg-debug-qp](https://github.com/slhck/ffmpeg-debug-qp)  
     A script debugging QP values from video streams.
