@@ -6,15 +6,23 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-  <link href="/assets/fontawesome/fontawesome.min.css" rel="stylesheet">
-  <link href="/assets/fontawesome/brands.min.css" rel="stylesheet">
-  <link href="/assets/fontawesome/solid.min.css" rel="stylesheet">
+  <link rel="preload" href="/assets/fontawesome/fontawesome.min.css" as="style">
+  <link rel="preload" href="/assets/fontawesome/brands.min.css" as="style">
+  <link rel="preload" href="/assets/fontawesome/solid.min.css" as="style">
+  <link rel="preload" href="{{ "/assets/main.css" | relative_url }}" as="style">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Andada+Pro&family=Lato&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/webfonts/andada-pro-v20-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/webfonts/andada-pro-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/webfonts/lato-v23-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/webfonts/lato-v23-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
+  <link rel="stylesheet" href="/assets/fontawesome/fontawesome.min.css">
+  <link rel="stylesheet" href="/assets/fontawesome/brands.min.css">
+  <link rel="stylesheet" href="/assets/fontawesome/solid.min.css">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
