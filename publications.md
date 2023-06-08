@@ -26,6 +26,8 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Herglotz, C., Robitza, W., Raake, A., Hossfeld, T., & Kaup, A. (2023). Power Reduction Opportunities on End-User Devices in Quality-Steady Video Streaming. 15th International Conference on Quality of Multimedia Experience (QoMEX), 1.
+* Braun, F., Rao, R. R. R., Robitza, W., & Raake, A. (2023). Automatic Audiovisual Asynchrony Measurement for Quality Assessment of Videoconferencing. 15th International Conference on Quality of Multimedia Experience (QoMEX).
 * Herglotz, C., Robitza, W., Kränzler, M., Kaup, A., & Raake, A. (2022). Modeling of Energy Consumption and Streaming Video QoE using a Crowdsourcing Dataset. 14th International Conference on Quality of Multimedia Experience (QoMEX).
 * Robitza, W., Ramachandra-Rao, R. R., Göring, S., Dethof, A., & Raake, A. (2022). Deploying the ITU-T P.1203 QoE model in the wild and retraining for new codecs. Proceedings of the 1st Conference on Mile-High Video, 121–122.
 * Robitza, W., Rao Ramachandra Rao, R., Göring, S., & Raake, A. (2021). Impact of spatial and temporal information on video quality and compressibility. 2021 13th International Conference on Quality of Multimedia Experience, QoMEX 2021, 65–68.
