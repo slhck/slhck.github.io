@@ -15,6 +15,7 @@ permalink: /publications/
 
 ### Journal Papers
 
+* Seufert, M., Spangenberger, M., Poignée, F., Wamser, F., Robitza, W., Timmerer, C., & Hossfeld, T. (2024). [COBIRAS: Offering a Continuous Bit Rate Slide to Maximize DASH Streaming Bandwidth Utilization.](https://doi.org/10.1145/3677379) ACM Transactions on Multimedia Computing, Communications, and Applications.
 * Raake, A., Borer, S., Satti, S. M., Gustafsson, J., Rao, R. R. R., Medagli, S., List, P., Göring, S., Lindero, D., Robitza, W., Heikkilä, G., Broom, S., Schmidmer, C., Feiten, B., Wüstenhagen, U., Wittmann, T., Obermann, M., & Bitto, R. (2020) [Multi-Model Standard for Bitstream-, Pixel-Based and Hybrid Video Quality Assessment of UHD/4K: ITU-T P.1204.](https://doi.org/10.1109/ACCESS.2020.3032080) IEEE Access, 8, 193020–193049.
 * Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). Comparison of HD and UHD video quality with and without the influence of the labeling effect. Quality and User Experience, 4(1), 4.
 * Robitza, W., Ahmad, A., Kara, P. A., Atzori, L., Martini, M. G., Raake, A., & Sun, L. (2017). [Challenges of future multimedia QoE monitoring for internet service providers](https://link.springer.com/article/10.1007%2Fs11042-017-4870-z), (June). Multimedia Tools and Applications.
@@ -26,7 +27,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
-* Herglotz, C., Robitza, W., Raake, A., Hossfeld, T., & Kaup, A. (2023). Power Reduction Opportunities on End-User Devices in Quality-Steady Video Streaming. 15th International Conference on Quality of Multimedia Experience (QoMEX), 1.
+* Herglotz, C., Robitza, W., Raake, A., Hossfeld, T., & Kaup, A. (2023). Power Reduction Opportunities on End-User Devices in Quality-Steady Video Streaming. 15th International Conference on Quality of Multimedia Experience (QoMEX).
 * Braun, F., Rao, R. R. R., Robitza, W., & Raake, A. (2023). Automatic Audiovisual Asynchrony Measurement for Quality Assessment of Videoconferencing. 15th International Conference on Quality of Multimedia Experience (QoMEX).
 * Herglotz, C., Robitza, W., Kränzler, M., Kaup, A., & Raake, A. (2022). Modeling of Energy Consumption and Streaming Video QoE using a Crowdsourcing Dataset. 14th International Conference on Quality of Multimedia Experience (QoMEX).
 * Robitza, W., Ramachandra-Rao, R. R., Göring, S., Dethof, A., & Raake, A. (2022). Deploying the ITU-T P.1203 QoE model in the wild and retraining for new codecs. Proceedings of the 1st Conference on Mile-High Video, 121–122.
@@ -82,7 +83,7 @@ These weren't published and written for university courses or internal project t
 
 ### Presentations
 
-* [Einführung in LaTeX und BibTeX](../documents/pa.wgi_tutorial1.pdf)  
+* [Einführung in LaTeX und BibTeX](../documents/pa.wgi_tutorial1.pdf)
     Tutorial Slides "PS Grundlagen Wissenschaftlichen Arbeitens", April 2010
-* [Kurzeinführung in Beamer - Präsentationen mit LaTeX](../documents/pa.wgi_tutorial2.pdf)  
+* [Kurzeinführung in Beamer - Präsentationen mit LaTeX](../documents/pa.wgi_tutorial2.pdf)
     Tutorial Slides for "PS Grundlagen Wissenschaftlichen Arbeitens", April 2010
