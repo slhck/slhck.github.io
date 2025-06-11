@@ -14,8 +14,6 @@ Or via:
 
 <i class="fab fa-message">&nbsp;&nbsp;<code>@slhck:matrix.org</code></i> on Matrix
 
-<i class="fab fa-discord">&nbsp;&nbsp;<code>slhck#1687</code></i> on Discord
-
 My various profiles:
 
 
