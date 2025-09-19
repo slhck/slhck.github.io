@@ -5,7 +5,7 @@ permalink: /posts/
 redirect_from: "/articles-overview"
 ---
 
-I occasionally write about video encoding:
+I occasionally write about video encoding and software development on this blog. Here are the most recent posts:
 
 <ul>
   {% for post in site.posts %}
