@@ -10,7 +10,7 @@ I occasionally write about video encoding and software development on this blog.
 <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%B %Y" }})
     </li>
   {% endfor %}
 </ul>

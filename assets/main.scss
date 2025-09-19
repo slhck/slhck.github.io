@@ -308,12 +308,24 @@ p {
     
     code {
         color: #e2e8f0 !important; // Light text for code elements
-        background-color: #374151 !important; // Darker background for code
+        background-color: #161b22 !important; // Much darker background for code
         border-color: #4b5563 !important;
+    }
+
+    // Make code inside links visually distinct
+    a > code, a code {
+        color: #60a5fa !important; // Blue color to indicate it's a link
+        background-color: #1e293b !important; // Slightly lighter background
+        border-color: #60a5fa !important; // Blue border to match
+    }
+
+    a:hover > code, a:hover code {
+        color: #93c5fd !important; // Lighter blue on hover
+        background-color: #334155 !important; // Even lighter background on hover
     }
     
     pre {
-        background-color: #374151 !important;
+        background-color: #161b22 !important;
         border-color: #4b5563 !important;
         color: #e2e8f0 !important;
     }
@@ -334,12 +346,24 @@ p {
         
         code {
             color: #e2e8f0 !important; // Light text for code elements
-            background-color: #374151 !important; // Darker background for code
+            background-color: #161b22 !important; // Much darker background for code
             border-color: #4b5563 !important;
+        }
+
+        // Make code inside links visually distinct
+        a > code, a code {
+            color: #60a5fa !important; // Blue color to indicate it's a link
+            background-color: #1e293b !important; // Slightly lighter background
+            border-color: #60a5fa !important; // Blue border to match
+        }
+
+        a:hover > code, a:hover code {
+            color: #93c5fd !important; // Lighter blue on hover
+            background-color: #334155 !important; // Even lighter background on hover
         }
         
         pre {
-            background-color: #374151 !important;
+            background-color: #161b22 !important;
             border-color: #4b5563 !important;
             color: #e2e8f0 !important;
         }

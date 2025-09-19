@@ -2,7 +2,7 @@
 layout: post
 title: "Running uv-Based Docker Containers in Read-Only Mode"
 date: 2025-09-19
-categories: [docker, python, security]
+categories: software
 ---
 
 I recently spent way too much time trying to get a Python application (with FastAPI and [`uv`](https://docs.astral.sh/uv/)) running in a read-only Docker container. What should have been a simple security hardening exercise turned into a frustrating debugging session where the container kept crashing with cryptic errors about missing modules that were clearly installed during the build.
@@ -18,11 +18,10 @@ I initially thought I could just mount a bunch of tmpfs volumes over these direc
 ```yaml
 read_only: true
 tmpfs:
-  - /tmp
   - /home/appuser/.cache:uid=1001,gid=1001 # -> these are paths your app needs to write to
 ```
 
-Note: 1001 is the UID of my non-root user, and 1011 is the GID of the `site-packages` directory. You should always add a non-root user to execute your actual application code in Docker!
+Note: 1001 is the UID of my non-root user. You should always add a non-root user to execute your actual application code in Docker!
 
 But there was another problem: I had a dependency that used SSH to clone a repository during `uv` package installation, and, despite installing the packages already in the Dockerfile, `uv` still tried to install the packages _again_ at runtime when I called my entrypoint script with `uv run ...`. This is because `uv` defaults to checking for updates and re-installing packages unless you tell it not to.
 
@@ -54,12 +53,11 @@ uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port 80
 
 ## Minimal Filesystem Writes
 
-With the bytecode issue sorted, you only need tmpfs mounts for the bare minimum – just `/tmp` for general temporary files and the uv cache directory for metadata. Your `docker-compose.yml` should look like this:
+With the bytecode issue sorted, you only need tmpfs mounts for the bare minimum – just the uv cache directory for metadata. Your `docker-compose.yml` should look like this:
 
 ```yaml
 read_only: true
 tmpfs:
-  - /tmp
   - /home/appuser/.cache:uid=1001,gid=1001
 environment:
   PYTHONDONTWRITEBYTECODE: 1
@@ -67,7 +65,7 @@ environment:
 
 That's it. No mounting over site-packages, no complex volume configurations.
 
-### 4. Complete Example
+## Complete Example
 
 Here's a complete working example:
 
@@ -114,7 +112,6 @@ services:
     image: my-app
     read_only: true
     tmpfs:
-      - /tmp
       - /home/appuser/.cache:uid=1001,gid=1001
     environment:
       PYTHONDONTWRITEBYTECODE: 1
