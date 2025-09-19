@@ -59,8 +59,6 @@ With the bytecode issue sorted, you only need tmpfs mounts for the bare minimum 
 read_only: true
 tmpfs:
   - /home/appuser/.cache:uid=1001,gid=1001
-environment:
-  PYTHONDONTWRITEBYTECODE: 1
 ```
 
 That's it. No mounting over site-packages, no complex volume configurations.
@@ -69,7 +67,7 @@ That's it. No mounting over site-packages, no complex volume configurations.
 
 Here's a complete working example:
 
-**Dockerfile:**
+`Dockerfile`:
 
 ```dockerfile
 FROM python:3.13-slim
@@ -104,7 +102,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENTRYPOINT ["app/entrypoint.sh"]
 ```
 
-**docker-compose.yml:**
+`docker-compose.yml`:
 
 ```yaml
 services:
@@ -113,15 +111,13 @@ services:
     read_only: true
     tmpfs:
       - /home/appuser/.cache:uid=1001,gid=1001
-    environment:
-      PYTHONDONTWRITEBYTECODE: 1
     ports:
       - "8000:80"
     cap_drop:
       - ALL
 ```
 
-**entrypoint.sh:**
+`entrypoint.sh`:
 
 ```bash
 #!/bin/bash
