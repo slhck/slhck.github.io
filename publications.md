@@ -9,6 +9,19 @@ permalink: /publications/
 * Robitza, W., [_Observer Confidence in Subjective Quality Evaluation_](http://othes.univie.ac.at/31718/), Master thesis (Media Informatics), University of Vienna, 2014.
 * Robitza, W., [_Acceptance of Mobile TV Channel Switching Delays_](../documents/robitza-acceptance-thesis.pdf), Bachelor thesis (Informatics), University of Vienna, 2009.
 
+### Patents
+
+#### Granted
+
+* [EP-3800882-B1](https://patents.google.com/patent/EP3800882B1/en): _Information-adaptive mixed deterministic/machine-learning-based bit stream video-quality model._ Deutsche Telekom AG. Granted December 4, 2024.
+* [EP-3264709-B1](https://patents.google.com/patent/EP3264709B1/en): _A method for computing, at a client for receiving multimedia content from a server using adaptive streaming, the perceived quality of a complete media session, and client._ Deutsche Telekom AG. Granted August 29, 2018.
+
+#### Applied
+
+* [WO-2021013946-A1](https://patents.google.com/patent/WO2021013946A1/en): _System and method to estimate blockiness in transform-based video encoding._ Deutsche Telekom AG, Technische Universität Ilmenau. Published January 28, 2021.
+* [WO-2021009134-A1](https://patents.google.com/patent/WO2021009134A1/en): _System and method for estimating the quality of networks or services through crowdsourcing._ Aveq GmbH, Technische Universität Ilmenau, Crowdee GmbH, Deutsche Telekom AG. Published January 21, 2021.
+* [EP-3291556-A1](https://patents.google.com/patent/EP3291556A1/en): _Method and apparatus for determining the perceptual video quality of a chunk of multimedia content._ Deutsche Telekom AG, Technische Universität Berlin, Technische Universität Ilmenau. Published March 7, 2018.
+
 ### Book Chapters
 
 * Buchinger, S., Wippersberg, J., Lojka, K., Macher, K., Robitza, W., Nezveda, M., Hummelbrunner, P., Hlavacs, H. (2012). [Mobile TV Content Design Rules](http://www.crcnetbase.com/doi/abs/10.1201/b11723-19). In TV Content Analysis: Techniques and Applications. CRC Press.

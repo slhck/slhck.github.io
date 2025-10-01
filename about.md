@@ -36,7 +36,7 @@ permalink: /about/
 
 ### Education
 
-* Since 2016: PhD student, Technische Universität Ilmenau, Germany
+* Since 2016: PhD candidate (thesis under review), Technische Universität Ilmenau, Germany
 * 2011–2014: Master in Media Informatics (Dipl.-Ing.), University of Vienna, Austria
 * 2007–2011: Bachelor in Informatics (BSc.), University of Vienna, Austria
 
