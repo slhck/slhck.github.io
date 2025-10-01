@@ -172,8 +172,7 @@ The script does several things:
 4. **Confirms with user**: Asks for confirmation before proceeding
 5. **Bumps version**: Uses `uv version --bump` to update both `pyproject.toml` and `uv.lock`
 6. **Creates git commit and tag**: Commits the version bump with a clear message
-7. **Generates changelog**: Optionally uses [`gitchangelog`](https://github.com/sarnold/gitchangelog) to generate a changelog
-8. **Pushes to remote**: Pushes both the commit and the tag to your remote repository
+7. **Pushes to remote**: Pushes both the commit and the tag to your remote repository
 
 ## Usage
 
