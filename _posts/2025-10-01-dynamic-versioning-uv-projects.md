@@ -15,6 +15,8 @@ Here's how you can set up dynamic versioning and automated releases in your uv-m
 
 Traditionally, Python projects could store their version in multiple places: `pyproject.toml`, `__init__.py`, maybe even a `VERSION` file. I think the default used to be to just put the version as a hardcoded string somewhere in your module's `__init__.py`. Keeping these in sync is tedious and error-prone. And while I like the fact that the version is explicitly part of your code, it's also very rarely the case that the code lives somewhere in a standalone fashion. Often, it's part of a package you installed, and your package metadata can contain that version, too. Then, your code can dynamically figure out what the version is.
 
+There are some workarounds, such the project [`uv-dynamic-versioning`](https://github.com/ninoseki/uv-dynamic-versioning/) project [mentioned here](https://pydevtools.com/handbook/how-to/how-to-add-dynamic-versioning-to-uv-projects/), but it does not work for `uv`'s build backend, and is also not needed, in my opinion. The same goes for [`dynamic-versioning`](https://pypi.org/project/dynamic-versioning/).
+
 ## Single Source of Truth
 
 The solution is to use `pyproject.toml` as the single source of truth for your version number, and dynamically read it everywhere else. Here's how to set it up.
