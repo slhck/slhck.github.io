@@ -24,7 +24,7 @@ permalink: /publications/
 
 ### Book Chapters
 
-* Buchinger, S., Wippersberg, J., Lojka, K., Macher, K., Robitza, W., Nezveda, M., Hummelbrunner, P., Hlavacs, H. (2012). [Mobile TV Content Design Rules](http://www.crcnetbase.com/doi/abs/10.1201/b11723-19). In TV Content Analysis: Techniques and Applications. CRC Press.
+* Buchinger, S., Wippersberg, J., Lojka, K., Macher, K., Robitza, W., Nezveda, M., Hummelbrunner, P., Hlavacs, H. (2012). [Mobile TV Content Design Rules](https://eprints.cs.univie.ac.at/2927/). In TV Content Analysis: Techniques and Applications. CRC Press.
 
 ### Journal Papers
 
