@@ -119,7 +119,12 @@ POST /analytics-*/_update_by_query?wait_for_completion=false
 
 The update script is a [Painless script](https://www.elastic.co/docs/explore-analyze/scripting/modules-scripting-painless).
 
-This runs entirely within Elasticsearch and updates only the field that changed. It processes updates in batches automatically, and returns immediately with a task ID (when using `wait_for_completion=false`):
+This runs entirely within Elasticsearch and updates only the field that changed. It processes updates in batches automatically, and returns immediately with a task ID (when using `wait_for_completion=false`).
+Per Elastic's documentation:
+
+> If the request contains wait_for_completion=false, Elasticsearch performs some preflight checks, launches the request, and returns a task you can use to cancel or get the status of the task. Elasticsearch creates a record of this task as a document at .tasks/task/${taskId}.
+
+You get a response like this:
 
 ```json
 {
@@ -163,34 +168,6 @@ When it completes, it will show `completed: true` and a summary of the operation
   }
 }
 ```
-
-## Integration with Application Code
-
-While you can run these queries manually, it's better to automate them. Here's a general pattern (language-agnostic pseudocode):
-
-```
-function rename_client_label(client_uuid, new_label):
-    # Submit the update task
-    task_id = elasticsearch.update_by_query_async(
-        index: "analytics-*",
-        script: {
-            source: "ctx._source.client.label = params.label",
-            params: { label: new_label }
-        },
-        query: {
-            term: { "client.uuid.keyword": client_uuid }
-        }
-    )
-
-    # Poll until completion
-    while True:
-        status = elasticsearch.get_task(task_id)
-        if status.completed:
-            return status.response
-        sleep(5)
-```
-
-This can be wrapped in a background job, scheduled task, or event handler that triggers whenever upstream data changes.
 
 ## When NOT to Use `update_by_query`
 
