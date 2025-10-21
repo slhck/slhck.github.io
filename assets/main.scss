@@ -157,6 +157,12 @@ p {
     }
 }
 
+// List styling
+ul, ol {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
 // Enhanced layout
 .page-content {
     margin-top: var(--spacing-xl);
