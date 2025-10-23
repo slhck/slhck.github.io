@@ -82,7 +82,9 @@ Journal Reviewing:
 
 ### Talks Given
 
-* 2021: “How to monitor a streaming service – what could possibly go wrong?“, Berlin Video Tech Meetup, online
+* 2025: "The Hidden Cost of Network Performance - Measuring Real Streaming Experience", ANGA COM 2025, Cologne, DE
+* 2025: "Uncovering Network Issues with Application QoE Measurements - Measuring Real Streaming Experience and Network Performance", NetworkX 2025, Paris, FR
+* 2021: "How to monitor a streaming service – what could possibly go wrong?", Berlin Video Tech Meetup, online
 * 2020: “Video Quality Measurements in the Crowd – A Case Study from Germany”, ITU-T QSDG Webinar Series: Crowdsourcing for Regulators – Case studies and frameworks, online
 * 2018: “Video and web service quality monitoring using ITU-T standards at Deutsche Telekom”, ITU Workshop on Telecommunication Service Quality, Regulatory Frameworks and Experience-Driven Networking, Geneva, Switzerland
 * 2017: “Monitoring QoE of HTTP-based Adaptive Streaming”, ITG Fachausschuss Bildkommunikation und Bildverarbeitung, TU Ilmenau, Germany

@@ -14,7 +14,7 @@ layout: default
 
 <div class="content-card fade-in-up">
 <h2>🔬 What I research</h2>
-<p>I'm also a PhD candidate at the Ilmenau University of Technology in Germany. Before, I worked as a researcher at Ilmenau University of Technology, and Telekom Innovation Laboratories of Deutsche Telekom AG in Berlin, Germany. I have a diploma in computer science (media informatics) from the University of Vienna. I have published dozens of academic papers with more than 1,000 citations, and I've been granted two patents.</p>
+<p>I'm also a PhD candidate at the Ilmenau University of Technology in Germany. Before, I worked as a researcher at Ilmenau University of Technology, and Telekom Innovation Laboratories of Deutsche Telekom AG in Berlin, Germany. I have a diploma in computer science (media informatics) from the University of Vienna. I have published dozens of academic papers with more than 1,400 citations, and I've been granted two patents.</p>
 </div>
 
 <div class="content-card fade-in-up">

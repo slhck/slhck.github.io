@@ -161,6 +161,10 @@ p {
 ul, ol {
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
+
+    li {
+        margin-bottom: 0.75rem;
+    }
 }
 
 // Enhanced layout
@@ -670,6 +674,21 @@ button:focus {
         &:first-of-type {
             margin-top: var(--spacing-sm);
         }
+    }
+}
+
+// Software page - remove card styling for top-level sections
+.page-content .content-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    padding-bottom: var(--spacing-lg) !important;
+
+    &:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
     }
 }
 
