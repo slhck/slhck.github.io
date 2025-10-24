@@ -74,6 +74,37 @@ git-cliff v1.0.0..v2.0.0
 
 The real power of `git-cliff` comes from its [configuration options](https://git-cliff.org/docs/configuration/). You can create a `cliff.toml` file in your repository root, or [add its settings to `pyproject.toml`](https://git-cliff.org/docs/integration/python/).
 
+## Handling Old Repositories with Mixed Commit Styles
+
+If you're adopting `git-cliff` for an existing repository that has a mix of conventional and non-conventional commits, you'll quickly notice that `git-cliff` filters out non-conventional commits by default. This can result in missing changelog entries for older releases.
+
+The solution is simple: configure `git-cliff` to include unconventional commits by setting `filter_unconventional = false` and adding a catch-all parser. Here's a minimal `cliff.toml` configuration:
+
+```toml
+[git]
+conventional_commits = true
+filter_unconventional = false
+commit_parsers = [
+  { message = "^feat", group = "🚀 Features" },
+  { message = "^fix", group = "🐛 Bug Fixes" },
+  { message = "^doc", group = "📚 Documentation" },
+  { message = "^perf", group = "⚡ Performance" },
+  { message = "^refactor", group = "🚜 Refactor" },
+  { message = "^style", group = "🎨 Styling" },
+  { message = "^test", group = "🧪 Testing" },
+  { message = "^chore|^ci", group = "⚙️ Miscellaneous Tasks" },
+  { message = ".*", group = "⚙️ Other" },
+]
+```
+
+The key elements are:
+
+- `conventional_commits = true` — Parse conventional commits as usual
+- `filter_unconventional = false` — Don't filter out non-conventional commits
+- `{ message = ".*", group = "⚙️ Other" }` — Catch-all parser for everything else
+
+With this configuration, conventional commits are categorized as expected (`feat:` → Features, `fix:` → Bug Fixes), while any non-conventional commits are grouped under "Other". This approach allows you to gradually migrate to conventional commits without losing historical changelog entries.
+
 ## Conclusion
 
 Switching from `gitchangelog` to `git-cliff` was one of those changes that immediately pays off. The combination of performance, native conventional commit support, and flexible configuration makes it the ideal tool for changelog generation for me.
