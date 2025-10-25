@@ -24,7 +24,7 @@ pandoc input.md \
   --pdf-engine=xelatex
 ```
 
-This works reliably, but has some frustrating limitations. Like I mentioned earlier, the biggest pain point is compilation speed. XeLaTeX takes several seconds even for simple documents. Also, if you've ever come across a LaTeX error, you know how cryptic and difficult they can be to debug. Lastly, a full TeX Live installation is several Gigabytes, which is a heavy dependency … just to generate PDFs?
+This works reliably, but has some frustrating limitations. Like I mentioned earlier, the biggest pain point is compilation speed. XeLaTeX takes several seconds even for simple documents. Also, if you've ever come across a LaTeX error, you know how cryptic and difficult they can be to debug. Lastly, a full TeX Live installation is several Gigabytes, which is a heavy dependency… just to generate PDFs?
 
 ## Welcome Typst!
 
@@ -56,7 +56,19 @@ pandoc input.md \
   --pdf-engine=typst
 ```
 
-That's it. Just change `--to=latex` to `--to=typst`, `--pdf-engine=xelatex` to `--pdf-engine=typst`, and point to a Typst template (`.typ` instead of `.tex`).
+That's it. Just change `--to=latex` to `--to=typst` and `--pdf-engine=xelatex` to `--pdf-engine=typst`, and point to a Typst template (`.typ` instead of `.tex`).
+
+Note that with Typst, you might need to specify a root directory for file access (e.g., for images or includes):
+
+```bash
+pandoc input.md \
+  --output=output.pdf \
+  --to=typst \
+  --from=markdown \
+  --template=template.typ \
+  --pdf-engine=typst \
+  --pdf-engine-opt=--root=/path/to/project
+```
 
 You can find Typst templates in [their offical GitHub repo](https://github.com/typst/templates), read their guide on [how to write one](https://typst.app/docs/tutorial/making-a-template/), or [browse their universe](https://typst.app/universe/).
 
@@ -73,7 +85,7 @@ hyperfine --warmup 1 \
 The results are mind-blowing:
 
 ```
-Benchmark 1: pandoc ... --pdf-engine typst
+Benchmark 1: uv run compile.py tests/test.md --output tests/test.pdf --engine typst
   Time (mean ± σ):     356.5 ms ±   3.8 ms    [User: 261.3 ms, System: 90.2 ms]
   Range (min … max):   348.5 ms … 361.7 ms    10 runs
 
