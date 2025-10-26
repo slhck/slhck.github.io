@@ -5,9 +5,9 @@ date: 2025-10-25
 categories: software
 ---
 
-For years, I've been using XeLaTeX to generate professionally formatted PDFs. Either for scientific papers, or from Markdown sources using [Pandoc](https://pandoc.org/). I valued XeLaTeX in particular for its native support of system fonts. But I've always been frustrated with LaTeX's compilation speed. Even for medium-sized documents, waiting several seconds for each rebuild adds up quickly, especially when iterating on content where visual feedback is important.
+For years, I've been using XeLaTeX to generate professionally formatted PDFs. Either for scientific papers, or from Markdown sources using [Pandoc](https://pandoc.org/) for things like technical documentation or company-internal notes. I like XeLaTeX over “plain” LaTEx in particular for its native support of system fonts. But I've always been frustrated with LaTeX's compilation speed. Even for medium-sized documents, waiting several seconds for each rebuild adds up quickly, especially when iterating on content where visual feedback is important.
 
-Recently, I discovered that Pandoc supports [Typst](https://typst.app/). That was a game-changer for me, because I'd heard about Typst earlier, but never tried using it. If you don't know it, it's a modern typesetting system written in Rust that promises LaTeX-quality output with **dramatically faster compilation times**. After testing it out, I can confidently say: **if you're using Pandoc to generate PDFs, you should seriously consider switching to Typst**.
+Recently, I discovered that Pandoc supports [Typst](https://typst.app/). I'd heard about Typst earlier, but never tried using it (for reasons I'll get into). Typst is a modern typesetting system written in Rust that promises LaTeX-quality output with **dramatically faster compilation times**. After testing it out, I can confirm: **if you're using Pandoc to generate PDFs, you should seriously consider switching to Typst**.
 
 **TL;DR:** Pandoc supports [Typst](https://typst.app/) as a PDF engine. It's orders of magnitude faster than XeLaTeX while producing equivalent quality output, has better error messages, and uses a cleaner template syntax.
 
@@ -24,11 +24,11 @@ pandoc input.md \
   --pdf-engine=xelatex
 ```
 
-This works reliably, but has some frustrating limitations. Like I mentioned earlier, the biggest pain point is compilation speed. XeLaTeX takes several seconds even for simple documents. Also, if you've ever come across a LaTeX error, you know how cryptic and difficult they can be to debug. Lastly, a full TeX Live installation is several Gigabytes, which is a heavy dependency… just to generate PDFs?
+This works great, but like I mentioned earlier, the biggest pain point is compilation speed. The combination of Pandoc and XeLaTeX takes several seconds, even for simple documents. Add in references and citations, and the wait time increases significantly because you need to compile twice to get references right. Also, if you've ever come across a LaTeX error, you know how cryptic and difficult they can be to debug. Lastly, a full TeX Live installation is several Gigabytes, which is a heavy dependency… just to generate PDFs?
 
 ## Welcome Typst!
 
-[Typst](https://typst.app/) is a modern alternative to LaTeX that provides the same typographic quality while being significantly faster and more user-friendly. Best of all – and the reason I finally switched over to it – is that Pandoc has native Typst support. Since Typst uses a different standard syntax, and I did not want to learn a new language, I was initially skeptical to try it out unless I could feed it Markdown sources. But now that is possible with Pandoc!
+[Typst](https://typst.app/) is a modern alternative to LaTeX that provides similar typographic quality while being significantly faster and more user-friendly. Best of all – and the reason I finally switched over to it – is that Pandoc has native Typst support. Why not just use Typst directly? Well, it's yet another default syntax, and since Markdown is second nature to me, I didn't want to learn another language. So I was initially skeptical to try it out unless I could feed it Markdown sources. But now that is possible with Pandoc!
 
 Installing Typst is straightforward:
 
@@ -74,7 +74,7 @@ You can find Typst templates in [their offical GitHub repo](https://github.com/t
 
 ## Performance Comparison
 
-I benchmarked both engines on a typical technical document using [hyperfine](https://github.com/sharkdp/hyperfine) (yet another awesome tool!):
+I benchmarked both engines using [hyperfine](https://github.com/sharkdp/hyperfine) (yet another awesome tool!):
 
 ```bash
 hyperfine --warmup 1 \
@@ -102,9 +102,9 @@ Summary
 
 ## Template Migration
 
-If you have existing LaTeX templates, you'll need to port them to Typst. The good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX. Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system.
+If you have existing LaTeX templates, you'll need to port them to Typst. I have been using the [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template) for LaTeX, and have not yet found a good alternative. But the good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX. Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system.
 
-I found Claude Code to be very helpful in assisting with the migration of my templates.
+I found Claude Code to be very helpful in assisting with the migration of my templates once you provide it with the syntax and some example tempaltes. It could basically one-shot a port of the Eisvogel template to Typst with minimal guidance. (I will publish this template once I've refined it a bit more.)
 
 ## Limitations
 
@@ -123,4 +123,3 @@ I am going to evaluate the use of Typst for more complex documents like scientif
 - Pandoc has native Typst support since version 3.0
 - Typst compiles much faster than XeLaTeX for typical documents
 - Smaller footprint (single binary vs. multi-GB TeX distribution)
-
