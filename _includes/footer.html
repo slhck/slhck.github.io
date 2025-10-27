@@ -1,28 +1,21 @@
 <footer class="site-footer">
-
-  <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <p><strong>Recent Posts</strong></p>
-        <ul>
-          {% for post in site.posts limit:5 %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <p><small><a href="/posts">See more…</a></small></p>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <p class="footer-legal-links">
-          <a href="/legal-notice">Legal Notice (EN)</a><br>
-          <a href="/impressum">Impressum (DE)</a>
-        </p>
-      </div>
+  <div class="footer-col-wrapper">
+    <div class="footer-col footer-col-1">
+      <h4>Recent Posts</h3>
+      <ul>
+        {% for post in site.posts limit:5 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <p>
+        <small><a href="/posts">See more…</a></small>
+      </p>
     </div>
 
+    <div class="footer-col footer-col-2">
+      <h4>Legal Links</h4>
+      <a href="/legal-notice">Legal Notice (EN)</a><br />
+      <a href="/impressum">Impressum (DE)</a>
+    </div>
   </div>
-
 </footer>

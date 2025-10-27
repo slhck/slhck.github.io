@@ -42,8 +42,6 @@ h1, h2, h3, h4 {
 
 .site-nav {
   float: right;
-  // margin-top: 20px;
-  // line-height: 56px;
 
   .menu-icon {
     display: none;
@@ -51,7 +49,6 @@ h1, h2, h3, h4 {
 
   .page-link {
     color: $text-color;
-    line-height: $base-line-height;
     padding: 5px 8px;
 
     &.active {
@@ -119,25 +116,15 @@ h1, h2, h3, h4 {
  */
 .site-footer {
   border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0;
-}
-
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: $spacing-unit / 2;
+  font-size: $base-font-size * 0.8;
+  color: $grey-color;
+  @extend %clearfix;
 }
 
 .contact-list,
 .social-media-list {
   list-style: none;
   margin-left: 0;
-}
-
-.footer-col-wrapper {
-  font-size: 15px;
-  color: $grey-color;
-  margin-left: -$spacing-unit / 2;
-  @extend %clearfix;
 }
 
 .footer-col {
@@ -154,12 +141,7 @@ h1, h2, h3, h4 {
 .footer-col-2 {
   width: -webkit-calc(30% - (#{$spacing-unit} / 2));
   width:         calc(30% - (#{$spacing-unit} / 2));
-  text-align: right;
-}
-
-.footer-legal-links {
-  font-size: 14px;
-  line-height: 1.8;
+  text-align: right !important;
 }
 
 // @include media-query($on-laptop) {
