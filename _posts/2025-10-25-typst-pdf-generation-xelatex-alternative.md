@@ -48,6 +48,10 @@ winget install --id=Typst.Typst -e
 The beauty of Pandoc's Typst support is how simple the migration is. Instead of generating LaTeX and compiling with XeLaTeX, Pandoc generates Typst code and compiles with Typst:
 
 ```bash
+# Generate a default template
+pandoc --print-default-template=typst > template.typ
+
+# Generate PDF using Typst
 pandoc input.md \
   --output=output.pdf \
   --to=typst \
@@ -58,7 +62,11 @@ pandoc input.md \
 
 That's it. Just change `--to=latex` to `--to=typst` and `--pdf-engine=xelatex` to `--pdf-engine=typst`, and point to a Typst template (`.typ` instead of `.tex`).
 
-Note that with Typst, you might need to specify a root directory for file access (e.g., for images or includes):
+## Template Customization and Migration
+
+In the above case, we've used Pandoc's built-in default Typst template, but you can customize it as needed. You can find Typst templates in [their offical GitHub repo](https://github.com/typst/templates), read their guide on [how to write one](https://typst.app/docs/tutorial/making-a-template/), or [browse their universe](https://typst.app/universe/). Because Pandoc has special variables, it's wise to start with the default template and modify it to your needs.
+
+Note that with Typst, you might need to specify a root directory for file access (e.g., for images or includes that are part of your template):
 
 ```bash
 pandoc input.md \
@@ -70,11 +78,13 @@ pandoc input.md \
   --pdf-engine-opt=--root=/path/to/project
 ```
 
-You can find Typst templates in [their offical GitHub repo](https://github.com/typst/templates), read their guide on [how to write one](https://typst.app/docs/tutorial/making-a-template/), or [browse their universe](https://typst.app/universe/).
+If you have existing LaTeX templates, you'll need to manually port them to Typst. I have been using the [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template) for LaTeX, and have not yet found a good alternative, partly because the Eisvogel template has been around for such a long time. But the good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX. Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system.
+
+I found Claude Code to be very helpful in assisting with the migration of my templates – once you provide it with the syntax and some example templates. It could basically one-shot a port of the Eisvogel template to Typst with minimal guidance. (I will publish this template once I've refined it a bit more.)
 
 ## Performance Comparison
 
-I benchmarked both engines using [hyperfine](https://github.com/sharkdp/hyperfine) (yet another awesome tool!):
+I benchmarked both engines using [hyperfine](https://github.com/sharkdp/hyperfine) (yet another awesome tool!). We specify a warmup run to ensure fair timing in case the first run takes longer than usual (e.g., due to caching):
 
 ```bash
 hyperfine --warmup 1 \
@@ -85,7 +95,7 @@ hyperfine --warmup 1 \
 The results are mind-blowing:
 
 ```
-Benchmark 1: uv run compile.py tests/test.md --output tests/test.pdf --engine typst
+Benchmark 1: pandoc ... --pdf-engine typst
   Time (mean ± σ):     356.5 ms ±   3.8 ms    [User: 261.3 ms, System: 90.2 ms]
   Range (min … max):   348.5 ms … 361.7 ms    10 runs
 
@@ -98,19 +108,13 @@ Summary
     27.07 ± 0.44 times faster than pandoc ... --pdf-engine xelatex
 ```
 
-27 times faster! And all using a toy document outputting just four PDF pages. That's the difference between a nearly instantaneous rebuild and a noticeable pause every time you save your Markdown file.
-
-## Template Migration
-
-If you have existing LaTeX templates, you'll need to port them to Typst. I have been using the [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template) for LaTeX, and have not yet found a good alternative. But the good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX. Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system.
-
-I found Claude Code to be very helpful in assisting with the migration of my templates once you provide it with the syntax and some example tempaltes. It could basically one-shot a port of the Eisvogel template to Typst with minimal guidance. (I will publish this template once I've refined it a bit more.)
+27 times faster! And all using a toy document outputting just four PDF pages without citations. That's the difference between a nearly instantaneous rebuild and a noticeable pause every time you save your Markdown file.
 
 ## Limitations
 
 Typst isn't perfect. First, LaTeX has decades of specialized packages. Typst's ecosystem is growing rapidly but still smaller. For very specialized typesetting needs (complex mathematical notation, specialized academic formatting), you might still need LaTeX. And if you're deeply invested in LaTeX, there's a mental model shift. But for new users, Typst is actually easier to learn.
 
-But for general technical documentation, reports, and most common PDF generation needs, Typst handles everything beautifully.
+For general technical documentation, reports, and most common PDF generation needs, Typst handles everything beautifully.
 
 ## Conclusion
 
