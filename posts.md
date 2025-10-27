@@ -7,13 +7,16 @@ redirect_from: "/articles-overview"
 
 I occasionally write about video encoding and software development on this blog. Here are the most recent posts:
 
-<ul>
+<div class="post-listing">
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%B %Y" }})
-    </li>
+    <div class="post-listing-item">
+      <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+      <div class="post-title-link">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>
 
 Blog posts from the Super User blog:
 
