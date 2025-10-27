@@ -28,20 +28,28 @@ This works great, but like I mentioned earlier, the biggest pain point is compil
 
 ## Welcome Typst!
 
-[Typst](https://typst.app/) is a modern alternative to LaTeX that provides similar typographic quality while being significantly faster and more user-friendly. Best of all – and the reason I finally switched over to it – is that Pandoc has native Typst support. Why not just use Typst directly? Well, it's yet another default syntax, and since Markdown is second nature to me, I didn't want to learn another language. So I was initially skeptical to try it out unless I could feed it Markdown sources. But now that is possible with Pandoc!
+[Typst](https://typst.app/) is a modern alternative to LaTeX that provides similar typographic quality while being significantly faster and more user-friendly. You can try it out here:
 
-Installing Typst is straightforward:
+[**Try Typst in an online editor!**](https://typst.app/play/)
+
+Best of all – and the reason I finally switched over to it – is that Pandoc has native Typst support. Why not just use Typst directly? Well, it's yet another default syntax, and since Markdown is second nature to me, I didn't want to learn another language. So I was initially skeptical to try it out unless I could feed it Markdown sources. But now that is possible with Pandoc!
+
+Installing Typst is straightforward under macOS and Windows:
 
 ```bash
 # macOS
 brew install typst
 
-# Linux
-curl -fsSL https://typst.app/install.sh | sh
-
 # Windows
-winget install --id=Typst.Typst -e
+winget install --id=Typst.Typst
 ```
+
+Linux users will have to decide whether they use:
+
+* A [packaged source](https://repology.org/project/typst/versions) (notably it does not include Debian/Ubuntu)
+* A [snap source](https://snapcraft.io/typst)
+* `cargo install --locked typst-cli` (requires Rust toolchain, e.g. `apt install cargo` on Debian/Ubuntu)
+* Or a standalone binary from the [GitHub release page](https://github.com/typst/typst/releases)
 
 ## Using Typst with Pandoc
 
@@ -62,6 +70,8 @@ pandoc input.md \
 
 That's it. Just change `--to=latex` to `--to=typst` and `--pdf-engine=xelatex` to `--pdf-engine=typst`, and point to a Typst template (`.typ` instead of `.tex`).
 
+Of course, you are not going to be able to use Typst's advanced features (like custom macros) directly from Markdown, but for standard documents, it works out of the box. You could build those complex features into the templates though, so let's cover that in the next section.
+
 ## Template Customization and Migration
 
 In the above case, we've used Pandoc's built-in default Typst template, but you can customize it as needed. You can find Typst templates in [their offical GitHub repo](https://github.com/typst/templates), read their guide on [how to write one](https://typst.app/docs/tutorial/making-a-template/), or [browse their universe](https://typst.app/universe/). Because Pandoc has special variables, it's wise to start with the default template and modify it to your needs.
@@ -78,7 +88,9 @@ pandoc input.md \
   --pdf-engine-opt=--root=/path/to/project
 ```
 
-If you have existing LaTeX templates, you'll need to manually port them to Typst. I have been using the [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template) for LaTeX, and have not yet found a good alternative, partly because the Eisvogel template has been around for such a long time. But the good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX. Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system.
+If you have existing LaTeX templates, you'll need to manually port them to Typst. I have been using the [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template) for LaTeX, and have not yet found a good alternative, partly because the Eisvogel template has been around for such a long time. But the good news is that Typst's template syntax is generally cleaner and more intuitive than LaTeX.
+
+Typst templates use a modern scripting language with native functions, conditionals, and variables rather than LaTeX's macro system. To get started with migrating, you can also refer to their [guide for LaTeX users](https://typst.app/docs/guides/for-latex-users/).
 
 I found Claude Code to be very helpful in assisting with the migration of my templates – once you provide it with the syntax and some example templates. It could basically one-shot a port of the Eisvogel template to Typst with minimal guidance. (I will publish this template once I've refined it a bit more.)
 
