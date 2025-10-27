@@ -12,7 +12,7 @@ $base-line-height: 1.6;
 
 $spacing-unit:     2rem;
 
-$text-color:       #1a1a1a;
+$text-color:       #0a0a0a;
 $background-color: #ffffff;
 
 $shade-color:      #0f4c75;
@@ -46,9 +46,9 @@ $error-color-fg: #dc2626;
   --color-primary-light: #3282b8;
   --color-primary-dark: #0a3658;
   --color-accent: #bb86fc;
-  --color-text: #1a1a1a;
-  --color-text-secondary: #4a5568;
-  --color-text-muted: #718096;
+  --color-text: #0a0a0a;
+  --color-text-secondary: #2d3748;
+  --color-text-muted: #4a5568;
   --color-background: #ffffff;
   --color-surface: #f8fafc;
   --color-border: #e2e8f0;
@@ -150,7 +150,6 @@ h3 { font-size: 1.5rem; }
 
 p {
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-secondary);
 
     &:last-child {
         margin-bottom: 0;
@@ -159,7 +158,6 @@ p {
 
 // List styling
 ul, ol {
-    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
 
     li {
@@ -631,13 +629,6 @@ button:focus {
                 color: var(--color-primary-light);
             }
         }
-    }
-
-    p {
-        margin-bottom: 0;
-        font-size: 0.95rem;
-        color: var(--color-text-secondary);
-        line-height: 1.5;
     }
 }
 

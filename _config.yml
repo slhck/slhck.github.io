@@ -10,7 +10,7 @@ github_username:  slhck
 
 # Build settings
 markdown: kramdown
-theme: minima
+# theme: minima  # Theme vendored into project
 gems:
   - jekyll-feed
   - jekyll-redirect-from
