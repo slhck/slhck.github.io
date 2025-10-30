@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using git-cliff for changelogs and migrating away from gitchangelog"
+title: "Using git-cliff for Changelogs and Migrating Away from gitchangelog"
 date: 2025-10-13
 categories: software
 ---
