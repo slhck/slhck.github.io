@@ -17,18 +17,7 @@ This happens because Chrome caches the compiled service worker script separately
 
 ## How to Verify You Have Stale Cache
 
-If you suspect your service worker is cached, check the Chrome profile directory:
-
-```bash
-# On Linux/macOS
-ls -lh ~/.config/chromium/Default/Service\ Worker/ScriptCache/
-# or for Chrome
-ls -lh ~/Library/Application\ Support/Google/Chrome/Default/Service\ Worker/ScriptCache/
-
-# Check the timestamps - if they're older than your last build, you have stale cache
-```
-
-You can also look in the `Preferences` file in your profile directory – this is a JSON file that you first need to pipe through `jq` to get a proper format:
+If you suspect your service worker is cached, check the Chrome profile. Look in the `Preferences` file specifically – this is a JSON file that you first need to pipe through `jq` to get a proper format:
 
 ```bash
 cat Default/Preferences | jq .extensions.settings.YOUR_EXTENSION_ID.service_worker_registration_info
