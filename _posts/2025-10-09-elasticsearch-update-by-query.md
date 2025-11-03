@@ -171,15 +171,14 @@ When it completes, it will show `completed: true` and a summary of the operation
 
 ## When NOT to Use `update_by_query`
 
-This approach isn't always the answer:
+This approach isn't always the answer. If your schema changes completely (e.g., the type of a field changes), use the [reindex API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex) with a mapping transformation.
 
-- **Major schema changes** – Use reindex API with a mapping transformation
-- **Adding new fields from external data** – Reindex from source
-- **Complex transformations** – Consider Logstash or custom ETL
-- **Real-time updates** – Use partial document updates instead
+If you are adding new fields from external data, you should also reindex the document from source, because it will be hard to get the data just from within the update query.
+
+Finally, if you have very complex transformations that can't be expressed in Painless scripts, you may need to fall back to application-level reindexing.
 
 ## Conclusion
 
-The `update_by_query` API is one of Elasticsearch's most powerful yet underutilized features. When you have denormalized data and upstream changes, it lets you propagate those changes efficiently without the overhead of full reindexing.
+For me, the `update_by_query` API is one of Elasticsearch's most powerful features that I've previously underutilized. When you have denormalized data and upstream changes, it lets you propagate those changes efficiently without the overhead of full reindexing.
 
-Next time you're faced with updating millions of documents, remember: you don't need to reindex everything. Just update what changed.
+Next time you're faced with updating millions of documents, remember that you don't need to reindex everything – just update what changed.
