@@ -5,15 +5,15 @@ date: 2025-09-19
 categories: software
 ---
 
-I recently spent way too much time trying to get a Python application (with FastAPI and [`uv`](https://docs.astral.sh/uv/)) running in a read-only Docker container. What should have been a simple security hardening exercise turned into a frustrating debugging session where the container kept crashing with cryptic errors about missing modules that were clearly installed during the build.
+I recently wanted to make a Python application (with FastAPI and [`uv`](https://docs.astral.sh/uv/)) read-only when running in a Docker container. This was a security requirement from an enterprise customer. It should have been simple, but turned out to be quite frustrating, since the container kept crashing with cryptic errors about missing modules that were definitely installed during the build.
 
-If you've ever tried to enable `read_only: true` in your Docker Compose file only to watch your app explode with errors, you'll know the pain.
+In this post, I'll share the solution I found to run `uv`-based Python applications in read-only Docker containers, minimizing filesystem writes while ensuring everything works smoothly.
 
 ## Python Bytecode Files and `uv` Caches
 
-The core problem is that Python really, really wants to write to the filesystem. Every time you import a module, Python tries to create bytecode cache files in `__pycache__` directories. When you're using [`uv`](https://docs.astral.sh/uv/) (the new package manager everyone's raving about, rightfully so!), it also wants to write cache metadata to `~/.cache/uv/`.
+The core problem is that Python really wants to write to the filesystem for caching purposes. Every time you import a module, Python tries to create bytecode cache files in `__pycache__` directories. When you're using [`uv`](https://docs.astral.sh/uv/) (the new package manager everyone's raving about, rightfully so!), it also wants to write cache metadata to `~/.cache/uv/`.
 
-I initially thought I could just mount a bunch of tmpfs volumes over these directories and call it a day. This is how you would usually enable read-only mode for a typical Python app, by specifying something like this in your `docker-compose.yml`:
+I initially thought I could just mount `tmpfs` volumes over these directories. This is how you would usually enable read-only mode for a typical Python app, by specifying something like this in your `docker-compose.yml`:
 
 ```yaml
 read_only: true
@@ -21,16 +21,16 @@ tmpfs:
   - /home/appuser/.cache:uid=1001,gid=1001 # -> these are paths your app needs to write to
 ```
 
-Note: 1001 is the UID of my non-root user. You should always add a non-root user to execute your actual application code in Docker!
+Note: 1001 is the UID of my non-root user. You should [always add a non-root user to execute your actual application code in Docker](https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user)!
 
-But there was another problem: I had a dependency that used SSH to clone a repository during `uv` package installation, and, despite installing the packages already in the Dockerfile, `uv` still tried to install the packages _again_ at runtime when I called my entrypoint script with `uv run ...`. This is because `uv` defaults to checking for updates and re-installing packages unless you tell it not to.
+This didn't work, because there was another problem: I had a [Git dependency](https://docs.astral.sh/uv/concepts/projects/dependencies/#git) that used SSH to clone a repository during `uv` package installation, and, despite installing the packages already in the Dockerfile, `uv` still tried to install the packages _again_ at runtime when I called my entrypoint script with `uv run ...`. This is because `uv` defaults to checking for updates and re-installing packages unless you tell it not to.
 
 ## Solution
 
-The trick is understanding that you:
+The trick is understanding that:
 
-1. don't actually need Python to write bytecode files at runtime if you're smart about the build process. uv has some flags that most people don't know about that solve this elegantly.
-2. can disable uv's default behavior of checking for updates and re-installing packages at runtime.
+1. You don't actually need Python to write bytecode files at runtime if you're smart about the build process. uv has some flags that solve this elegantly.
+2. You can disable uv's default behavior of checking for updates and re-installing packages at runtime.
 
 First, tell Python to stop trying to create bytecode files altogether by setting `PYTHONDONTWRITEBYTECODE=1`. This environment variable is your friend – it prevents Python from creating any `.pyc` files during execution. You can still get the performance benefits of bytecode compilation by using uv's `--compile-bytecode` flag during the build. This pre-compiles everything when you're building the image, so there's no need for runtime compilation.
 
@@ -53,15 +53,13 @@ uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port 80
 
 ## Minimal Filesystem Writes
 
-With the bytecode issue sorted, you only need tmpfs mounts for the bare minimum – just the uv cache directory for metadata. Your `docker-compose.yml` should look like this:
+With the bytecode issue sorted, you only need `tmpfs` mounts for the bare minimum – just the uv cache directory for metadata. Your `docker-compose.yml` should look like this:
 
 ```yaml
 read_only: true
 tmpfs:
   - /home/appuser/.cache:uid=1001,gid=1001
 ```
-
-That's it. No mounting over site-packages, no complex volume configurations.
 
 ## Complete Example
 
@@ -138,7 +136,7 @@ docker diff <container-name>
 # A /home/appuser/.cache
 ```
 
-The key insight is that UV's `--locked --no-editable --compile-bytecode` flags at build time, combined with `PYTHONDONTWRITEBYTECODE=1` at runtime, eliminate most filesystem write requirements while maintaining full functionality.
+The important insight is that uv's `--locked --no-editable --compile-bytecode` flags at build time, combined with `PYTHONDONTWRITEBYTECODE=1` at runtime, eliminate most filesystem write requirements.
 
 ## Security Benefits
 
@@ -149,4 +147,4 @@ Running in read-only mode provides several security advantages:
 - **Compliance**: Meets security requirements for many organizations
 - **Immutable infrastructure**: Ensures containers remain in known good state
 
-This approach has been successfully tested with FastAPI applications using UV for dependency management, providing both security and performance benefits.
+I verified this works with FastAPI, but it should work for any other Python application as well.
