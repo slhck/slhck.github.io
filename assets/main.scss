@@ -191,6 +191,11 @@ ul, ol {
     }
 }
 
+// Allow tables to break out of container
+.post-content {
+    overflow-x: visible;
+}
+
 // Modern responsive header design
 .site-header {
     margin-top: 0;
@@ -766,6 +771,147 @@ button:focus {
             text-align: left;
             padding-right: 0;
             font-size: 0.9rem;
+        }
+    }
+}
+
+// Enhanced table styling with sticky headers
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: var(--spacing-lg) 0;
+    font-size: 0.9rem;
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius-md);
+
+    // Make tables wider than content on desktop and center them
+    @media (min-width: 769px) {
+        // Make table 1200px wide, centered on the page
+        width: 1200px;
+        max-width: calc(100vw - 2rem);
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    caption {
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-align: left;
+        padding: var(--spacing-sm) var(--spacing-md);
+        color: var(--color-text);
+        background-color: var(--color-surface);
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--color-primary);
+        color: white;
+
+        th {
+            padding: var(--spacing-sm) var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-primary-dark);
+            background-color: var(--color-primary);
+            white-space: nowrap;
+            position: relative;
+
+            // Add subtle shadow to indicate stickiness when scrolled
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -4px;
+                height: 4px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+        }
+
+        // Show shadow when user has scrolled
+        &[data-stuck]::after,
+        th::after {
+            opacity: 1;
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: var(--border-width) solid var(--color-border);
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--color-surface);
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            td {
+                padding: var(--spacing-sm) var(--spacing-md);
+                vertical-align: top;
+
+                code {
+                    font-size: 0.85em;
+                }
+
+                small {
+                    font-size: 0.85em;
+                    line-height: 1.4;
+                    color: var(--color-text-secondary);
+                }
+            }
+        }
+    }
+
+    // Support for Bootstrap-style table classes
+    &.table-bordered {
+        border: var(--border-width) solid var(--color-border);
+
+        th, td {
+            border: var(--border-width) solid var(--color-border);
+        }
+    }
+
+    &.table-striped tbody tr:nth-child(even) {
+        background-color: var(--color-surface);
+    }
+
+    &.table-hover tbody tr:hover {
+        background-color: var(--color-surface);
+    }
+}
+
+// Responsive table wrapper for mobile
+@media (max-width: 768px) {
+    table {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.85rem;
+
+        thead th {
+            white-space: nowrap;
+            padding: var(--spacing-xs) var(--spacing-sm);
+        }
+
+        tbody td {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            white-space: nowrap;
         }
     }
 }

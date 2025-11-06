@@ -4,7 +4,7 @@ title: Software
 permalink: /software/
 ---
 
-<div class="content-card fade-in-up">
+<div class="content-card">
 <h2>🎵 Audio & Video Processing</h2>
 
 <div class="software-grid">
@@ -60,7 +60,7 @@ permalink: /software/
 </div>
 </div>
 
-<div class="content-card fade-in-up">
+<div class="content-card">
 <h2>🛠️ Other Software</h2>
 
 <div class="software-grid">
@@ -71,7 +71,7 @@ permalink: /software/
 </div>
 </div>
 
-<div class="content-card fade-in-up">
+<div class="content-card">
 <h2>🌐 Websites & Helper Tools</h2>
 
 <div class="software-grid">
@@ -96,7 +96,7 @@ permalink: /software/
 </div>
 </div>
 </div>
-<div class="content-card fade-in-up">
+<div class="content-card">
 <h2>📦 Archived / No Longer Maintained</h2>
 
 <h3>Video</h3>

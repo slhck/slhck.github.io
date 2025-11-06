@@ -22,7 +22,7 @@ Notes for reading this table:
 - Q<sub>min</sub> stands for the setting to be used for achieving lowest quality and Q<sub>max</sub> for highest. These are not just lowest and highest values.
 - Q<sub>def</sub> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.
 - Some encoders use private options instead of the regular <code>-q</code>. Read the second column *Param* for the correct option to use.
-- Rows highlighted with green refer to encoders that allow you to use VBR. Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.
+- Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.
 
 <table class="table table-bordered">
 <caption>Video</caption>
@@ -39,7 +39,7 @@ Notes for reading this table:
  </thead>
  <tbody>
    <tr>
-      <td>libx264</td>
+      <td><code>libx264</code></td>
       <td><code>-crf</code></td>
       <td>51</td>
       <td>0</td>
@@ -50,7 +50,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>libx265</td>
+      <td><code>libx265</code></td>
       <td><code>-crf</code></td>
       <td>51</td>
       <td>0</td>
@@ -61,7 +61,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>libvpx-vp9</td>
+      <td><code>libvpx-vp9</code></td>
       <td><code>-crf</code></td>
       <td>63</td>
       <td>0</td>
@@ -73,7 +73,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>libaom-av1</td>
+      <td><code>libaom-av1</code></td>
       <td><code>-crf</code></td>
       <td>63</td>
       <td>0</td>
@@ -83,7 +83,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>libsvtav1</td>
+      <td><code>libsvtav1</code></td>
       <td><code>-crf</code></td>
       <td>63</td>
       <td>0</td>
@@ -93,7 +93,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>h264_videotoolbox</td>
+      <td><code>h264_videotoolbox</code></td>
       <td><code>-q:v</code></td>
       <td>1</td>
       <td>100</td>
@@ -103,7 +103,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>hevc_videotoolbox</td>
+      <td><code>hevc_videotoolbox</code></td>
       <td><code>-q:v</code></td>
       <td>1</td>
       <td>100</td>
@@ -113,7 +113,7 @@ Notes for reading this table:
       </td>
    </tr>
     <tr>
-      <td>libxvid</td>
+      <td><code>libxvid</code></td>
       <td><code>-q:v</code></td>
       <td>31</td>
       <td>1</td>
@@ -122,7 +122,7 @@ Notes for reading this table:
       <td><small>2 is visually lossless. Doubling the value results in half the bitrate. Don't use 1, as it wastes space.<br>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
    </tr>
    <tr>
-      <td>libtheora</td>
+      <td><code>libtheora</code></td>
       <td><code>-q:v</code></td>
       <td>0</td>
       <td>10</td>
@@ -131,7 +131,7 @@ Notes for reading this table:
       <td><small>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
    </tr>
    <tr class="warning">
-      <td>mpeg1, mpeg2, mpeg4, flv, h263, h263+, msmpeg+</td>
+      <td><code>mpeg1</code>, <code>mpeg2</code>, <code>mpeg4</code>, <code>flv</code>, <code>h263</code>, <code>h263+</code>, <code>msmpeg+</code></td>
       <td><code>-q:v</code></td>
       <td>31</td>
       <td>1</td>
@@ -141,7 +141,7 @@ Notes for reading this table:
       <code>-q:v</code> works for mpeg4, but haven't tested others.</small></td>
    </tr>
    <tr>
-      <td>prores_ks</td>
+      <td><code>prores_ks</code></td>
       <td><code>-profile:v</code><br><code>-q:v</code></td>
       <td>Profile: 0<br>Quality: 32</td>
       <td>Profile: 5<br>Quality: 0</td>
@@ -151,7 +151,7 @@ Notes for reading this table:
       </td>
    </tr>
    <tr>
-      <td>prores_videotoolbox</td>
+      <td><code>prores_videotoolbox</code></td>
       <td><code>-profile:v</code></td>
       <td>0</td>
       <td>5</td>
@@ -177,7 +177,7 @@ Notes for reading this table:
  </thead>
  <tbody>
    <tr>
-      <td>libfdk_aac</td>
+      <td><code>libfdk_aac</code></td>
       <td><code>-vbr</code></td>
       <td>1</td>
       <td>5</td>
@@ -186,7 +186,7 @@ Notes for reading this table:
       <td><small>Highest quality AAC encoder. Not available in standard builds—requires custom compilation with <code>--enable-libfdk-aac --enable-nonfree</code>.</small></td>
    </tr>
    <tr>
-      <td>libopus</td>
+      <td><code>libopus</code></td>
       <td><code>-b:a</code></td>
       <td>6–8K (mono)</td>
       <td>–</td>
@@ -195,7 +195,7 @@ Notes for reading this table:
       <td><small><code>-vbr on</code> is default, <code>-b:a</code> just sets the target, see <a href="https://ffmpeg.org/ffmpeg-codecs.html#toc-libopus-1">FFmpeg documentation</a>.</small></td>
    </tr>
    <tr>
-      <td>libvorbis</td>
+      <td><code>libvorbis</code></td>
       <td><code>-q:a</code></td>
       <td>0</td>
       <td>10</td>
@@ -204,7 +204,7 @@ Notes for reading this table:
       <td><small>Make sure not to use <code>vorbis</code>, which is the (bad) internal encoder.</small></td>
    </tr>
    <tr>
-      <td>libmp3lame</td>
+      <td><code>libmp3lame</code></td>
       <td><code>-q:a</code></td>
       <td>9</td>
       <td>0</td>
@@ -213,7 +213,7 @@ Notes for reading this table:
       <td><small>Corresponds to <code>lame -V</code>. See <a href="http://ffmpeg.org/trac/ffmpeg/wiki/Encoding%20VBR%20(Variable%20Bit%20Rate)%20mp3%20audio">FFmpeg Wiki</a>.</small></td>
    </tr>
    <tr>
-      <td>aac_at</td>
+      <td><code>aac_at</code></td>
       <td><code>-q:a</code><br><code>-aac_at_mode</code></td>
       <td>n/a</td>
       <td>n/a</td>
@@ -222,7 +222,7 @@ Notes for reading this table:
       <td><small>macOS AudioToolbox AAC encoder. High quality, supports multiple VBR modes (vbr, cvbr, abr). Use <code>-aac_at_mode vbr</code> with <code>-q:a</code> for quality-based VBR. Generally better quality than native <code>aac</code> encoder.</small></td>
    </tr>
    <tr class="warning">
-      <td>aac</td>
+      <td><code>aac</code></td>
       <td><code>-q:a</code></td>
       <td>0.1</td>
       <td>2</td>
