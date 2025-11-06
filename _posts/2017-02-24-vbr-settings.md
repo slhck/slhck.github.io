@@ -22,7 +22,6 @@ Notes for reading this table:
 - Q<sub>min</sub> stands for the setting to be used for achieving lowest quality and Q<sub>max</sub> for highest. These are not just lowest and highest values.
 - Q<sub>def</sub> is the default value chosen if no other is specified. This means that (most?) encoders will use one or the other VBR mode by default, e.g. libx264. I wasn't able to research whether this applies to all encoders.
 - Some encoders use private options instead of the regular <code>-q</code>. Read the second column *Param* for the correct option to use.
-- Rows in yellow aren't really VBR or I simply couldn't find out whether they support it. Rows in red mean: No VBR support.
 
 <table class="table table-bordered">
 <caption>Video</caption>
@@ -130,7 +129,7 @@ Notes for reading this table:
       <td>7</td>
       <td><small>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
    </tr>
-   <tr class="warning">
+   <tr>
       <td><code>mpeg1</code>, <code>mpeg2</code>, <code>mpeg4</code>, <code>flv</code>, <code>h263</code>, <code>h263+</code>, <code>msmpeg+</code></td>
       <td><code>-q:v</code></td>
       <td>31</td>
@@ -221,7 +220,7 @@ Notes for reading this table:
       <td>VBR mode with <code>-q:a</code></td>
       <td><small>macOS AudioToolbox AAC encoder. High quality, supports multiple VBR modes (vbr, cvbr, abr). Use <code>-aac_at_mode vbr</code> with <code>-q:a</code> for quality-based VBR. Generally better quality than native <code>aac</code> encoder.</small></td>
    </tr>
-   <tr class="warning">
+   <tr>
       <td><code>aac</code></td>
       <td><code>-q:a</code></td>
       <td>0.1</td>
