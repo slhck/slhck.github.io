@@ -6,6 +6,7 @@ categories: video
 redirect_from: "/video-encoding"
 notes: Please let me know if there's anything wrong or if you're missing some values. Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.
 updates:
+    - January 2025 – Update libvpx to libvpx-vp9; add AV1 encoders (libaom-av1, libsvtav1); add VideoToolbox encoders (h264_videotoolbox, hevc_videotoolbox, prores_videotoolbox); update ProRes (prores_ks) with quality settings; add aac_at (macOS); clarify native aac VBR is experimental
     - April 2019 – Clarify Opus options
     - March 2019 – Clarify range of AAC; add Opus defaults
     - November 2018 – Remove unsupported encoders
@@ -37,7 +38,7 @@ Notes for reading this table:
    </tr>
  </thead>
  <tbody>
-   <tr class="success">
+   <tr>
       <td>libx264</td>
       <td><code>-crf</code></td>
       <td>51</td>
@@ -48,7 +49,7 @@ Notes for reading this table:
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.264">H.264 Encoding Guide</a>.</small>
       </td>
    </tr>
-   <tr class="success">
+   <tr>
       <td>libx265</td>
       <td><code>-crf</code></td>
       <td>51</td>
@@ -59,21 +60,59 @@ Notes for reading this table:
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.265">H.265 Encoding Guide</a> and <a href="http://x265.readthedocs.org/en/default/cli.html#quality-rate-control-and-rate-distortion-options">x265 docs</a>.</small>
       </td>
    </tr>
-   <tr class="success">
-      <td>libvpx</td>
-      <td><code>-qmin</code><br><code>-qmax</code><br>
-        <code>-crf</code><br><code>-b:v</code>
-      </td>
+   <tr>
+      <td>libvpx-vp9</td>
+      <td><code>-crf</code></td>
       <td>63</td>
       <td>0</td>
-      <td>10</td>
-      <td><code>-qmin</code>: 0–4<br><code>-qmax</code>: 50–63<br><code>-crf</code>: 30</td>
+      <td>31 (1080p)</td>
+      <td>15–35</td>
       <td>
-        <small><code>-b:v</code> sets target bitrate, or maximum bitrate when <code>-crf</code> is set (enables CQ mode). See also <a href="http://trac.ffmpeg.org/wiki/Encode/VP9">VP9 Encoding Guide</a>. Setting <code>-maxrate</code> and <code>-bufsize</code> is also possible.<br/>
+        <small>Recommended CRF 31 for 1080p HD. Use <code>-b:v 0</code> for pure CRF mode. Two-pass encoding recommended for best quality. See <a href="https://trac.ffmpeg.org/wiki/Encode/VP9">VP9 Encoding Guide</a>.<br/>
         </small>
       </td>
    </tr>
-    <tr class="success">
+   <tr>
+      <td>libaom-av1</td>
+      <td><code>-crf</code></td>
+      <td>63</td>
+      <td>0</td>
+      <td>n/a</td>
+      <td>20–35</td>
+      <td><small>0 is lossless. CRF 23 is roughly equivalent to x264 CRF 19. Slower than other encoders but excellent compression. See <a href="https://trac.ffmpeg.org/wiki/Encode/AV1">AV1 Encoding Guide</a>.</small>
+      </td>
+   </tr>
+   <tr>
+      <td>libsvtav1</td>
+      <td><code>-crf</code></td>
+      <td>63</td>
+      <td>0</td>
+      <td>35</td>
+      <td>20–40</td>
+      <td><small>Much faster than libaom-av1 with similar quality. Use <code>-preset</code> (0–13) to control speed/quality tradeoff. See <a href="https://trac.ffmpeg.org/wiki/Encode/AV1">AV1 Encoding Guide</a>.</small>
+      </td>
+   </tr>
+   <tr>
+      <td>h264_videotoolbox</td>
+      <td><code>-q:v</code></td>
+      <td>1</td>
+      <td>100</td>
+      <td>n/a</td>
+      <td>70–85</td>
+      <td><small>macOS hardware encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.</small>
+      </td>
+   </tr>
+   <tr>
+      <td>hevc_videotoolbox</td>
+      <td><code>-q:v</code></td>
+      <td>1</td>
+      <td>100</td>
+      <td>n/a</td>
+      <td>70–85</td>
+      <td><small>macOS hardware HEVC encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.</small>
+      </td>
+   </tr>
+    <tr>
       <td>libxvid</td>
       <td><code>-q:v</code></td>
       <td>31</td>
@@ -82,7 +121,7 @@ Notes for reading this table:
       <td>3–5</td>
       <td><small>2 is visually lossless. Doubling the value results in half the bitrate. Don't use 1, as it wastes space.<br>No VBR by default—it uses <code>-b:v 200K</code> unless specified otherwise.</small></td>
    </tr>
-   <tr class="success">
+   <tr>
       <td>libtheora</td>
       <td><code>-q:v</code></td>
       <td>0</td>
@@ -101,16 +140,24 @@ Notes for reading this table:
       <td><small>2 is visually lossless. Doubling the value results in half the bitrate.<br>
       <code>-q:v</code> works for mpeg4, but haven't tested others.</small></td>
    </tr>
-   <tr class="warning">
-      <td>prores</td>
+   <tr>
+      <td>prores_ks</td>
+      <td><code>-profile:v</code><br><code>-q:v</code></td>
+      <td>Profile: 0<br>Quality: 32</td>
+      <td>Profile: 5<br>Quality: 0</td>
+      <td>Profile: 2<br>Quality: n/a</td>
+      <td>Profile: Depends<br>Quality: 9–13</td>
+      <td><small>Recommended software ProRes encoder. Profiles: 0=Proxy, 1=LT, 2=Standard, 3=HQ, 4=4444, 5=4444 XQ. Quality controlled via <code>-q:v</code> (0=best, 32=worst), recommended 11. Only encoder supporting 4444/XQ and alpha channels. See <a href="https://trac.ffmpeg.org/wiki/Encode/VFX">VFX Encoding Guide</a>.<br>Note: <code>prores</code> and <code>prores_aw</code> encoders also exist but lack profile and quality controls.</small>
+      </td>
+   </tr>
+   <tr>
+      <td>prores_videotoolbox</td>
       <td><code>-profile:v</code></td>
       <td>0</td>
-      <td>3</td>
-      <td>2</td>
+      <td>5</td>
+      <td>auto</td>
       <td>Depends</td>
-      <td><small>Not VBR. Corresponds to the profiles Proxy, LT, Std, HQ.<br>
-                              ProRes might support <code>-q:v</code>?<br>
-                              Target bitrates are in the <a href="http://images.apple.com/support/finalcutpro/docs/Apple-ProRes-White-Paper-July-2009.pdf">ProRes Whitepaper</a>.</small>
+      <td><small>macOS hardware ProRes encoder. Profiles: 0=Proxy, 1=LT, 2=Standard, 3=HQ, 4=4444, 5=XQ. Profile auto-selected based on input format.</small>
       </td>
    </tr>
 </tbody>
@@ -129,16 +176,16 @@ Notes for reading this table:
    </tr>
  </thead>
  <tbody>
-   <tr class="success">
+   <tr>
       <td>libfdk_aac</td>
       <td><code>-vbr</code></td>
       <td>1</td>
       <td>5</td>
       <td>?</td>
       <td>4 (~128kbps)</td>
-      <td><small>Currently the highest quality encoder.</small></td>
+      <td><small>Highest quality AAC encoder. Not available in standard builds—requires custom compilation with <code>--enable-libfdk-aac --enable-nonfree</code>.</small></td>
    </tr>
-   <tr class="success">
+   <tr>
       <td>libopus</td>
       <td><code>-b:a</code></td>
       <td>6–8K (mono)</td>
@@ -147,7 +194,7 @@ Notes for reading this table:
       <td>–</td>
       <td><small><code>-vbr on</code> is default, <code>-b:a</code> just sets the target, see <a href="https://ffmpeg.org/ffmpeg-codecs.html#toc-libopus-1">FFmpeg documentation</a>.</small></td>
    </tr>
-   <tr class="success">
+   <tr>
       <td>libvorbis</td>
       <td><code>-q:a</code></td>
       <td>0</td>
@@ -156,7 +203,7 @@ Notes for reading this table:
       <td>4 (~128kbps)</td>
       <td><small>Make sure not to use <code>vorbis</code>, which is the (bad) internal encoder.</small></td>
    </tr>
-   <tr class="success">
+   <tr>
       <td>libmp3lame</td>
       <td><code>-q:a</code></td>
       <td>9</td>
@@ -165,6 +212,15 @@ Notes for reading this table:
       <td>2 (~190kbps)</td>
       <td><small>Corresponds to <code>lame -V</code>. See <a href="http://ffmpeg.org/trac/ffmpeg/wiki/Encoding%20VBR%20(Variable%20Bit%20Rate)%20mp3%20audio">FFmpeg Wiki</a>.</small></td>
    </tr>
+   <tr>
+      <td>aac_at</td>
+      <td><code>-q:a</code><br><code>-aac_at_mode</code></td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>auto</td>
+      <td>VBR mode with <code>-q:a</code></td>
+      <td><small>macOS AudioToolbox AAC encoder. High quality, supports multiple VBR modes (vbr, cvbr, abr). Use <code>-aac_at_mode vbr</code> with <code>-q:a</code> for quality-based VBR. Generally better quality than native <code>aac</code> encoder.</small></td>
+   </tr>
    <tr class="warning">
       <td>aac</td>
       <td><code>-q:a</code></td>
@@ -172,7 +228,7 @@ Notes for reading this table:
       <td>2</td>
       <td>?</td>
       <td>1.3 (~128kbps)</td>
-      <td><small>Is "experimental and [likely gives] worse results than CBR" according to FFmpeg Wiki. Ranges from 18 to 190kbps.</small></td>
+      <td><small>Native FFmpeg AAC encoder (second-best quality). VBR mode via <code>-q:a</code> is "experimental and [likely gives] worse results than CBR" according to FFmpeg Wiki. Ranges from 18 to 190kbps. Prefer <code>libfdk_aac</code> or <code>aac_at</code> (macOS) for better quality.</small></td>
    </tr>
  </tbody>
 </table>
