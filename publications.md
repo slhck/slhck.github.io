@@ -28,6 +28,7 @@ permalink: /publications/
 
 ### Journal Papers
 
+* Chen, B., Shang, Z., Chung, J. W., Lerner, D., Robitza, W., Rao, R. R. R., Raake, A., & Bovik, A. C. (2024). [Satellite Streaming Video QoE Prediction: A Real-World Subjective Database and Network-Level Prediction Models.](https://doi.org/10.1109/ACCESS.2025.3631409) IEEE Access.
 * Seufert, M., Spangenberger, M., Poignée, F., Wamser, F., Robitza, W., Timmerer, C., & Hossfeld, T. (2024). [COBIRAS: Offering a Continuous Bit Rate Slide to Maximize DASH Streaming Bandwidth Utilization.](https://opus.bibliothek.uni-augsburg.de/opus4/files/115655/115655.pdf) ACM Transactions on Multimedia Computing, Communications, and Applications.
 * Raake, A., Borer, S., Satti, S. M., Gustafsson, J., Rao, R. R. R., Medagli, S., List, P., Göring, S., Lindero, D., Robitza, W., Heikkilä, G., Broom, S., Schmidmer, C., Feiten, B., Wüstenhagen, U., Wittmann, T., Obermann, M., & Bitto, R. (2020). [Multi-Model Standard for Bitstream-, Pixel-Based and Hybrid Video Quality Assessment of UHD/4K: ITU-T P.1204.](https://ieeexplore.ieee.org/iel7/6287639/8948470/09234526.pdf) IEEE Access, 8, 193020–193049.
 * Kara, P. A., Robitza, W., Pinter, N., Martini, M. G., Raake, A., & Simon, A. (2019). [Comparison of HD and UHD video quality with and without the influence of the labeling effect.](https://link.springer.com/article/10.1007/s41233-019-0027-3) Quality and User Experience, 4(1), 4.
