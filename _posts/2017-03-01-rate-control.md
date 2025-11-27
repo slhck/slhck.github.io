@@ -185,7 +185,7 @@ Note that this comparison is by no means exhaustive or fully representative. Typ
 
 Let's start with the different bitrate control modes. The left column is for 3000 kbit/s, the right for 7500 kbit/s. I excluded the other target bitrates since they did not show strong differences in the graphs, since the bitrate is already at such a low point that the encoder does not have a lot of choices on how to assign it. The rows are the different clips from Big Buck Bunny (BBB) and Tears of Steel (ToS). The line represents a LOESS smoothing over the individual frame sizes—it's an indication of how the bitrate changes over the clip's duration.
 
-![](/assets/images/rate_modes.png)
+![](/assets/images/rate-control/rate_modes.png)
 
 You can see that—especially for the first four contents—ABR (the turquoise line) and ABR+VBV (purple) wrongly estimate the clip's complexity. In fact, the Big Buck Bunny sequence starts with a fade-in, smooth gradients and low motion, which means that not many bits are needed to compress it with good enough quality. The 2-pass approach correctly starts with a lower bitrate and saves bandwith. The last third of the video clip contains lots of spatial details, which makes the 2-pass mode use up more of the bits that it saved in the beginning.
 
@@ -195,13 +195,13 @@ Of course, there are also clips that are so easy to encode (or that have little 
 
 For the quality-based modes (CQP and CRF), I only show the results from CRF/QP 17 and 23, which are at the "good" end of the quality range (just like 3000 and 7500 kbit/s are "good" values for full HD video). The order of the curves is inversed—lower means better quality:
 
-![](/assets/images/quality_modes.png)
+![](/assets/images/rate-control/quality_modes.png)
 
 Here, the same trends as for 2-pass can be seen: the bitrate follows the content complexity. However, with CRF, it is more constrained, saving bits where they are not needed. The most interesting case is the bottom left: CRF saves bitrate over constant QP, as it usually does, but it does so in a constant offset. I would have to guess why this is the case—maybe this post will be updated with some further analyses.
 
 Generally we can see how a CRF approach would nicely match the content, if only we could know beforehand what the resulting average bitrate would be… This is where CRF+VBV comes into play:
 
-![](/assets/images/crf_vbv_modes.png)
+![](/assets/images/rate-control/crf_vbv_modes.png)
 
 Choosing the correct target / maximum bitrate for a given CRF is often guesswork and depends entirely on the source video. However, when correctly done, you will not constrain the quality too much, pushing it to the limit (as in the case with 3000 kbit/s and CRF 17). You also don't want to let the bitrate vary too much. CRF 23 is the default setting for `libx264`, and you can see that given a proper target bitrate setting (like 7500 kbit/s), this encoding mode would let the bitrate vary enough to account for differences in content complexity, still retaining compliance to the VBV model.
 
