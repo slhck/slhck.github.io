@@ -80,7 +80,7 @@ These `name` values are the column names you can use in your SQL expressions.
 ## Conclusion
 
 Using SQL expressions in Grafana with Elasticsearch queries allows for enhanced data transformations and calculations that were previously difficult… or impossible.
-By leveraging the *Query Inspector* to discover column names, you'll get an understanding of what columns are available for your SQL expressions.
+Just leverage the *Query Inspector* to discover all column names.
 
 <small>
 **PS:** It would be nice if Grafana supported auto-complete for column names, or a more visual SQL expression builder in the future!
