@@ -9,7 +9,7 @@ When working with `.env` files in shell scripts, special characters can cause un
 
 Let's assume you have an `.env` file like this which does not include any quotes around values:
 
-```# .env
+```
 DATABASE_URL=postgresql://user:p@ssw0rd!#$&*()@localhost:5432/dbname
 ```
 
