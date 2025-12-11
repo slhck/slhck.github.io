@@ -57,6 +57,11 @@ permalink: /software/
 <h3>📺 <a href="https://github.com/slhck/video-fft">video-fft</a></h3>
 <p>Calculate the magnitude spectrum of a video sequence, via Fast Fourier Transform</p>
 </div>
+
+<div class="software-item">
+<h3>🎬 <a href="https://github.com/aveq-research/videoparser-ng">videoparser-ng</a></h3>
+<p>A fast video bitstream parser for extracting frame-level and sequence-level metrics (H.264, HEVC, VP9, AV1)</p>
+</div>
 </div>
 </div>
 
