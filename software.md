@@ -62,6 +62,11 @@ permalink: /software/
 <h3>🎬 <a href="https://github.com/aveq-research/videoparser-ng">videoparser-ng</a></h3>
 <p>A fast video bitstream parser for extracting frame-level and sequence-level metrics (H.264, HEVC, VP9, AV1)</p>
 </div>
+
+<div class="software-item">
+<h3>📱 <a href="https://github.com/slhck/SubjectivePlayer">SubjectivePlayer</a></h3>
+<p>A video player for Android, supporting Subjective Quality Assessment</p>
+</div>
 </div>
 </div>
 
@@ -122,7 +127,6 @@ permalink: /software/
 
 <ul>
 <li><a href="https://github.com/slhck/napping-player">NappingPlayer for Android</a> - A video player for Android tablets that allows you to conduct "Napping" experiments for sensory profiling of multimedia content</li>
-<li><a href="https://github.com/slhck/SubjectivePlayer">SubjectivePlayer for Android</a> - A video player for Android, supporting Subjective Quality Assessment</li>
 </ul>
 
 <h3>Various projects from courses</h3>
