@@ -67,6 +67,11 @@ permalink: /software/
 <h3>📱 <a href="https://github.com/slhck/SubjectivePlayer">SubjectivePlayer</a></h3>
 <p>A video player for Android, supporting Subjective Quality Assessment</p>
 </div>
+
+<div class="software-item">
+<h3>🔢 <a href="https://github.com/slhck/ffmpeg-debug-qp">ffmpeg-debug-qp</a></h3>
+<p>A script for debugging QP values from video streams</p>
+</div>
 </div>
 </div>
 
@@ -114,7 +119,6 @@ permalink: /software/
 <ul>
 <li><a href="https://github.com/slhck/active-video-probe">active-video-probe</a> - An Active Video Probe demo for Google Chrome running HTML5 and YouTube video.</li>
 <li><a href="https://github.com/slhck/h26x-extractor">h26x-extractor</a> - Extracts NAL units from H.264 bitstreams and decodes their type and content</li>
-<li><a href="https://github.com/slhck/ffmpeg-debug-qp">ffmpeg-debug-qp</a> - A script debugging QP values from video streams.</li>
 </ul>
 
 <h3>Web</h3>
