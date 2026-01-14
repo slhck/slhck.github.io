@@ -72,6 +72,11 @@ permalink: /software/
 <h3>🔢 <a href="https://github.com/slhck/ffmpeg-debug-qp">ffmpeg-debug-qp</a></h3>
 <p>A script for debugging QP values from video streams</p>
 </div>
+
+<div class="software-item">
+<h3>🔍 <a href="https://github.com/slhck/video-offset-finder">video-offset-finder</a></h3>
+<p>Find the temporal offset between two videos using perceptual hashing or SAD</p>
+</div>
 </div>
 </div>
 
