@@ -474,6 +474,37 @@ pre {
     background-color: var(--color-surface);
     border: var(--border-width) solid var(--color-border);
     overflow-x: auto;
+
+    // Custom scrollbar styling for code blocks
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+
+    // WebKit (Chrome, Safari, Edge)
+    &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-border);
+        border-radius: 4px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+
+        &:hover {
+            background-color: var(--color-text-muted);
+        }
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
 }
 
 code {
@@ -903,6 +934,30 @@ table {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         font-size: 0.85rem;
+
+        // Custom scrollbar styling for tables
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-border) transparent;
+
+        &::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-border);
+            border-radius: 4px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+
+            &:hover {
+                background-color: var(--color-text-muted);
+            }
+        }
 
         thead th {
             white-space: nowrap;

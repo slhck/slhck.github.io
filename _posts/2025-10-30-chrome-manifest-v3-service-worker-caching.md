@@ -26,7 +26,7 @@ cat Default/Preferences | jq .extensions.settings.YOUR_EXTENSION_ID.service_work
 Replace `YOUR_EXTENSION_ID` with your actual extension ID (you can find this on the `chrome://extensions` page when Developer mode is enabled).
 This prints:
 
-```json
+```jsonc
 {
   "version": "1.28.1"  // This might be older than your actual extension version!
 }
