@@ -1,8 +1,9 @@
 #!/bin/bash
 # Add a photo to the Jekyll photo blog.
-# Usage: ./add-photo.sh <image-file> [title] [location]
+# Usage: ./add-photo.sh <image-file> [title] [location] [date]
 #
 # If title/location not provided, will prompt interactively.
+# Date format: YYYY-MM-DD (defaults to today if not provided)
 # Skips conversion if already AVIF and ≤2500px.
 
 set -e
@@ -24,7 +25,8 @@ fi
 
 # Check arguments
 if [ -z "$1" ]; then
-    echo "Usage: $0 <image-file> [title] [location]"
+    echo "Usage: $0 <image-file> [title] [location] [date]"
+    echo "  date format: YYYY-MM-DD (defaults to today)"
     exit 1
 fi
 
@@ -34,9 +36,10 @@ if [ ! -f "$INPUT_FILE" ]; then
     exit 1
 fi
 
-# Get title and location
+# Get title, location, and date
 TITLE="$2"
 LOCATION="$3"
+DATE_OVERRIDE="$4"
 
 if [ -z "$TITLE" ]; then
     read -p "Title: " TITLE
@@ -44,6 +47,10 @@ fi
 
 if [ -z "$LOCATION" ]; then
     read -p "Location: " LOCATION
+fi
+
+if [ -z "$DATE_OVERRIDE" ]; then
+    read -p "Date [YYYY-MM-DD, enter for today]: " DATE_OVERRIDE
 fi
 
 if [ -z "$TITLE" ]; then
@@ -57,8 +64,20 @@ slugify() {
 }
 
 SLUG=$(slugify "$TITLE")
-DATE=$(date +%Y-%m-%d)
-DATETIME=$(date +"%Y-%m-%d %H:%M:%S +0000")
+
+# Handle date
+if [ -n "$DATE_OVERRIDE" ]; then
+    # Validate date format
+    if [[ ! "$DATE_OVERRIDE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+        echo "Error: Invalid date format. Use YYYY-MM-DD"
+        exit 1
+    fi
+    DATE="$DATE_OVERRIDE"
+    DATETIME="${DATE} 12:00:00 +0000"
+else
+    DATE=$(date +%Y-%m-%d)
+    DATETIME=$(date +"%Y-%m-%d %H:%M:%S +0000")
+fi
 
 # Generate unique filename
 OUTPUT_NAME="${DATE}-${SLUG}"

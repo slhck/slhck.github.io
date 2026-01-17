@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
       openEffect: 'fade',
       closeEffect: 'fade',
       slideEffect: 'fade',
-      descPosition: 'bottom'
+      descPosition: 'bottom',
+      moreLength: 0,
+      sanitize: false
     });
   }
 });
