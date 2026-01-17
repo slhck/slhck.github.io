@@ -20,7 +20,11 @@
             {% endunless %}
           {% endif %}
         {% endfor %}
-        <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://overtheseaofrains.tumblr.com">Photography</a>
+        {% if page.url == "/photos/" %}
+          <a class="nav-link active" href="{{ "/photos/" | relative_url }}">Photos</a>
+        {% else %}
+          <a class="nav-link" href="{{ "/photos/" | relative_url }}">Photos</a>
+        {% endif %}
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
           <span class="theme-icon" id="theme-icon">🌙</span>
         </button>

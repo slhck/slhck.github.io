@@ -1,0 +1,38 @@
+---
+layout: default
+title: Photos
+permalink: /photos/
+exclude: true
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/glightbox.min.css' | relative_url }}">
+
+<div class="photos-page">
+  {% assign sorted_photos = site.photos | sort: 'date' | reverse %}
+
+  <div class="photo-feed">
+    {% for photo in sorted_photos %}
+    <article class="photo-post">
+      <a href="{{ '/assets/images/photos/' | append: photo.image | relative_url }}"
+         class="glightbox photo-link"
+         data-gallery="gallery1"
+         data-title="{{ photo.title }}"
+         data-description="{% if photo.location %}<i>{{ photo.location }}</i><br>{% endif %}{{ photo.date | date: '%B %Y' }}">
+        <img src="{{ '/assets/images/photos/' | append: photo.image | relative_url }}"
+             alt="{{ photo.title }}"
+             loading="lazy">
+      </a>
+      <div class="photo-info">
+        <h2 class="photo-title">{{ photo.title }}</h2>
+        <p><i>{% if photo.location %}{{ photo.location }}{% endif %}</i></p>
+        <time class="photo-date" datetime="{{ photo.date | date_to_xmlschema }}">
+          {{ photo.date | date: "%B %Y" }}
+        </time>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ '/assets/js/glightbox.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/photos.js' | relative_url }}"></script>

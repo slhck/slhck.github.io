@@ -10,6 +10,7 @@ layout: default
 <div class="content-card">
 <h2>💼 What I do for a living</h2>
 <p>I investigate how humans perceive multimedia, mostly targeting video streaming applications and web services. As the CEO and founder of <a href="https://aveq.info/"><strong>AVEQ</strong></a>, I offer expertise and consulting in audiovisual quality coding, streaming, and quality monitoring.</p>
+<p>I also make photographs in my free time. You can find a selection on the <a href="/photos">photos page</a>.</p>
 </div>
 
 <div class="content-card">

@@ -752,6 +752,91 @@ button:focus {
     }
 }
 
+// Photo gallery styles
+.photos-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.photo-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+}
+
+.photo-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-link {
+    display: block;
+    line-height: 0;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+        transition: opacity 0.2s ease;
+    }
+
+    &:hover img {
+        opacity: 0.95;
+    }
+}
+
+.photo-info {
+    padding-top: var(--spacing-md);
+}
+
+.photo-title {
+    font-family: 'Andada Pro', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 0.25rem 0;
+    color: var(--color-text);
+}
+
+.photo-date {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .photo-feed {
+        gap: 5rem;
+    }
+
+    .photo-title {
+        font-size: 1.1rem;
+    }
+
+    .photo-date {
+        font-size: 0.85rem;
+    }
+}
+
+// GLightbox overrides
+.gslide-description {
+    background: transparent !important;
+}
+
+.gdesc-inner {
+    font-family: $base-font-family !important;
+}
+
+h4.gslide-title {
+    font-family: 'Andada Pro', Georgia, serif !important;
+    font-weight: 400 !important;
+    color: white !important;
+}
+
+.gslide-desc {
+    font-family: $base-font-family !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
 // Post listing two-column layout
 .post-listing {
     margin: var(--spacing-lg) 0;
