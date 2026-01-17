@@ -3,7 +3,7 @@ subtitle: a.k.a. slhck
 email: werner.robitza@gmail.com
 description:
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://slhck.info" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://slhck.info" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username: slhck
 github_username:  slhck
