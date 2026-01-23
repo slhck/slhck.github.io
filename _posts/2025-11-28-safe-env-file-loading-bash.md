@@ -3,6 +3,8 @@ layout: post
 title: "Safely Loading .env Files with Special Characters in Bash"
 date: 2025-11-28
 categories: bash
+updates:
+    - January 2026 – Fixed issues with special characters in values by using printf instead of echo/sed, and reading full lines instead of splitting on IFS. This was done with the help of Claude Code.
 ---
 
 When working with `.env` files in shell scripts, special characters can cause unexpected behavior or security issues. The common approach of using `source .env` or `export $(cat .env)` breaks when values contain spaces, quotes, or shell metacharacters.
@@ -21,33 +23,42 @@ Here's a robust function that handles special characters safely:
 load_env_file() {
   local env_file="${1:-.env}"
   if [ -f "$env_file" ]; then
-    set -a
-    while IFS='=' read -r key value; do
+    while IFS= read -r line || [[ -n "$line" ]]; do
       # Skip comments and empty lines
-      [[ "$key" =~ ^#.*$ ]] && continue
-      [[ -z "$key" ]] && continue
-      # Trim leading/trailing whitespace
-      value=$(echo "$value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-      # Only remove quotes if they match at start and end
-      if [[ "$value" =~ ^\"(.*)\"$ ]] || [[ "$value" =~ ^\'(.*)\'$ ]]; then
+      [[ "$line" =~ ^[[:space:]]*# ]] && continue
+      [[ -z "${line// }" ]] && continue
+
+      # Extract key (everything before first =)
+      local key="${line%%=*}"
+      # Extract value (everything after first =)
+      local value="${line#*=}"
+
+      # Skip if no = found
+      [[ "$key" == "$line" ]] && continue
+
+      # Remove surrounding quotes from value if present
+      if [[ "$value" =~ ^\"(.*)\"$ ]]; then
+        value="${BASH_REMATCH[1]}"
+      elif [[ "$value" =~ ^\'(.*)\'$ ]]; then
         value="${BASH_REMATCH[1]}"
       fi
-      # Export the variable
-      export "$key=$value"
-    done < <(grep -v '^#' "$env_file" | grep -v '^$')
-    set +a
+
+      # Export the variable using printf to avoid interpretation of special chars
+      printf -v "$key" '%s' "$value"
+      export "$key"
+    done < "$env_file"
   fi
 }
 ```
 
 How does it work?
 
-1. `set -a`: Automatically exports all variables assigned after this point
-2. `IFS='='`: Splits only on the first `=`, allowing values to contain `=` characters
-3. `read -r`: Prevents backslash interpretation, preserving literal values
-4. Comment/empty line filtering: Skips lines starting with `#` or containing no key
+1. `IFS= read -r line`: Reads the entire line without field splitting, preserving all characters including leading/trailing whitespace
+2. `|| [[ -n "$line" ]]`: Handles files that don't end with a newline
+3. Parameter expansion for parsing: `${line%%=*}` gets the key (everything before first `=`), `${line#*=}` gets the value (everything after first `=`)
+4. Comment/empty line filtering: Skips lines starting with `#` (with optional leading whitespace) or containing only whitespace
 5. Matching quote removal: Only strips quotes if they match at both start and end, preserving quotes that are part of the actual value (e.g., `"password` stays as `"password`)
-6. Process substitution: `< <(grep...)` ensures the loop runs in the current shell context, and it removes comments and empty lines before processing
+6. `printf -v`: Assigns the value to the variable without any shell interpretation, unlike `export "$key=$value"` which can have issues with certain characters
 
 The function safely processes:
 
