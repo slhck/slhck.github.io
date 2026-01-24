@@ -44,7 +44,7 @@ Notes for reading this table:
       <td>51</td>
       <td>0</td>
       <td>23</td>
-      <td>18–28</td>
+      <td>22–28</td>
       <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
                               Quality tiers: 22–23 excellent (VMAF ~96), 26–28 good (VMAF ~90–92).<br/>
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.264">H.264 Encoding Guide</a>.</small>
@@ -56,7 +56,7 @@ Notes for reading this table:
       <td>51</td>
       <td>0</td>
       <td>28</td>
-      <td>24–34</td>
+      <td>22–28</td>
       <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
                               Quality tiers: 22–23 excellent (VMAF ~96), 26–28 good (VMAF ~90–92).<br/>
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.265">H.265 Encoding Guide</a> and <a href="http://x265.readthedocs.org/en/default/cli.html#quality-rate-control-and-rate-distortion-options">x265 docs</a>.</small>
