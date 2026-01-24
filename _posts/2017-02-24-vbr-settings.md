@@ -6,6 +6,7 @@ categories: video
 redirect_from: "/video-encoding"
 notes: Please let me know if there's anything wrong or if you're missing some values. Thanks to @LordNeckbeard and @evilsoup on Super User for providing additional input on this.
 updates:
+    - January 2026 – Update values for VideoToolbox encoders
     - January 2025 – Update libvpx to libvpx-vp9; add AV1 encoders (libaom-av1, libsvtav1); add VideoToolbox encoders (h264_videotoolbox, hevc_videotoolbox, prores_videotoolbox); update ProRes (prores_ks) with quality settings; add aac_at (macOS); clarify native aac VBR is experimental
     - April 2019 – Clarify Opus options
     - March 2019 – Clarify range of AAC; add Opus defaults
@@ -45,6 +46,7 @@ Notes for reading this table:
       <td>23</td>
       <td>18–28</td>
       <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
+                              Quality tiers: 22–23 excellent (VMAF ~96), 26–28 good (VMAF ~90–92).<br/>
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.264">H.264 Encoding Guide</a>.</small>
       </td>
    </tr>
@@ -56,6 +58,7 @@ Notes for reading this table:
       <td>28</td>
       <td>24–34</td>
       <td><small>Values of &plusmn;6 result in double/half avg. bitrate. 0 is lossless.<br/>
+                              Quality tiers: 22–23 excellent (VMAF ~96), 26–28 good (VMAF ~90–92).<br/>
                               Specifying <code>-profile:v</code> lets you adjust coding efficiency. See <a href="http://trac.ffmpeg.org/wiki/Encode/H.265">H.265 Encoding Guide</a> and <a href="http://x265.readthedocs.org/en/default/cli.html#quality-rate-control-and-rate-distortion-options">x265 docs</a>.</small>
       </td>
    </tr>
@@ -97,8 +100,9 @@ Notes for reading this table:
       <td>1</td>
       <td>100</td>
       <td>n/a</td>
-      <td>70–85</td>
-      <td><small>macOS hardware encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.</small>
+      <td>45–65</td>
+      <td><small>macOS hardware encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.<br/>
+      Quality tiers: 55–65 excellent (VMAF ~95–98), 45–50 good (VMAF ~90–93).</small>
       </td>
    </tr>
    <tr>
@@ -107,8 +111,9 @@ Notes for reading this table:
       <td>1</td>
       <td>100</td>
       <td>n/a</td>
-      <td>70–85</td>
-      <td><small>macOS hardware HEVC encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.</small>
+      <td>45–65</td>
+      <td><small>macOS hardware HEVC encoder. Scale 1–100, with 100 being highest quality. Constant quality only available on Apple Silicon (ffmpeg 4.4+). Also supports <code>-b:v</code> for bitrate mode.<br/>
+      Quality tiers: 55–65 excellent (VMAF ~95–98), 45–50 good (VMAF ~90–93).</small>
       </td>
    </tr>
     <tr>
