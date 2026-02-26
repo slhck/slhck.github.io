@@ -87,6 +87,7 @@ permalink: /software/
 <div class="software-item">
 <h3>📄 <a href="https://github.com/slhck/compress-pptx">compress-pptx</a></h3>
 <p>Compress a PPTX file, converting all PNG/TIFF images to lossy JPEGs</p>
+
 </div>
 
 <div class="software-item">
