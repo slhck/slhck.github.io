@@ -88,6 +88,16 @@ permalink: /software/
 <h3>📄 <a href="https://github.com/slhck/compress-pptx">compress-pptx</a></h3>
 <p>Compress a PPTX file, converting all PNG/TIFF images to lossy JPEGs</p>
 </div>
+
+<div class="software-item">
+<h3>📋 <a href="https://github.com/slhck/trelloctl">trelloctl</a></h3>
+<p>A command-line interface for Trello</p>
+</div>
+
+<div class="software-item">
+<h3>📇 <a href="https://github.com/slhck/hubspotctl">hubspotctl</a></h3>
+<p>A command-line interface for HubSpot CRM</p>
+</div>
 </div>
 </div>
 
