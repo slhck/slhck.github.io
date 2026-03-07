@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Order of Redirections in Bash Matters"
-date: 2026-03-08
+date: 2026-03-07
 categories: software
 ---
 
