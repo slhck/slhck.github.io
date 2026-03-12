@@ -6,6 +6,7 @@ permalink: /publications/
 
 ### Theses
 
+* Robitza, W., *Behavior-oriented Quality of Experience Assessment of Over-the-Top Video Services*, Ph.D. thesis (Elektrotechnik und Informationstechnik), Technische Universität Ilmenau, 2026.
 * Robitza, W., [_Observer Confidence in Subjective Quality Evaluation_](http://othes.univie.ac.at/31718/), Master thesis (Media Informatics), University of Vienna, 2014.
 * Robitza, W., [_Acceptance of Mobile TV Channel Switching Delays_](../documents/robitza-acceptance-thesis.pdf), Bachelor thesis (Informatics), University of Vienna, 2009.
 
