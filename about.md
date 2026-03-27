@@ -36,7 +36,7 @@ permalink: /about/
 
 ### Education
 
-* Since 2016: PhD candidate (thesis under review), Technische Universität Ilmenau, Germany
+* 2026: Doctor of Engineering (Dr.-Ing.), Technische Universität Ilmenau, Germany
 * 2011–2014: Master in Media Informatics (Dipl.-Ing.), University of Vienna, Austria
 * 2007–2011: Bachelor in Informatics (BSc.), University of Vienna, Austria
 
@@ -55,7 +55,7 @@ Conferences:
 * ACM Multimedia Conference (2024)
 * ACM Multimedia Systems Workshop on  Green Multimedia Systems (GMSys), 2023
 * ACM Multimedia Systems Conference (MMSys), 2022–2024
-* International Conference on Quality of Multimedia Experience (QoMEX), 2017–2024
+* International Conference on Quality of Multimedia Experience (QoMEX), since 2017
 * QoE Management Workshop at 22nd Conference on Innovation in Clouds, Internet and Networks (ICIN), 2019
 * Communications Software, Services, and Multimedia Applications Symposium at IEEE International Conference on Communications (CSSMA), 2019
 * Quality of Experience for Multimedia Communications Workshop at IEEE Global Communications Conference (QoEMC), 2016
