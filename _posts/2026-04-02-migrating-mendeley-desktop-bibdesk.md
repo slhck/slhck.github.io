@@ -101,4 +101,4 @@ The Python migration script pipes `relativePath\tabsolutePath` lines into this h
 
 ## The Migration Script
 
-The [migration script and Swift helper](https://gist.github.com/slhck/7efda94c37c590b5f05b8e808560ac20) are on GitHub for your reference. It's a bit rough and tailored to my specific setup, but it should give you a good starting point if you want or need to do something similar.
+The [migration scripts](https://github.com/slhck/mendeley-to-bibdesk-scripts) are on GitHub for your reference. It's a bit rough and tailored to my specific setup, but it should give you a good starting point if you want or need to do something similar.
