@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <div class="about-image-container">
-<img src="../assets/images/Werner.jpg" id="about-image"/>
+<img src="../assets/images/Werner.avif" id="about-image"/>
 </div>
 
 ### Expertise
