@@ -38,6 +38,7 @@ permalink: /publications/
 
 ### White Papers
 
+* P. Pérez, F. Blouin, B. Adsumilli, S. Baldoni, F. Battisti, N. Birkbeck, K. Brunnström, L. M. Contreras, M. Fiedler, J. Folgueira, N. García, E. Halepovic, T. Hoßfeld, T. Karagioules, I. Katsavounidis, K. Koniuch, D. Lindero, S. Nadas, M. Orduna, P. Rojo, A. Raake, R. Rao Ramachandra Rao, W. Robitza, T. Tsou, and M. Zorzi (2026). [VQEG White Paper on Quality of Experience-Aware Management for Collaboration Between Network and Application Providers](https://vqeg.github.io/doi/10.66537/OLKA7578/)
 * Hossfeld, T., Wunderer, S., Ben Houidi, Z., Beyer, A., Casas, P., Gassner, C., Guillemin, F., Hall, A., Hirth, M., Robitza, W., Schwind, A., Seufert, M., Tran-Gia, P., Wamser, F., Wascinski, K., & Wascinski, W. (2020).  [White Paper "Crowdsourced Network and QoE Measurements – Definitions, Use Cases and Challenges".](https://arxiv.org/pdf/2006.16896)
 
 ### Conference and Workshop Contributions
