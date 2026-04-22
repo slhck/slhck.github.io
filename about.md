@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <div class="about-image-container">
-<img src="../assets/images/Werner.avif" id="about-image"/>
+<img src="../assets/images/Werner.avif" id="about-image" width="300"/>
 </div>
 
 ### Expertise
@@ -36,7 +36,7 @@ permalink: /about/
 
 ### Education
 
-* 2026: Doctor of Engineering (Dr.-Ing.), Technische Universität Ilmenau, Germany
+* 2026: Doctor of Engineering (Dr.-Ing.), _summa cum laude_, Technische Universität Ilmenau, Germany
 * 2011–2014: Master in Media Informatics (Dipl.-Ing.), University of Vienna, Austria
 * 2007–2011: Bachelor in Informatics (BSc.), University of Vienna, Austria
 
