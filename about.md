@@ -26,7 +26,7 @@ permalink: /about/
 
 ### Work Experience
 
-* Since 2018: Founder, CEO at AVEQ GmbH, Austria
+* Since 2018: Founder, Managing Director at AVEQ GmbH, Austria
 * 2018: Researcher at Technische Universität Ilmenau, Germany
 * 2015–2018: Researcher at Telekom Innovation Laboratories, Deutsche Telekom AG, Germany
 * 2014–2015: Researcher at Assessment of IP-based Applications, TU Berlin, Germany
@@ -82,8 +82,16 @@ Journal Reviewing:
 
 ### Talks Given
 
-* 2025: "The Hidden Cost of Network Performance - Measuring Real Streaming Experience", ANGA COM 2025, Cologne, DE
-* 2025: "Uncovering Network Issues with Application QoE Measurements - Measuring Real Streaming Experience and Network Performance", NetworkX 2025, Paris, FR
+Upcoming:
+
+* 2026: "From the Lab to Production: How Video Quality Models Meet Reality", Kolloquium Nachrichtentechnik und Multimediakommunikation, RWTH Aachen, Germany
+* 2026: "Application-Level QoE Monitoring for Satellite Video Streaming — Why Network and Pixel Layers Are Not Enough", ITU workshop on Quality of Service (QoS) and Quality of Experience (QoE) Aspects of Satellite-based Internet Services, Geneva, Switzerland.
+* 2026: "Gigabit doesn't matter. What actually drives streaming QoE.", ANGA COM 2026, Cologne, Germany
+
+Past:
+
+* 2025: "The Hidden Cost of Network Performance - Measuring Real Streaming Experience", ANGA COM 2025, Cologne, Germany
+* 2025: "Uncovering Network Issues with Application QoE Measurements - Measuring Real Streaming Experience and Network Performance", NetworkX 2025, Paris, France
 * 2021: "How to monitor a streaming service – what could possibly go wrong?", Berlin Video Tech Meetup, online
 * 2020: “Video Quality Measurements in the Crowd – A Case Study from Germany”, ITU-T QSDG Webinar Series: Crowdsourcing for Regulators – Case studies and frameworks, online
 * 2018: “Video and web service quality monitoring using ITU-T standards at Deutsche Telekom”, ITU Workshop on Telecommunication Service Quality, Regulatory Frameworks and Experience-Driven Networking, Geneva, Switzerland
