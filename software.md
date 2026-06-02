@@ -85,6 +85,11 @@ permalink: /software/
 
 <div class="software-grid">
 <div class="software-item">
+<h3>📥 <a href="https://github.com/slhck/itu-sync">itu-sync</a></h3>
+<p>Sync ITU documents to your local machine.</p>
+</div>
+
+<div class="software-item">
 <h3>📄 <a href="https://github.com/slhck/compress-pptx">compress-pptx</a></h3>
 <p>Compress a PPTX file, converting all PNG/TIFF images to lossy JPEGs</p>
 
