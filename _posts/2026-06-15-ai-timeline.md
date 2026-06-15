@@ -32,9 +32,13 @@ I have used Copilot inline auto-completions less and less, obviously, ever since
 
 ## ChatGPT, November 2022
 
-This is the one everyone remembers. When [ChatGPT was released](https://openai.com/index/chatgpt/), all of a sudden you could ask a question in plain words and get a real answer back. Of course I had been using GPT-3 through the API well before that, so I knew the strengths and weaknesses, but I had not really used a chat-trained model before. Remember that GPT-3 is an instruct model, so it only completes after the last word that you gave it. And if you wanted to use it for chatting, you would have to fake the whole chat conversation context! I think that is the interesting part about how these models work under the hood. Never forget that the actual chat is just a training on the specific syntax that simulates a conversation between two or three parties. That is the human, the assistant, and the system itself.
+This is the one everyone remembers. When [ChatGPT was released](https://openai.com/index/chatgpt/), all of a sudden you could ask a question in plain words and get a real answer back. Of course I had been using GPT-3 through the API well before that, so I knew the strengths and weaknesses, but I had not really used a chat-trained model before.
+
+Remember that, in its default variant, GPT-3 (`text-davinci-003`, Rest in Peace!) is not an "instruct" model (see [here for some background](https://huggingface.co/learn/llm-course/en/chapter11/2)), so it only completes after the last word that you gave it. If you wanted to use it for chatting, you would have to fake the whole chat conversation context! I think that is the interesting part about how these models work under the hood. Never forget that the actual chat is just a training on the specific syntax ([ChatML or Harmony](https://huggingface.co/blog/kuotient/chatml-vs-harmony)) that simulates a conversation between two or three parties. That is the human, the assistant, and the system itself.
 
 I remember reading this one essay, [_Implications of Simulators_](https://www.lesswrong.com/posts/fyW9EP5NdZrC3k3jz/implications-of-simulators), which is a rather philosophical post published on LessWrong by the pseudonymous author Janus. It explores the metaphysical and ethical consequences of living in "simulated realities", developing a framework for understanding agency, consciousness, and prediction within the "simulator" paradigm. There must have been an earlier post that I cannot find anymore, which talked specifically about faking the conversation to evoke a chatbot-style context.
+
+And I do find it worrying that these basic models are not available anymore via API. They're an artifact of history, and deserve to be preserved. It's not like they take up a lot of compute anyway.
 
 ## GPT-4, March 2023
 
