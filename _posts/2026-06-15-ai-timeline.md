@@ -5,6 +5,10 @@ categories: miscellaneous
 title: A Timeline of AI and Me
 ---
 
+![These Cats Do Not Exist.](/assets/images/thesecatsdonotexist.avif)
+
+*Image from: https://thesecatsdonotexist.com/*
+
 I have worked both as a software developer and video engineer for a long time. But I've always had an obsession with AI, and in particular, what I would call "AI weirdness". Over the last five years, AI went from something I would sometimes read about to something that I use every single day. I wanted to write down the moments that changed how I think about and work with AI, and add a few personal notes. This is primarily for myself to remember, because what happened just a few years ago feels like it's been ages!
 
 I think my trip down the rabbit hole started when I visited the [Uncanny Values exhibit](https://www.mak.at/programm/ausstellungen/uncanny_values) in Vienna. Also, the local unemployment agency was testing [AI-based algorithms to classify unemployed people](https://ooe.arbeiterkammer.at/service/presse/WSG_2020_Soziotechnische_Analyse_des_AMS-Algorithmus.pdf), and at the time that felt like a really bad choice in terms of dehumanizing the whole system and making everything more efficient at the cost of actual living people.
