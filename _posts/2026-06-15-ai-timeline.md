@@ -13,11 +13,11 @@ I have worked both as a software developer and video engineer for a long time. B
 
 ## How it all began
 
-I think my trip down the rabbit hole started when I visited the [Uncanny Values exhibit](https://www.mak.at/programm/ausstellungen/uncanny_values) in Vienna. It showcased — well, obviously — uncally valleys between the real and the artificial. Also, at the time, the local unemployment agency AMS was testing [AI-based algorithms to classify unemployed people](https://ooe.arbeiterkammer.at/service/presse/WSG_2020_Soziotechnische_Analyse_des_AMS-Algorithmus.pdf), and that felt like a really bad choice in terms of dehumanizing the whole system and making everything more efficient at the cost of actual living people.
+I think my trip down the rabbit hole started when I visited the [Uncanny Values exhibit](https://www.mak.at/programm/ausstellungen/uncanny_values) in Vienna. It showcased — well, obviously — uncanny valleys between the real and the artificial. Also, at the time, the local unemployment agency AMS was testing [AI-based algorithms to classify unemployed people](https://ooe.arbeiterkammer.at/service/presse/WSG_2020_Soziotechnische_Analyse_des_AMS-Algorithmus.pdf), and that felt like a really bad choice in terms of dehumanizing the whole system and making everything more efficient at the cost of actual living people.
 
 Now, this type of AI algorithm application is commonplace, from insurance to hiring, and it is often criticized for being biased and unfair, yet that's where we are today. Screaming for human assistance to a telephone support agent that simulates typing and call center noises. (Although I found out that this is [not a new thing](https://ux.stackexchange.com/q/99623/14319).)
 
-But before 2020, it wasn't so obvious how quickly everything would evolve. Back then, speech was one of the first frontiers where AI did some interesting work from which you could tell that it might become useful sooner rather than later. That's also when I learned about [Google Tacotron](https://arxiv.org/abs/1703.10135). With respect to music, [BachBot](https://github.com/feynmanliang/bachbot) was a thing. Even before that, [lamus](https://en.wikipedia.org/wiki/Iamus_(computer)) showcased music creation from AI. Kind of stupid and really not that useful, but promising.
+But before 2020, it wasn't so obvious how quickly everything would evolve. Back then, speech was one of the first frontiers where AI did some interesting work from which you could tell that it might become useful sooner rather than later. That's also when I learned about [Google Tacotron](https://arxiv.org/abs/1703.10135). With respect to music, [BachBot](https://github.com/feynmanliang/bachbot) was a thing. Even before that, [Iamus](https://en.wikipedia.org/wiki/Iamus_(computer)) showcased music creation from AI. Kind of stupid and really not that useful, but promising.
 
 Then in February 2019, [OpenAI released GPT-2](https://openai.com/index/better-language-models/). Technologies like the Transformer architecture were gaining traction; they had been [published two years prior](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf). I kept reading up on the topic but never really did any hands-on work. This would change in the coming years.
 
@@ -28,9 +28,32 @@ Here are some memorable releases and events that changed how I work with AI, in 
 This was the first time I saw a machine write whole paragraphs, and even bits of code, that somehow made sense. [OpenAI had just opened up API access](https://openai.com/index/openai-api/), and I did not change anything about my work because of it, but I started paying more attention.
 I began reading [Gwern Branwen's articles](https://gwern.net/), such as on [GPT-3 poems and fiction](https://gwern.net/gpt-3).
 
-Quite early on (ca. end of 2022-ish) I used GPT-3 to shorten text or do hard reformatting work such as converting between marked-up versions of a document and raw text, or converting tables between different formats. In fact, I even had GPT-3 convert a Python code base to TypeScript, which was quite flaky at the time, and it involved a lot of copy-pasting back and forth between the OpenAI Playground and my editor, but I made it work.
+Quite early on (end of 2022-ish) I used GPT-3 to shorten text or do hard reformatting work such as converting between marked-up versions of a document and raw text, or converting tables between different formats. In fact, I even had GPT-3 convert a Python code base to TypeScript, which was quite flaky at the time, and it involved a lot of copy-pasting back and forth between the OpenAI Playground and my editor, but I made it work.
 
-It's funny how GPT-3 invented syntax elements that are of course very Python-esque and don't exist in TypeScript, but it happily hallucinated new syntax that was quite plausible. This was the first moment where I could actually achieve something that I thought was previously impossible and especially in the work context, do something that I put off doing because it just wouldn't be worth the time. But now it was possible with just a few dollars of token-spend. And a good test suite, of course.
+It would go like this:
+
+```
+Here is some Python code:
+
+import os
+import numpy as np
+
+def foo(x):
+    some_variable = [x * 2 for x in range(10)]
+
+This is the same code in TypeScript using camelCase:
+
+import * as os from 'os';
+import * as np from 'numpy';
+
+function foo(x: number): void {
+    var someVariable = [x * 2 for range(10)];
+}
+```
+
+You get the idea.
+
+It's funny how GPT-3 invented syntax elements that are of course very Python-esque and don't exist in TypeScript — it happily hallucinated new syntax that was quite plausible. This was the first moment where I could actually achieve something that I thought was previously impossible and especially in the work context, do something that I put off doing because it just wouldn't be worth the time. But now it was possible with just a few dollars of token-spend. And a good test suite, of course.
 
 ## GitHub Copilot, preview 2021, general release 2022
 
@@ -58,21 +81,21 @@ In any case, many friends and I had fun (ab)using ChatGPT for all sorts of thing
 
 With GPT-4, the [jump in quality](https://openai.com/index/gpt-4-research/) was really obvious. I think this is when it went from being a toy to something really useful.
 
-Of course I used ChatGPT a lot during that time and explored different prompting strategies. I think I created my set of prompts that I could reuse for different purposes and primarily used it for generating initial code drafts.
+Of course I used ChatGPT a lot during that time and explored different prompting strategies. I think I created my set of prompts that I could reuse for different purposes and primarily used them for generating initial code drafts.
 
-OpenAI launched custom GPTs as a way to create a more personalized experience. I used it sparingly for things like "de-bullshitting" corporate speak, summarizing documents with explainers for laypersons, and translation jobs. But it never really felt like a game-changer for me, and it kind of died down after a while anyway.
+OpenAI launched custom GPTs as a way to create a more personalized experience. I used them sparingly for things like "de-bullshitting" corporate speak, summarizing documents with explainers for laypersons, and translation jobs. But it never really felt like a game-changer for me, and it kind of died down after a while anyway.
 
 One thing stuck though: in November 2023, Nick Dobos [launched Grimoire](https://www.linkedin.com/posts/nicholas-dobos_introducing-grimoire-a-gpt-coding-wizard-ugcPost-7128956622411890688-XnIm/). This was a custom prompt framework (released as a GPT) to specifically create multiple files that work together to create a bigger application. And while it suffered from a lot of hallucinations and not everything worked properly, I think it was the first foray into coding agents that thought beyond just single files.
 
 ## Claude 3.5 Sonnet, June 2024
 
-For me, [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) was the first model that felt good enough for real, almost unattended, work. Before it, AI coding was fun and definitely a small speedup, but unreliable and you had to constantly test the output. You'd have to think about the software architecture at a very low level, define interfaces and calling signatures carefully, lest the model hallucinated functions or functionality that wasn't there.
+For me, [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) was the first model that felt good enough for real, almost unattended, work. Before it, AI coding was fun and definitely a small speedup, but unreliable and you had to constantly test the output. You'd have to think about the software architecture at a very low level, define interfaces and calling signatures carefully, lest the model hallucinate functions or functionality that wasn't there.
 
-After Claude Sonnet 3.5, I could hand over a real task and mostly trust what came back. This is where my habits actually changed for good.
+After Claude 3.5 Sonnet, I could hand over a real task and mostly trust what came back. This is where my habits actually changed for good.
 
 Around this time I stopped copying and pasting between a chat window and my editor. Instead I used Cursor, which could edit files for me. This is also around the time I started "vibe-coding" (that was not a term yet!) apps like the [Praxisplan Wien](https://slhck.info/praxisplan-wien/), and spending more time reading code than writing it. I basically made the switch from Visual Studio Code to Cursor and really enjoyed working with their super fast [tab completion model](https://cursor.com/tab) and the different choice of upstream model providers that they offered. Prior to that I had only been using OpenAI models, but this made me switch to Anthropic for some time.
 
-What was very much noticeable from that period until my switch to Claude Code was the eagerness of Claude Sonnet to produce artifacts — Markdown files littering your repository explaining every minute detail of every feature it had just implemented, without caring about existing READMEs or documentation. I'm glad that this is no longer a thing models do.
+What was very much noticeable from that period until my switch to Claude Code was the eagerness of Claude Sonnet to produce artifacts — Markdown files littering the repository explaining every minute detail of every feature it had just implemented, without caring about existing READMEs or documentation. I'm glad that this is no longer a thing models do.
 
 ## Devin, the "AI software engineer," March 2024
 
@@ -90,13 +113,13 @@ I can see the appeal for frontend work, which I hate because it's tedious and re
 
 ## MCP, November 2024
 
-Anthropic somewhat quietly released the [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) as a shared standard for plugging tools and data into a model via a common API. That meant you could imagine connecting someone else's systems without writing a custom integration for every single tool. This was much more interesting to me than another chat UI, but the excitement faded pretty quickly when I discovered that setting up MCP servers was a mess, and the tool definitions required a lot of tokens on a very scarce context. This was particularly pronounced for the cloud models I was using at the time, which had a smaller context window than OpenAI models. And they were also more expensive to use.
+Anthropic somewhat quietly released the [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) as a shared standard for plugging tools and data into a model via a common API. That meant you could imagine connecting someone else's systems without writing a custom integration for every single tool. This was much more interesting to me than another chat UI, but the excitement faded pretty quickly when I discovered that setting up MCP servers was a mess, and the tool definitions required a lot of tokens on a very limited context. This was particularly pronounced for the Claude models I was using at the time, which had a smaller context window than OpenAI models. And they were also more expensive to use.
 
 These days I do not use any MCP servers at all, with the exception of Playwright. I drive them through [mcporter](https://mcporter.sh/), which makes the servers much easier to manage and call, with lower token spend. From the authors: "skip the giant tool-schema prompt, generate a small typed surface, and let the agent or the human call MCP servers like normal functions".
 
-Well actually, I do use MCP in the form of connectors that Claude exposes through their apps, e.g., for Google Workspace or Hubspot. But that's somehow hidden in their product offering.
+Well actually, I do use MCP in the form of connectors that Claude exposes through their apps, e.g., for Google Workspace or HubSpot. But that's somehow hidden in their product offering.
 
-Also worth reading is [Mario Zechner's post from "that period"](https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/). I say "that period" and it's just 10 months ago! I similarly came to the conclusion that good, well-defined CLIs are all that's needed. I'd later build, with Claude, [CLIs for Trello](https://github.com/slhck/trelloctl) and [Hubspot](https://github.com/slhck/hubspotctl), with a much smaller footprint but all the capabilities of an MCP server. I would go as far as saying that if you have CLI tools that all behave the same way, then you don't even need to give the model specific instructions on how to use them.
+Also worth reading is [Mario Zechner's post from "that period"](https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/). I say "that period" and it's just 10 months ago! I similarly came to the conclusion that good, well-defined CLIs are all that's needed. I'd later build, with Claude, [CLIs for Trello](https://github.com/slhck/trelloctl) and [HubSpot](https://github.com/slhck/hubspotctl), with a much smaller footprint but all the capabilities of an MCP server. I would go as far as saying that if you have CLI tools that all behave the same way, then you don't even need to give the model specific instructions on how to use them.
 
 ## DeepSeek R1, January 2025
 
@@ -106,9 +129,9 @@ Plus, the hosting in China was a bit suspicious for me. Not that it's any better
 
 ## "Vibe coding" gets a name, February 2025
 
-Andrej Karpathy [gave a name](https://x.com/karpathy/status/1886192184808149383) to something I had already been doing on quiet evenings, for all the projects I'd never have time for. Describe what you want and let the model build it. In my case, using Cursor agents. I was already doing this for little web apps and experiments, as mentioned above. I also built an [Image-to-ICS converter](https://slhck.info/image-to-ics/) or a [timestamp conversion tool](https://slhck.info/timestamper/) which I use very frequently.
+Andrej Karpathy [gave a name](https://x.com/karpathy/status/1886192184808149383) to something I had already been doing on quiet evenings, for all the projects I'd never have time for. Describe what you want and let the model build it. In my case, using Cursor agents. I was already doing this for little web apps and experiments, as mentioned above. I also built an [Image-to-ICS converter](https://slhck.info/image-to-ics/) and a [timestamp conversion tool](https://slhck.info/timestamper/) which I use very frequently.
 
-I also vividly remember [Pieter Level's Flight Simulator](https://fly.pieter.com/) which he completely vibe-coded.
+I also vividly remember [Pieter Levels' Flight Simulator](https://fly.pieter.com/), which he completely vibe-coded.
 In fact, it's probably this Pieter guy who has been virally tweeting about products like his [Photo AI](https://photoai.com/) generator. Building in public and all, he also showcased how you can take off-the-shelf models like Stable Diffusion and build an actual, revenue-generating product around it. And he was, by no means, an expert in this field, just a guy with a laptop and good business ideas.
 
 This all highlights what was about to come anyway: the proliferation of AI tools and models, and the fact that you don't need to be a PhD in machine learning to build something useful. (Taste is what matters, kids. Taste, and a vision.)
@@ -119,13 +142,13 @@ This changed my daily work more than anything since Copilot. Anthropic introduce
 
 First I had to fight the frustration of having to use a terminal UI. To this day I still don't like these UIs. I just want to copy and paste things from clearly defined windows. I want to use my traditional macOS text editing shortcuts. Interactive context. Links, etc. Paste images and *see* them, ffs. Perhaps Claude Code for Desktop and OpenAI's new Codex app would solve these problems; as of June 2026 I have yet to try them because now I do prefer the composability and flexibility of a terminal agent.
 
-With Claude Code, the leap from Cursor agents was apparent. You could now hand a task to an agent in the terminal and let it read files, run commands, and come back with a result, with a much stronger grip on my intents, less dumbness (Cursor does something with your code before handing it off to the models; this impacts quality), and faster execution.
+With Claude Code, the leap from Cursor agents was apparent. You could now hand a task to an agent in the terminal and let it read files, run commands, and come back with a result, with a much stronger grip on my intents, less dumbness (Cursor does something with my code before handing it off to the models; this impacts quality), and faster execution.
 
 Learning to close the feedback loop was one of the most valuable lessons. Any time the model would prompt you for input (e.g., open this for me, run this command for me, etc.), you should think about automating that part as well. Over time, I developed more extensive routines and agent loops, and skills helped me formalize those approaches.
 
 ## Skills, October 2025
 
-With [Agent Skills](https://www.anthropic.com/news/skills), you could pack my own knowledge and (repetitive) steps into a folder that the model would pick up when it was needed. I had been writing little cheat sheets and notes for years, such as prompt template libraries that I'd paste into Claude Code when needed, or dedicated notes in `CLAUDE.md`, but now everything's much more universal.
+With [Agent Skills](https://www.anthropic.com/news/skills), you could pack your own knowledge and (repetitive) steps into a folder that the model would pick up when it was needed. I had been writing little cheat sheets and notes for years, such as prompt template libraries that I'd paste into Claude Code when needed, or dedicated notes in `CLAUDE.md`, but now everything's much more universal.
 
 I think Skills made MCP mostly obsolete, except maybe for the use case where a non-technical user needs to plug in something into their UI-only chat box. Apart from that, I very much prefer having APIs available that are debuggable.
 
@@ -141,7 +164,7 @@ I might try [NanoClaw](https://github.com/nanocoai/nanoclaw) at some point thoug
 
 Somewhere this year I became more suspicious of my own habits. Karpathy told people to ["keep AI on the leash"](https://www.businessinsider.com/openai-cofounder-andrej-karpathy-keep-ai-on-the-leash-2025-6), and said of his own work: "I'm still the bottleneck."
 
-I noticed the same thing in my own work. If I let the machine do too much, I have to context-switch more. You end up building more stuff but you are "always on". While in the early days you'd hesitate switching off the computer because there was this one thing you needed to fix, now it's that one prompt you're going to send to the agent.
+I noticed the same thing in my own work. If I let the machine do too much, I have to context-switch more. You end up building more stuff but you are "always on". While in the early days you'd hesitate to switch off the computer because there was this one thing you needed to fix, now it's that one prompt you're going to send to the agent.
 
 Also, hallucinations did appear here and there (although they are very rare now). That one time I had accidentally let Copilot auto-complete a non-existing citation into my BibTeX file. Luckily, my co-author discovered the issue before we submitted the paper. But it was a good reminder that you should always check what the model outputs, and not blindly trust it.
 
@@ -149,9 +172,9 @@ Studies also started to point in the same direction: [more code, but sometimes l
 
 Luckily, I'd gathered a lot of experience in the 15 years prior, but I am still unsure how this is going to play out if I stop writing code myself. (At least I wrote this post, huh.) And even more worryingly, I am not sure what that means for the next generation of software engineers or computer scientists. As I am co-supervising a Bachelor thesis right now, it'll be interesting to see how the students are going to cope with this new reality.
 
-Yann LeCun, one of the people who is also somehow present in this modern AI space, also kept pushing back on the hype. He has been arguing for [world models](https://openreview.net/forum?id=BZ5a1r-kVsf) for years, and he'd be pointing out that language models are still mostly trained on text. But I don't know if I agree with the pessimism.
+Yann LeCun, one of the people who is somehow present in this modern AI space, also kept pushing back on the hype. He has been arguing for [world models](https://openreview.net/forum?id=BZ5a1r-kVsf) for years, and he'd be pointing out that language models are still mostly trained on text. But I don't know if I agree with the pessimism.
 
-In general, many AI skeptics seemed to be very vocal in 2025, but not anymore in 2026. Sure, if you are working on an obscure technology that only a handful of people on earth can master, then such models will likely not replace you completely. But: Claude Code has arrived in many large organizations, and people use it as their daily driver for almost everything. People brag about their token spend, and I do wonder how much ROI they have actually achieved?
+In general, many AI skeptics seemed to be very vocal in 2025, but not anymore in 2026. Sure, if you are working on an obscure technology that only a handful of people on earth can master, then such models will likely not replace you completely. But: Claude Code has arrived in many large organizations, and people use it as their daily driver for almost everything. People brag about their token spend, and I do wonder how much ROI they have actually achieved.
 
 It has even reached the absurd point where you participate in Slack discussions between folks who just paste their Claude analysis into the chat window. I see vibe-coded designs everywhere, sure. I get it, outsourcing some of the thinking *feels* productive. I am guilty of this as well for some low-stakes projects or throwaway analyses. But when people start using agents to do the thinking for them, it gets frustrating because human conversations end up becoming imbalanced. "Yeah, I don't know exactly, let me ask Claude how it did that."
 
