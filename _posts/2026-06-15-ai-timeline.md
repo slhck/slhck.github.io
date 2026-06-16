@@ -99,11 +99,10 @@ What was very much noticeable from that period until my switch to Claude Code wa
 
 ## Devin, the "AI software engineer," March 2024
 
-This one made me stop and think, more as a founder than as a coder. Cognition [introduced Devin](https://www.cognition.ai/blog/introducing-devin) as "the first AI software engineer" and sold the idea of an AI that does the whole job, start to finish. I never used it in practice, but it was interesting to follow on Hacker News and other forums. Later, [Manus](https://manus.im/) emerged, with a similar purpose.
+Cognition [introduced Devin](https://www.cognition.ai/blog/introducing-devin) as "the first AI software engineer" and sold the idea of an AI that does the whole job, start to finish. I never used it in practice, but it was interesting to follow on Hacker News and other forums. Later, [Manus](https://manus.im/) emerged, with a similar purpose.
+I liked the idea; I could see how that might be useful, and it predated some of the more recent agent-based tools like Claude Code. And of course, all the prompt-to-code tools like [Replit](https://replit.com/), [Bolt](https://bolt.new/), or [Lovable](https://lovable.dev/) launched. Never used any of them either.
 
-And of course, all the prompt-to-code tools like [Replit](https://replit.com/), [Bolt](https://bolt.new/), or [Lovable](https://lovable.dev/) launched. Never used any of them either.
-
-I think I'm just too attached to the idea of:
+I guess I'm just too attached to the idea of:
 
 - having a human in the loop
 - Linux philosophy (small, composable tools)
@@ -113,7 +112,7 @@ I can see the appeal for frontend work, which I hate because it's tedious and re
 
 ## MCP, November 2024
 
-Anthropic somewhat quietly released the [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) as a shared standard for plugging tools and data into a model via a common API. That meant you could imagine connecting someone else's systems without writing a custom integration for every single tool. This was much more interesting to me than another chat UI, but the excitement faded pretty quickly when I discovered that setting up MCP servers was a mess, and the tool definitions required a lot of tokens on a very limited context. This was particularly pronounced for the Claude models I was using at the time, which had a smaller context window than OpenAI models. And they were also more expensive to use.
+Anthropic released the [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) as a shared standard for plugging tools and data into a model via a common API. That meant you could imagine connecting someone else's systems without writing a custom integration for every single tool. This was much more interesting to me than another chat UI, but the excitement faded pretty quickly when I discovered that setting up MCP servers was a mess, and the tool definitions required a lot of tokens on a very limited context. This was particularly pronounced for the Claude models I was using at the time, which had a smaller context window than OpenAI models. And they were also more expensive to use.
 
 These days I do not use any MCP servers at all, with the exception of Playwright. I drive them through [mcporter](https://mcporter.sh/), which makes the servers much easier to manage and call, with lower token spend. From the authors: "skip the giant tool-schema prompt, generate a small typed surface, and let the agent or the human call MCP servers like normal functions".
 
@@ -123,7 +122,7 @@ Also worth reading is [Mario Zechner's post from "that period"](https://mariozec
 
 ## DeepSeek R1, January 2025
 
-As someone who runs a bootstrapped company, I looked at this less from a "here's a fancy new model" angle but more as a "what, there are other vendors?" story. [DeepSeek R1](https://github.com/deepseek-ai/DeepSeek-R1) was released as a strong open model, with a permissive license and prices that were competitive. I toyed around with it for a while, but I did not find it compelling enough to switch from the models I was already using.
+As someone who runs a bootstrapped company, I looked at this less from a "here's a fancy new model" angle but more as a "what, there are other vendors?" story. [DeepSeek R1](https://github.com/deepseek-ai/DeepSeek-R1) was released as a really well-performing open model, with a permissive license and prices that were competitive. I toyed around with it for a while, but I did not find it compelling enough to switch from the models I was already using. Plus, our company workspace had Gemini Pro access built-in, and that was my daily chat driver.
 
 Plus, the hosting in China was a bit suspicious for me. Not that it's any better having the other models hosted in the US, though! I wish we had better alternatives in Europe, but the market isn't big enough yet, and/or the EU just again managed to kill innovation before it even started *cough* AI Act *cough*.
 
@@ -145,6 +144,15 @@ First I had to fight the frustration of having to use a terminal UI. To this day
 With Claude Code, the leap from Cursor agents was apparent. You could now hand a task to an agent in the terminal and let it read files, run commands, and come back with a result, with a much stronger grip on my intents, less dumbness (Cursor does something with my code before handing it off to the models; this impacts quality), and faster execution.
 
 Learning to close the feedback loop was one of the most valuable lessons. Any time the model would prompt you for input (e.g., open this for me, run this command for me, etc.), you should think about automating that part as well. Over time, I developed more extensive routines and agent loops, and skills helped me formalize those approaches.
+
+## Claude Desktop/Mobile
+
+I also subscribed to Claude for its desktop application and mobile app, and this is the first time I'd given it enough context about the company, and turned on memory (a feature I always disable on other platforms), so it could give better advice to me as a founder.
+This has worked quite well, and I am still paying for the subscription, although I am finding no use for any of the advanced features they offer, like:
+
+- Claude Code via the desktop app
+- Artifact generation (.docx etc. – I'd rather work in Markdown, or have a `/docx` skill in my agent)
+- Claude Design (used it, but the output is rarely adaptable to my needs)
 
 ## Skills, October 2025
 
