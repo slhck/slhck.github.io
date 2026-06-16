@@ -6,7 +6,7 @@ permalink: /publications/
 
 ### Theses
 
-* Robitza, W., *Behavior-oriented Quality of Experience Assessment of Over-the-Top Video Services*, Ph.D. thesis (Elektrotechnik und Informationstechnik), Technische Universität Ilmenau, 2026.
+* Robitza, W., [_Behavior-oriented Quality of Experience Assessment of Over-the-Top Video Services_](https://www.db-thueringen.de/receive/dbt_mods_00069586), Ph.D. thesis (Elektrotechnik und Informationstechnik), Technische Universität Ilmenau, 2026.
 * Robitza, W., [_Observer Confidence in Subjective Quality Evaluation_](http://othes.univie.ac.at/31718/), Master thesis (Media Informatics), University of Vienna, 2014.
 * Robitza, W., [_Acceptance of Mobile TV Channel Switching Delays_](../documents/robitza-acceptance-thesis.pdf), Bachelor thesis (Informatics), University of Vienna, 2009.
 
@@ -43,6 +43,7 @@ permalink: /publications/
 
 ### Conference and Workshop Contributions
 
+* Robitza, W., Raake, A. (2026). Between the Labs: An Analysis of Individual Rating Biases in Multi-Lab Subjective Experiments. 18th International Conference on Quality of Multimedia Experience (QoMEX).
 * Herglotz, C., Robitza, W., Raake, A., Hossfeld, T., & Kaup, A. (2023). [Power Reduction Opportunities on End-User Devices in Quality-Steady Video Streaming.](https://arxiv.org/pdf/2305.15117.pdf) 15th International Conference on Quality of Multimedia Experience (QoMEX).
 * Braun, F., Rao, R. R. R., Robitza, W., & Raake, A. (2023). [Automatic Audiovisual Asynchrony Measurement for Quality Assessment of Videoconferencing.](https://ieeexplore.ieee.org/document/10178438) 15th International Conference on Quality of Multimedia Experience (QoMEX).
 * Herglotz, C., Robitza, W., Kränzler, M., Kaup, A., & Raake, A. (2022). [Modeling of Energy Consumption and Streaming Video QoE using a Crowdsourcing Dataset.](https://arxiv.org/abs/2210.05444) 14th International Conference on Quality of Multimedia Experience (QoMEX).
