@@ -5,7 +5,7 @@ categories: miscellaneous
 title: A Timeline of AI and Me
 ---
 
-![These Cats Do Not Exist.](/assets/images/thesecatsdonotexist.avif)
+![These Cats Do Not Exist.](/assets/images/ai-timeline/thesecatsdonotexist.avif)
 
 *Image from: [thesecatsdonotexist.com](https://thesecatsdonotexist.com/)*
 
@@ -55,6 +55,12 @@ You get the idea.
 
 It's funny how GPT-3 invented syntax elements that are of course very Python-esque and don't exist in TypeScript — it happily hallucinated new syntax that was quite plausible. This was the first moment where I could actually achieve something that I thought was previously impossible and especially in the work context, do something that I put off doing because it just wouldn't be worth the time. But now it was possible with just a few dollars of token-spend. And a good test suite, of course.
 
+Here's an image of how the playground looked like in December 2022:
+
+![OpenAI Playground image, source: https://medium.com/@brendanbockes/the-openai-playground-a-beginners-guide-for-non-developers-a166dcb02094](/assets/images/ai-timeline/openai-playground.avif)
+
+I remember spending a lot of time in this interface!
+
 ## GitHub Copilot, preview 2021, general release 2022
 
 This was the first one where I actually used AI. For work, for actual purposes. [GitHub Copilot launched as a technical preview](https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/) in 2021 and became [generally available](https://github.blog/news-insights/product-news/github-copilot-is-generally-available-to-all-developers/) in 2022. I think I onboarded it almost immediately when it was available, via the student plan offered by GitHub.
@@ -71,7 +77,9 @@ This is the one everyone remembers. When [ChatGPT was released](https://openai.c
 
 Remember that, in its default variant, GPT-3 (`text-davinci-003`, Rest in Peace!) is not an "instruct" model (see [here for some background](https://huggingface.co/learn/llm-course/en/chapter11/2)), so it only completes after the last word that you gave it. If you wanted to use it for chatting, you would have to fake the whole chat conversation context! I think that is the interesting part about how these models work under the hood. Never forget that the actual chat is just a training on the specific syntax ([ChatML or Harmony](https://huggingface.co/blog/kuotient/chatml-vs-harmony)) that simulates a conversation between two or three parties. That is the human, the assistant, and the system itself.
 
-I remember reading this one essay, [_Implications of Simulators_](https://www.lesswrong.com/posts/fyW9EP5NdZrC3k3jz/implications-of-simulators), which is a rather philosophical post published on LessWrong by the pseudonymous author Janus. It explores the metaphysical and ethical consequences of living in "simulated realities", developing a framework for understanding agency, consciousness, and prediction within the "simulator" paradigm. There must have been an earlier post that I cannot find anymore, which talked specifically about faking the conversation to evoke a chatbot-style context.
+I remember reading this one essay, ["Implications of Simulators"](https://www.lesswrong.com/posts/fyW9EP5NdZrC3k3jz/implications-of-simulators), which is a rather philosophical post published on LessWrong by the pseudonymous author Janus. It explores the metaphysical and ethical consequences of living in "simulated realities", developing a framework for understanding agency, consciousness, and prediction within the "simulator" paradigm. There must have been an earlier post that I cannot find anymore, which talked specifically about faking the conversation to evoke a chatbot-style context.
+
+Also, I read a lot about the [Waluigi Effect](https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post). It has to do with the fact that, since LLMs are operating on latent representations that only get transformed into actual tokens while prompting, you can elicit your output from *different* superpositions, or, so-called simulacra. Basically, Luigi vs. Waluigi exist at the same time, and the model may collapse into anyone of them based on your prompting. Good reading, very philosophical.
 
 And I do find it worrying that these basic models are not available anymore via API. They're an artifact of history, and deserve to be preserved. It's not like they take up a lot of compute anyway.
 
@@ -86,6 +94,8 @@ Of course I used ChatGPT a lot during that time and explored different prompting
 OpenAI launched custom GPTs as a way to create a more personalized experience. I used them sparingly for things like "de-bullshitting" corporate speak, summarizing documents with explainers for laypersons, and translation jobs. But it never really felt like a game-changer for me, and it kind of died down after a while anyway.
 
 One thing stuck though: in November 2023, Nick Dobos [launched Grimoire](https://www.linkedin.com/posts/nicholas-dobos_introducing-grimoire-a-gpt-coding-wizard-ugcPost-7128956622411890688-XnIm/). This was a custom prompt framework (released as a GPT) to specifically create multiple files that work together to create a bigger application. And while it suffered from a lot of hallucinations and not everything worked properly, I think it was the first foray into coding agents that thought beyond just single files.
+
+Also, let's not forget [Sydney](https://en.wikipedia.org/wiki/Sydney_(Microsoft)), the broken personality chatbot that Microsoft built on top of GPT-4, which was so amusingly misaligned.
 
 ## Claude 3.5 Sonnet, June 2024
 
