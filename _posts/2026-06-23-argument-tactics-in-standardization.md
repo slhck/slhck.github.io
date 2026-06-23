@@ -122,8 +122,9 @@ There are some aspects to consider when applying these concepts in practice. Fir
 
 Not every use of such tactics means the person is acting in bad faith or doing it on purpose. Most of these are just how people think they can succeed, and perhaps they don't know any better.
 
-Accusing someone of manipulating the room is also not the best way to resolve such issues.
-It's also helpful to consider that you might have used these tactics as well. Try not to.
+Second, accusing someone of manipulating the room is also not the best way to resolve such issues.
+
+Third, it's helpful to consider that you might have used these tactics as well. Try not to.
 
 Standards are supposed to be a durable, interoperable agreement that outlive the meeting they were written in. Try to capture as much technical context and reasoning as possible, so that future readers (or the future you) still knows why a decision was made, years later. The above tactics work because they keep the reasoning off the record. So the response comes down to the same move: ask the question that puts the reasoning back on the table.
 
