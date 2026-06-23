@@ -82,14 +82,11 @@ Journal Reviewing:
 
 ### Talks Given
 
-Upcoming:
-
-* 2026: "From the Lab to Production: How Video Quality Models Meet Reality", Kolloquium Nachrichtentechnik und Multimediakommunikation, RWTH Aachen, Germany
-* 2026: "Application-Level QoE Monitoring for Satellite Video Streaming — Why Network and Pixel Layers Are Not Enough", ITU workshop on Quality of Service (QoS) and Quality of Experience (QoE) Aspects of Satellite-based Internet Services, Geneva, Switzerland.
-* 2026: "Gigabit doesn't matter. What actually drives streaming QoE.", ANGA COM 2026, Cologne, Germany
-
 Past:
 
+* 2026: "From the Lab to Production: How Video Quality Models Meet Reality", Kolloquium Nachrichtentechnik und Multimediakommunikation, RWTH Aachen, Germany
+* 2026: "QoE Models in the Age of Satellite-based Video Streamin. Recent studies and discussion on the future of model developments.", [ITU workshop on Quality of Service (QoS) and Quality of Experience (QoE) Aspects of Satellite-based Internet Services](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/qos/20260608/Pages/default.aspx), Geneva, Switzerland. ([Slides](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/qos/20260608/Documents/Werner%20Robitza.pdf))
+* 2026: "Gigabit doesn't matter. What actually drives streaming QoE.", ANGA COM 2026, Cologne, Germany
 * 2025: "The Hidden Cost of Network Performance - Measuring Real Streaming Experience", ANGA COM 2025, Cologne, Germany
 * 2025: "Uncovering Network Issues with Application QoE Measurements - Measuring Real Streaming Experience and Network Performance", NetworkX 2025, Paris, France
 * 2021: "How to monitor a streaming service – what could possibly go wrong?", Berlin Video Tech Meetup, online
