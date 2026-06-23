@@ -169,6 +169,23 @@ p {
     }
 }
 
+// Bold text: the body weight is light (300), and the browser's default
+// `bolder` for <strong> only resolves to 400 from that base, so bold text
+// looked identical to normal. Force an absolute weight so it renders bold.
+strong, b {
+    font-weight: 700;
+}
+
+// Blockquotes: override Minima's fixed grey/italic styling. Use a
+// theme-aware colour so quotes stay readable (and lighter) in dark mode,
+// and drop the italics and tightened letter-spacing for easier reading.
+blockquote {
+    color: var(--color-text-secondary);
+    border-left: 4px solid var(--color-border-light);
+    font-style: normal;
+    letter-spacing: normal;
+}
+
 // List styling
 ul, ol {
     margin-bottom: var(--spacing-md);
