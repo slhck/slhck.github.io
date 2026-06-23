@@ -48,7 +48,7 @@ Note that the power of a veto is determined by how consensus works. I like [IETF
 
 "Everyone already agrees on this." Or: "we discussed this last time and settled it." The implication is that re-opening the question makes you the difficult person in the room. In consensus-based bodies this is especially powerful, because nobody enjoys being the only one who objects.
 
-Note that this depends on formal procedures. Of course, objecting at a stage where you've had ample time to review is not nice. It's also not forbidden. Standards processes have different levels of reviews for a good reason. I've been running into this far too often, because the "everyone agrees" part was only happening in a small group only.
+Note that this depends on formal procedures. Of course, objecting at a stage where you've had ample time to review is not nice. It's also not forbidden. Standards processes have different levels of reviews for a good reason. I've been running into this far too often, because the "everyone agrees" part was only happening in a small group.
 
 **How to address it:**
 
@@ -68,7 +68,7 @@ Ah, traditions. "Professor X says so," or "this is how company Y does it, and th
 
 ### Straw man
 
-This is my… uh, favorite. (I mean that in the opposite way, of course.)
+This is my favorite. (I mean that in the opposite way, of course.)
 
 You make a proposal that then provokes a response to something you never said. It could be a more extreme position, or it could be something entirely different. Then your conversation can be easily shut down. Or, what's worse, you need to defend a position you never brought up in the first place.
 
@@ -104,7 +104,7 @@ There are of course always good reasons to think about future implications, and 
 
 When you can't attack the technical proposal, switch to the person who voiced it. Blame random things that they've said in the past that are unrelated to the subject matter at hand, question their credibility because of some procedural mistake they made.
 
-Someone once said my statements could not be taken seriously because I was sending them from my company's email address, and I clearly had commercial interests, when in fact I'd been contributing to an effort for free, in my completely own time. The person who made that statement never apologized, and the chairman never addressed it formally during the meeting or afterwards.
+Someone once said my statements could not be taken seriously because I was "sending them from my company's email address," and that "I clearly had commercial interests," when in fact I'd been contributing to an effort for free, in my completely own time. The person who made that statement never apologized, and the chairman never addressed it formally during the meeting or afterwards.
 
 **How to address it:**
 
