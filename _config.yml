@@ -1,7 +1,8 @@
 title: "Werner Robitza"
 subtitle: a.k.a. slhck
 email: werner.robitza@gmail.com
-description:
+description: "Personal website and blog by Werner Robitza, covering video quality, software, research, and notes."
+image: /assets/images/social-preview.png
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://slhck.info" # the base hostname & protocol for your site, e.g. http://example.com
 
