@@ -5,7 +5,7 @@ date: 2026-06-23
 categories: miscellaneous
 ---
 
-Standardization is the art of getting a room full of people (with competing interests) to agree. Everyone has different viewpoints, of course. Some people also have different motivations. Perhaps they are just hungry and wnat to get home; others have primarily commercial interests.
+Standardization is the art of getting a room full of people (with competing interests) to agree. Everyone has different viewpoints, of course. Some people also have different motivations. Perhaps they are just hungry and want to get home; others have primarily commercial interests.
 
 I think that in an ideal world, most of the discussion should be honest and technical. But after having spent more than ten years in such meetings now, I realize there are many strategic and tactical ways in which people try to steer the conversation in their favor.
 
