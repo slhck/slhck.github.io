@@ -2,7 +2,8 @@
 layout: post
 title: "Safely Loading .env Files with Special Characters in Bash"
 date: 2025-11-28
-categories: bash
+categories: software
+redirect_from: "/bash/2025/11/28/safe-env-file-loading-bash.html"
 updates:
     - January 2026 – Fixed issues with special characters in values by using printf instead of echo/sed, and reading full lines instead of splitting on IFS. This was done with the help of Claude Code.
 ---

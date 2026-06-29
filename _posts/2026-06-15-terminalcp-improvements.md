@@ -3,6 +3,7 @@ layout: post
 title: "Making terminalcp Synchronous — Improving LLM CLI Calls"
 date: 2026-06-15
 categories: software
+tags: ai
 ---
 
 I often let Claude Code drive interactive terminal sessions on my remote servers — SSH shells, Rails consoles, `psql`, the occasional debugger. I do this via [terminalcp](https://github.com/badlogic/terminalcp), but there is an annoyance: to read the output of a command, the agent needs to send the command, then `sleep` for some arbitrary number of seconds, and *then* grab whatever appeared on screen.

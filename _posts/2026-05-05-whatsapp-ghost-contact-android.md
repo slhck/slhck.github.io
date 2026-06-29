@@ -2,7 +2,8 @@
 layout: post
 title: "When WhatsApp Shows the Wrong Name for a Phone Number on Android"
 date: 2026-05-05
-categories: misc
+categories: miscellaneous
+redirect_from: "/misc/2026/05/05/whatsapp-ghost-contact-android.html"
 ---
 
 A weird thing happened to me recently. I was playing around with OpenClaw, and, despite their recommendations, I set up WhatsApp using my own number. When I texted myself for testing purposes, my name showed as “John Doe” (well, not literally, but I won't name that person here), not as me. That was quite confusing. And while I found the original issue, which was Hubspot having stored that John contact with my number by accident, I couldn't get rid of John (sorry, John) from my phone. Google Contacts had everything corrected, and so did the contact card on the phone, but it still kept up showing incorrectly whenever something came in from my own number.

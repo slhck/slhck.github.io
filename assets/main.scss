@@ -894,6 +894,48 @@ h4.gslide-title {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
+// Category filter badges on the posts page
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.3rem 0.85rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary-light);
+    }
+
+    &.is-active {
+        color: #ffffff;
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .category-count {
+        font-size: 0.75rem;
+        font-weight: 400;
+        opacity: 0.75;
+    }
+}
+
 // Post listing two-column layout
 .post-listing {
     margin: var(--spacing-lg) 0;

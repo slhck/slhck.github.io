@@ -2,7 +2,9 @@
 layout: post
 title: "That Time ChatGPT Thought You Can Change a Bike Tube Without Removing the Wheel"
 date: 2026-04-09
-categories: misc
+categories: miscellaneous
+tags: ai
+redirect_from: "/misc/2026/04/09/chatgpt-bike-tube-topology.html"
 ---
 
 I have a big heavy cargo bike with an Enviolo hub in the back. Some time ago it got a flat, and because I'd never worked on that type of hub before, I asked ChatGPT for advice on how to change the tube. You know, just out of curiosity about what it actually knows.

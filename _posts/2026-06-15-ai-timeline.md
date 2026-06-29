@@ -2,6 +2,7 @@
 date: 2026-06-15
 layout: post
 categories: miscellaneous
+tags: ai
 title: A Timeline of AI and Me
 ---
 

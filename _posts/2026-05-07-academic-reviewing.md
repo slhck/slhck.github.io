@@ -2,6 +2,7 @@
 date: 2026-05-07
 layout: post
 categories: miscellaneous
+tags: ai
 title: Academic Reviewing Is Not Fun Anymore
 ---
 
