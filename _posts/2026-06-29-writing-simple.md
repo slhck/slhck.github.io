@@ -24,7 +24,7 @@ You don't have to announce the structure, but it sometimes helps, especially in 
 
 Big headlines should serve as anchors, guiding the reader from one section to the next. Use subheadings only when the text becomes too long or complex to be easily understood (e.g., technical reports).
 
-Humans love a good story. A good overall structure is based on narrative arcs that [resonate with people](https://www.duarte.com/resources/books/resonate/). It's worth knowing a few typical story trajectories (often based on three pillars) so you can conform your writing to one of them. This is not a hard rule, of course, but I've always found it helpful to have a very coarse structure I can adhere to.
+Humans love a good story. A good overall structure is based on narrative arcs that [resonate with people](https://www.duarte.com/resources/books/resonate/). It's worth knowing a few typical story trajectories (often based on three pillars) so you can conform your writing to one of them. You do not have to follow this approach exactly, but I've always found it helpful to have a very coarse structure I can adhere to.
 
 Here is one such arc:
 
@@ -112,4 +112,4 @@ First person and past tense read as more honest and direct. For example, it's fi
 
 ## Conclusion
 
-I presented a few guidelines here that I try to follow when writing. They are not hard rules, and this post is definitely not a perfect example in terms of following all of them. However, I hope they are useful to my readers. If you have any other guidelines that you typically follow, let me know. I'd be happy to hear them.
+I presented a few guidelines here that I try to follow when writing. They are not set in stone, and this post is definitely not a perfect example in terms of following all of them. However, I hope they are useful to my readers. If you have any other guidelines that you typically follow, let me know. I'd be happy to hear them.
