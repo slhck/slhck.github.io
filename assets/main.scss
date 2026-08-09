@@ -833,8 +833,11 @@ button:focus {
     overflow: hidden;
 
     img {
-        width: 100%;
+        display: block;
+        width: auto;
+        max-height: 90vh;
         height: auto;
+        margin: 0 auto;
         transition: opacity 0.2s ease;
     }
 
