@@ -179,6 +179,10 @@ Ah, [OpenClaw](https://github.com/openclaw/openclaw). I never used it, didn't ha
 
 I might try [NanoClaw](https://github.com/nanocoai/nanoclaw) at some point though.
 
+## I've had enough with Claude, August 2026
+
+The Claude Opus output style is driving me mad – see [my other post](/software/2026/06/22/claudish). So much so that I prefer Codex with GPT-5.6 these days. Its word choices and sentence structures are just so much more comprehensible. It leads me to think that Anthropic have reinfored a particular style during their training pipeline that just leads to better model results, at the expense of readability for humans. Fine. Opus is still useful for planning, and it seems to make better design choices, but for fast, daily work, my main provider is now OpenAI again.
+
 ## What is still worrying, 2025 and beyond
 
 Somewhere this year I became more suspicious of my own habits. Karpathy told people to ["keep AI on the leash"](https://www.businessinsider.com/openai-cofounder-andrej-karpathy-keep-ai-on-the-leash-2025-6), and said of his own work: "I'm still the bottleneck."

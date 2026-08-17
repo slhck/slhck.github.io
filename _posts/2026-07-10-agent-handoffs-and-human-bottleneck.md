@@ -52,13 +52,13 @@ I used to rely mostly on a single long Claude Opus session. These days I have be
 
 My current model choices are based on things intelligence and taste. By taste, I mean UI/UX judgment, code quality, API design, and copy.
 
-- Use GPT-5.5, or now 5.6 for mechanical work with a clear specification: migrations, data analysis, and straightforward implementation. It is cheap enough that cost is rarely the reason not to use it.
-- Use a Claude model (Fable or Opus) for anything user-facing: UI, copy, and API design.
-- Use Fable or Opus for reviewing plans and implementations, and optionally ask GPT-5.5 for another independent review.
+- Use GPT-5.6 for mechanical work with a clear specification: migrations, data analysis, and straightforward implementation. It is cheap enough that cost is rarely the reason not to use it.
+- Use a Claude model (mostly: Opus) for anything user-facing: UI, copy, and API design.
+- Use Claude and Codex for reviewing the respective other provider's plans and implementations. I generally plan with Claude Code and ask GPT-5.6 Sol for another review.
 
 In a subagent-based workflow, the lead agent needs enough ability to understand the architecture, split the work, and write instructions include all important decisions (like a handoff document). The subagents do not necessarily need to be the very best model if their scope is clear and their output can be checked. In Claude, this means explicitly asking for an "agent team" and describing how the agents should be set up for the task. For instance, you can ask it to spawn one agent for each module to be implemented based on a critical path, and tell it to use Codex for the agents.
 
-There is some practical friction in mixing the tools. GPT-5.5 is available through the Codex CLI, while Claude's agent and workflow model parameter only natively accepts Claude models. But when you want to spawn Codex for a review after a long implementation run in Claude, the [Codex CLI review command](https://learn.chatgpt.com/docs/code-review?surface=cli) is a useful functionality. I also discovered the [Codex plugin for Claude Code](https://github.com/openai/codex-plugin-cc) which makes spawning Codex sessions easier — it includes `/codex:adversarial-review`, a steerable review that questions the implementation and design rather than only looking for mistakes.
+There is some practical friction in mixing the tools. GPT-5.6 is available through the Codex CLI, while Claude's agent and workflow model parameter only natively accepts Claude models. But when you want to spawn Codex for a review after a long implementation run in Claude, the [Codex CLI review command](https://learn.chatgpt.com/docs/code-review?surface=cli) is a useful functionality. I also discovered the [Codex plugin for Claude Code](https://github.com/openai/codex-plugin-cc) which makes spawning Codex sessions easier — it includes `/codex:adversarial-review`, a steerable review that questions the implementation and design rather than only looking for mistakes.
 
 Often, independent reviews find small things. Sometimes they catch an issue that would have caused unwanted behavior or a security problem. That is enough to make the extra review worth it.
 

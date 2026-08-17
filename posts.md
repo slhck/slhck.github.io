@@ -5,7 +5,9 @@ permalink: /posts/
 redirect_from: "/articles-overview"
 ---
 
-I occasionally write about video encoding and software development on this blog. Here are the most recent posts:
+I occasionally write about video encoding and software development on this blog. Here are the most recent posts.
+
+<small>A note for transparency: LLMs are sometimes used for copyediting, especially when posts are dictated and later cleaned up. Please bear that in mind.</small>
 
 <div class="category-filter" role="group" aria-label="Filter posts by category">
   <button type="button" class="category-badge is-active" data-category="all">All</button>
