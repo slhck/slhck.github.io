@@ -132,7 +132,7 @@ An alternative approach could be to export the timeline with *File → Export �
 
 Before finally exporting it, ensure that in the *Delivery* page, on the left hand side, loudness normalization is enabled:
 
-![](/assets/images/buttercut-davinci-resolve/)
+![](/assets/images/buttercut-davinci-resolve/loudness-normalization.avif)
 
 You could also fix the loudness with my own tool [`ffmpeg-normalize`](https://github.com/slhck/ffmpeg-normalize). It measures the loudness according to EBU R128, adjusts it in a second pass, and copies the video stream without re-encoding:
 
@@ -146,4 +146,6 @@ A target of -16 to -14 LUFS (loudness units) is reasonable for online video.
 
 ## Summary
 
-LLMs can tremendously help with video workflows. Transcripts and timelines are both “just” data, and the agent can easily work with that. While I still do the actual editing and visual checks in Resolve, this approach helps me get to a final video much faster.
+LLMs can tremendously help with video workflows. Transcripts and timelines are both “just” data, and the agent can easily work with that. What's great is that it understands the semantics and goals of the video, rather than just removing stop words and fillers.
+
+While I still do the actual editing and visual checks in Resolve, this approach helps me get to a final video much faster.
