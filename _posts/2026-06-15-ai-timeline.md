@@ -4,6 +4,8 @@ layout: post
 categories: miscellaneous
 tags: ai
 title: A Timeline of AI and Me
+updates:
+    - September 2026 — Added GPT-6 and Opus 5.5
 ---
 
 ![These Cats Do Not Exist.](/assets/images/ai-timeline/thesecatsdonotexist.avif)
@@ -182,6 +184,10 @@ I might try [NanoClaw](https://github.com/nanocoai/nanoclaw) at some point thoug
 ## I've had enough with Claude, August 2026
 
 The Claude Opus output style is driving me mad – see [my other post](/software/2026/06/22/claudish). So much so that I prefer Codex with GPT-5.6 these days. Its word choices and sentence structures are just so much more comprehensible. It leads me to think that Anthropic have reinfored a particular style during their training pipeline that just leads to better model results, at the expense of readability for humans. Fine. Opus is still useful for planning, and it seems to make better design choices, but for fast, daily work, my main provider is now OpenAI again.
+
+## I like Claude again, September 2026
+
+As I am writing this only a few weeks later, I've moved back to Claude Code with Opus 5.5. It is a leaner model, it is faster, more intelligent, and it doesn't use the Claudish language as much as its predecessor. It can still be observed in the documentation it writes, but I have various skill files (and other approaches) to remove that later on. Its turn taking is much nicer to work with. I still rely on GPT-6 Sol for occasional implementations or when Claude is not available. My success with GPT-6 Astra has been limited; its code quality is abysmal, [as others have pointed out](https://lucumr.pocoo.org/2026/9/7/astra-why/), and I haven't had the time to adapt to its idiosyncrasies.
 
 ## What is still worrying, 2025 and beyond
 
