@@ -9,32 +9,32 @@ permalink: /software/
 
 <div class="software-grid">
 <div class="software-item">
-<h3>🔊 <a href="https://github.com/slhck/ffmpeg-normalize">ffmpeg-normalize</a></h3>
+<h3><a href="https://github.com/slhck/ffmpeg-normalize"><img class="software-icon" src="{{ '/assets/images/software/ffmpeg-normalize.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> ffmpeg-normalize</a></h3>
 <p>A utility for batch-normalizing audio using ffmpeg.</p>
 </div>
 
 <div class="software-item">
-<h3>📊 <a href="https://github.com/slhck/ffmpeg-quality-metrics">ffmpeg-quality-metrics</a></h3>
+<h3><a href="https://github.com/slhck/ffmpeg-quality-metrics"><img class="software-icon" src="{{ '/assets/images/software/ffmpeg-quality-metrics.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> ffmpeg-quality-metrics</a></h3>
 <p>Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF)</p>
 </div>
 
 <div class="software-item">
-<h3>⏸️ <a href="https://github.com/slhck/bufferer">bufferer</a></h3>
+<h3><a href="https://github.com/slhck/bufferer"><img class="software-icon" src="{{ '/assets/images/software/bufferer.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> bufferer</a></h3>
 <p>A tool to insert fake buffering events into video streams</p>
 </div>
 
 <div class="software-item">
-<h3>📈 <a href="https://github.com/slhck/ffmpeg-bitrate-stats">ffmpeg-bitrate-stats</a></h3>
+<h3><a href="https://github.com/slhck/ffmpeg-bitrate-stats"><img class="software-icon" src="{{ '/assets/images/software/ffmpeg-bitrate-stats.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> ffmpeg-bitrate-stats</a></h3>
 <p>Calculate bitrate statistics with FFmpeg.</p>
 </div>
 
 <div class="software-item">
-<h3>✂️ <a href="https://github.com/slhck/scenecut-extractor">scenecut-extractor</a></h3>
+<h3><a href="https://github.com/slhck/scenecut-extractor"><img class="software-icon" src="{{ '/assets/images/software/scenecut-extractor.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> scenecut-extractor</a></h3>
 <p>Extract scenecuts from video files using ffmpeg</p>
 </div>
 
 <div class="software-item">
-<h3>⏱️ <a href="https://github.com/slhck/ffmpeg-progress-yield">ffmpeg-progress-yield</a></h3>
+<h3><a href="https://github.com/slhck/ffmpeg-progress-yield"><img class="software-icon" src="{{ '/assets/images/software/ffmpeg-progress-yield.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> ffmpeg-progress-yield</a></h3>
 <p>Run an ffmpeg command with progress</p>
 </div>
 
@@ -44,7 +44,7 @@ permalink: /software/
 </div>
 
 <div class="software-item">
-<h3>⚫ <a href="https://github.com/slhck/ffmpeg-black-split">ffmpeg-black-split</a></h3>
+<h3><a href="https://github.com/slhck/ffmpeg-black-split"><img class="software-icon" src="{{ '/assets/images/software/ffmpeg-black-split.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> ffmpeg-black-split</a></h3>
 <p>Split a video based on black periods</p>
 </div>
 
@@ -90,9 +90,14 @@ permalink: /software/
 </div>
 
 <div class="software-item">
-<h3>📄 <a href="https://github.com/slhck/compress-pptx">compress-pptx</a></h3>
+<h3><a href="https://github.com/slhck/compress-pptx"><img class="software-icon" src="{{ '/assets/images/software/compress-pptx.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> compress-pptx</a></h3>
 <p>Compress a PPTX file, converting all PNG/TIFF images to lossy JPEGs</p>
 
+</div>
+
+<div class="software-item">
+<h3><a href="https://github.com/slhck/smem2"><img class="software-icon" src="{{ '/assets/images/software/smem2.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> smem2</a></h3>
+<p>Report Linux memory usage, including proportional set size (PSS).</p>
 </div>
 
 <div class="software-item">
@@ -139,7 +144,7 @@ permalink: /software/
 
 <ul>
 <li><a href="https://github.com/slhck/active-video-probe">active-video-probe</a> - An Active Video Probe demo for Google Chrome running HTML5 and YouTube video.</li>
-<li><a href="https://github.com/slhck/h26x-extractor">h26x-extractor</a> - Extracts NAL units from H.264 bitstreams and decodes their type and content</li>
+<li><a href="https://github.com/slhck/h26x-extractor"><img class="software-icon" src="{{ '/assets/images/software/h26x-extractor.png' | relative_url }}" alt="" width="32" height="32" loading="lazy"> h26x-extractor</a> - Extracts NAL units from H.264 bitstreams and decodes their type and content</li>
 </ul>
 
 <h3>Web</h3>

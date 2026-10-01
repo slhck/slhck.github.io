@@ -738,6 +738,21 @@ button:focus {
     }
 }
 
+// Compact project logos, with room for long names on mobile.
+.software-item h3 a:has(.software-icon) {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    overflow-wrap: anywhere;
+}
+
+.software-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
 // Archived section styling
 .content-card {
     ul {
